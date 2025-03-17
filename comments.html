@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Instagram Comments - InstaGrowMo</title>
+    <style>
+        /* Inherit styles from the main page with some specific adjustments */
+        :root {
+            --primary-color: #5a55ca;
+            --secondary-color: #00acc1;
+            --accent-color: #ff7043;
+            --text-color-primary: #212529;
+            --text-color-secondary: #495057;
+            --bg-color-primary: #f8f9fa;
+            --bg-color-secondary: #fff;
+            --box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08); /* More subtle shadow */
+            --border-radius: 8px;
+            --transition: all 0.3s ease-in-out;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color-primary);
+            color: var(--text-color-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--accent-color);
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: darken(var(--accent-color), 10%);
+        }
+
+        .top-panel {
+            background-color: var(--bg-color-secondary);
+            padding: 15px 20px;
+            text-align: left;
+            box-shadow: var(--box-shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-panel h1 {
+            margin: 0;
+            font-size: 1.8em;
+            letter-spacing: -1px;
+            color: var(--primary-color);
+        }
+
+        .home-button {
+            background-color: var(--primary-color);
+            color: var(--bg-color-secondary); /* White color */
+            padding: 10px 15px;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.95em;
+            text-decoration: none; /* Remove underline from link */
+            transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+        }
+
+        .home-button:hover {
+            background-color: darken(var(--primary-color), 10%);
+            transform: scale(1.05);
+        }
+
+        .service-page-container {
+            padding: 20px; /* Adjusted padding for responsiveness */
+            background-color: var(--bg-color-secondary);
+            text-align: center;
+        }
+
+        .service-info {
+            max-width: 95%; /* Increased max-width for better flow on smaller screens */
+            margin: 20px auto;
+            padding: 20px; /* Adjusted padding */
+            background-color: var(--bg-color-primary);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+        }
+
+        .service-title {
+            font-size: 2em; /* Adjusted font size for responsiveness */
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            letter-spacing: -1px;
+        }
+
+        .service-info p {
+            font-size: 0.95em; /* Adjusted font size for responsiveness */
+            color: var(--text-color-secondary);
+            line-height: 1.6;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .order-form {
+            max-width: 95%; /* Increased max-width for better flow on smaller screens */
+            margin: 20px auto;
+            padding: 20px; /* Adjusted padding */
+            background-color: var(--bg-color-primary);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: var(--text-color-primary);
+            font-size: 0.9em; /* Adjusted font size for responsiveness */
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="number"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            font-size: 0.9em; /* Adjusted font size for responsiveness */
+            box-sizing: border-box;
+        }
+
+        .form-group input.error {
+            border-color: red;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 0.8em; /* Adjusted font size for responsiveness */
+            margin-top: 3px;
+        }
+
+        .form-group input[type="number"]::-webkit-inner-spin-button,
+        .form-group input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        .form-group input[type="number"] {
+            -moz-appearance: textfield;
+        }
+
+        .price-info {
+            text-align: center;
+            margin-bottom: 10px;
+            color: var(--text-color-secondary);
+            font-size: 0.9em; /* Adjusted font size for responsiveness */
+        }
+
+        .order-value {
+            text-align: center;
+            font-size: 1.4em; /* Adjusted font size for responsiveness */
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        .order-button {
+            background-color: var(--accent-color);
+            color: var(--bg-color-secondary);
+            border: none;
+            padding: 10px 20px; /* Adjusted button padding for responsiveness */
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.9em; /* Adjusted button font size for responsiveness */
+            transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+            width: 100%;
+            text-align: center;
+            display: block;
+            margin-top: 15px;
+        }
+
+        .order-button:hover {
+            background-color: #222;
+            transform: scale(1.02);
+        }
+
+        .whatsapp-icon {
+            margin-right: 8px;
+        }
+
+        .payment-info {
+            text-align: center;
+            color: var(--text-color-secondary);
+            font-size: 0.75em; /* Adjusted font size for responsiveness */
+            margin-top: 15px;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .important-note {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        footer {
+            background-color: var(--bg-color-secondary);
+            padding: 10px; /* Adjusted footer padding for responsiveness */
+            text-align: center;
+            color: var(--text-color-secondary);
+            font-size: 0.7em; /* Adjusted footer font size for responsiveness */
+            border-top: 1px solid #eee;
+            margin-top: 20px;
+        }
+
+        /* Comment Type Buttons Styling */
+        .comment-type-buttons {
+            display: flex;
+            gap: 8px; /* Adjusted gap for smaller screens */
+            margin-bottom: 15px;
+        }
+
+        .comment-type-button {
+            flex-grow: 1;
+            padding: 8px 12px; /* Adjusted button padding for responsiveness */
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.85em; /* Adjusted button font size for responsiveness */
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease-in-out;
+        }
+
+        .comment-type-button.active {
+            background-color: var(--primary-color);
+            color: var(--bg-color-secondary);
+        }
+
+        .comment-type-button:not(.active) {
+            background-color: var(--bg-color-primary);
+            color: var(--text-color-primary);
+            border: 1px solid #ced4da;
+        }
+
+        .comment-type-button:hover {
+            transform: scale(1.03); /* Slightly reduced scale on hover for smaller screens */
+        }
+
+        /* Increase width of comment field and make it more responsive */
+        #comments {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            font-size: 0.9em; /* Adjusted font size for responsiveness */
+            box-sizing: border-box;
+            min-height: 100px;
+        }
+
+        /* Media Queries for smaller screens */
+        @media (max-width: 600px) {
+            .top-panel h1 {
+                font-size: 1.4em;
+            }
+            .service-page-container {
+                padding: 15px;
+            }
+            .service-info {
+                padding: 15px;
+            }
+            .service-title {
+                font-size: 1.8em;
+            }
+            .order-form {
+                padding: 15px;
+            }
+            .form-group label {
+                font-size: 0.85em;
+            }
+            .form-group input[type="text"],
+            .form-group input[type="number"] {
+                font-size: 0.85em;
+            }
+            .price-info {
+                font-size: 0.85em;
+            }
+            .order-value {
+                font-size: 1.3em;
+            }
+            .comment-type-buttons {
+                flex-direction: column; /* Stack buttons on smaller screens */
+                gap: 5px;
+            }
+            .comment-type-button {
+                font-size: 0.9em;
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .top-panel h1 {
+                font-size: 1.2em;
+            }
+            .service-title {
+                font-size: 1.6em;
+            }
+            .order-value {
+                font-size: 1.2em;
+            }
+            .order-button {
+                font-size: 0.85em;
+                padding: 10px 15px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="top-panel">
+        <h1>InstaGrowMo</h1>
+        <a href="/" class="home-button">Home</a>
+    </div>
+
+    <div class="service-page-container">
+        <div class="service-info">
+            <h2 class="service-title">Instagram Comments</h2>
+            <p>Add engaging, pre-written comments to your posts to spark interaction.</p>
+        </div>
+
+        <div class="order-form">
+            <h3>Place Your Order</h3>
+            <div class="form-group">
+                <label>Select Comment Type:</label>
+                <div class="comment-type-buttons">
+                    <button type="button" id="fullCommentsButton" class="comment-type-button active">Give Full Comments</button>
+                    <button type="button" id="createCommentsButton" class="comment-type-button">Let us create comments for you (Additional 20% cost)</button>
+                    <input type="hidden" id="selectedCommentType" name="commentType" value="full">
+                </div>
+            </div>
+            <p id="createCommentsNote" style="display: none; font-size: 0.9em; color: var(--text-color-secondary); margin-top: 5px;">Please provide at least 10 comments below. Our team will use these to generate more engaging comments.</p>
+            <div class="form-group">
+                <label for="videoReelLink">Instagram Post/Reel/Video Link (URL):</label>
+                <input type="text" id="videoReelLink" name="videoReelLink" placeholder="Enter your Instagram post/reel/video link (URL)">
+                <p class="error-message" id="videoReelLinkError"></p>
+            </div>
+            <div class="form-group">
+                <label for="customerName">Your Name:</label>
+                <input type="text" id="customerName" name="customerName" placeholder="Enter your name">
+            </div>
+            <div class="form-group" id="quantityFormField">
+                <label for="quantity">Quantity (Minimum <span id="minComments"></span>):</label>
+                <input type="number" id="quantity" name="quantity" min="" placeholder="Enter quantity (e.g., 5)">
+                <p class="error-message" id="quantityError"></p>
+            </div>
+            <div class="form-group">
+                <label for="comments" id="commentsLabel">Your Comments (One per line):</label>
+                <textarea id="comments" name="comments" rows="4" placeholder="Enter one comment per line" style="width: calc(100% - 22px); min-height: 120px;"></textarea>
+                <p class="error-message" id="commentsError"></p>
+            </div>
+            <div id="calculatedQuantitySection" style="display: none; text-align: left; margin-top: 10px;">
+                Calculated Quantity: <span id="calculatedQuantity">0</span>
+                <div class="order-value">
+                    Order Value: ₹<span id="calculatedOrderValue">0.00</span>
+                </div>
+            </div>
+
+            <p class="price-info">Price per comment: ₹<span id="pricePerComment"></span></p>
+
+            <div class="order-value" id="defaultOrderValueSection">
+                Order Value: ₹<span id="orderValue">0.00</span>
+                <div id="additionalCostInfo" style="display: none; text-align: center; color: var(--text-color-secondary); font-size: 0.9em; margin-top: 5px;">
+                    Additional Cost (for creating comments): 20% of the base order value.
+                </div>
+            </div>
+
+            <p class="payment-info">
+                <span class="important-note">Important:</span> Please note that this is a prepaid service. After you send us your order via WhatsApp, we will request you to send the payment first. Your order will be processed quickly once we receive the payment and confirm your Instagram post/reel/video details and your comments.
+            </p>
+
+            <button id="orderButton" class="order-button">
+                <i class="fab fa-whatsapp whatsapp-icon"></i> Send Order on WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 InstaGrowMo. All rights reserved.</p>
+        <p><a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms of Service</a></p>
+    </footer>
+
+    <script>
+        // Configuration for Instagram Comments service
+        const commentsConfig = {
+            pricePerComment: 1.50, // Price per comment in Rupees
+            minimumOrderQuantity: 5 // Minimum order quantity for comments
+        };
+
+        // Get references to HTML elements
+        const fullCommentsButton = document.getElementById('fullCommentsButton');
+        const createCommentsButton = document.getElementById('createCommentsButton');
+        const createCommentsNote = document.getElementById('createCommentsNote');
+        const videoReelLinkInput = document.getElementById('videoReelLink');
+        const quantityInput = document.getElementById('quantity');
+        const orderValueSpan = document.getElementById('orderValue');
+        const orderButton = document.getElementById('orderButton');
+        const pricePerCommentSpan = document.getElementById('pricePerComment');
+        const videoReelLinkError = document.getElementById('videoReelLinkError');
+        const quantityError = document.getElementById('quantityError');
+        const minCommentsSpan = document.getElementById('minComments');
+        const commentsInput = document.getElementById('comments');
+        const commentsError = document.getElementById('commentsError');
+        const commentsLabel = document.getElementById('commentsLabel');
+        const quantityFormField = document.getElementById('quantityFormField');
+        const calculatedQuantitySection = document.getElementById('calculatedQuantitySection');
+        const calculatedQuantitySpan = document.getElementById('calculatedQuantity');
+        const calculatedOrderValueSpan = document.getElementById('calculatedOrderValue');
+        const defaultOrderValueSection = document.getElementById('defaultOrderValueSection');
+        const additionalCostInfo = document.getElementById('additionalCostInfo');
+        const selectedCommentTypeInput = document.getElementById('selectedCommentType');
+
+        // Display the initial price per comment and minimum quantity from the config
+        pricePerCommentSpan.textContent = commentsConfig.pricePerComment.toFixed(2);
+        minCommentsSpan.textContent = commentsConfig.minimumOrderQuantity;
+        quantityInput.min = commentsConfig.minimumOrderQuantity; // Set the min attribute dynamically
+
+        // Function to update the order value for option 2
+        function updateOrderValueOption2() {
+            const quantity = parseFloat(quantityInput.value);
+            let basePrice = 0;
+            if (!isNaN(quantity)) {
+                basePrice = quantity * commentsConfig.pricePerComment;
+                const additionalCost = basePrice * 0.2;
+                const totalCost = basePrice + additionalCost;
+                orderValueSpan.textContent = totalCost.toFixed(2);
+            } else {
+                orderValueSpan.textContent = '0.00';
+            }
+            // Clear quantity error on input
+            quantityInput.classList.remove('error');
+            quantityError.textContent = '';
+        }
+
+        // Function to calculate quantity and order value based on comments for option 1
+        function updateCalculatedQuantityAndOrderValue() {
+            if (selectedCommentTypeInput.value !== 'full') return;
+            const comments = commentsInput.value.trim();
+            const commentList = comments.split('\n').filter(comment => comment.trim() !== '');
+            const quantity = commentList.length;
+            calculatedQuantitySpan.textContent = quantity;
+            calculatedOrderValueSpan.textContent = (quantity * commentsConfig.pricePerComment).toFixed(2);
+        }
+
+        // Function to toggle visibility of elements based on comment type
+        function toggleCommentInput() {
+            if (selectedCommentTypeInput.value === 'create') {
+                commentsLabel.textContent = "Provide at least 10 comments (one per line):";
+                createCommentsNote.style.display = 'block';
+                quantityFormField.style.display = 'block';
+                calculatedQuantitySection.style.display = 'none';
+                defaultOrderValueSection.style.display = 'block';
+                additionalCostInfo.style.display = 'block';
+                updateOrderValueOption2(); // Recalculate order value for option 2
+            } else {
+                commentsLabel.textContent = "Your Comments (One per line):";
+                createCommentsNote.style.display = 'none';
+                quantityFormField.style.display = 'none';
+                calculatedQuantitySection.style.display = 'block';
+                defaultOrderValueSection.style.display = 'none';
+                additionalCostInfo.style.display = 'none';
+                updateCalculatedQuantityAndOrderValue(); // Calculate based on comments for option 1
+            }
+            // Clear previous comments and errors when switching type
+            commentsInput.value = '';
+            commentsInput.classList.remove('error');
+            commentsError.textContent = '';
+        }
+
+        // Event listeners for comment type buttons
+        fullCommentsButton.addEventListener('click', function() {
+            fullCommentsButton.classList.add('active');
+            createCommentsButton.classList.remove('active');
+            selectedCommentTypeInput.value = 'full';
+            toggleCommentInput();
+        });
+
+        createCommentsButton.addEventListener('click', function() {
+            createCommentsButton.classList.add('active');
+            fullCommentsButton.classList.remove('active');
+            selectedCommentTypeInput.value = 'create';
+            toggleCommentInput();
+        });
+
+        // Event listener for quantity input change (for option 2)
+        quantityInput.addEventListener('input', updateOrderValueOption2);
+
+        // Event listener for comments input change (for option 1 quantity calculation)
+        commentsInput.addEventListener('input', updateCalculatedQuantityAndOrderValue);
+
+        // Initial call to toggle input based on default selection
+        toggleCommentInput();
+
+        // Event listener for the order button click
+        orderButton.addEventListener('click', function() {
+            const videoReelLink = videoReelLinkInput.value.trim();
+            const customerName = document.getElementById('customerName').value.trim();
+            let quantity;
+            let baseOrderValue;
+            let totalOrderValue;
+            const commentType = selectedCommentTypeInput.value;
+
+            if (commentType === 'full') {
+                const comments = commentsInput.value.trim();
+                quantity = comments.split('\n').filter(comment => comment.trim() !== '').length;
+                totalOrderValue = parseFloat(calculatedOrderValueSpan.textContent);
+                baseOrderValue = totalOrderValue;
+
+                // New validation for minimum order quantity in Option 1
+                if (quantity < commentsConfig.minimumOrderQuantity) {
+                    commentsInput.classList.add('error');
+                    commentsError.textContent = `Minimum order quantity is ${commentsConfig.minimumOrderQuantity} comments. Please enter at least ${commentsConfig.minimumOrderQuantity} comments.`;
+                    hasErrors = true;
+                }
+
+            } else {
+                quantity = parseInt(quantityInput.value);
+                totalOrderValue = parseFloat(orderValueSpan.textContent);
+                baseOrderValue = totalOrderValue / 1.2; // Calculate base value for message
+            }
+            const whatsappNumber = "+917417232597";
+            const commentsText = commentsInput.value.trim();
+            const commentList = commentsText.split('\n').filter(comment => comment.trim() !== '');
+            let hasErrors = false;
+
+            // Clear previous errors
+            videoReelLinkInput.classList.remove('error');
+            videoReelLinkError.textContent = '';
+            quantityInput.classList.remove('error');
+            quantityError.textContent = '';
+            commentsInput.classList.remove('error');
+            commentsError.textContent = '';
+
+            if (!videoReelLink) {
+                videoReelLinkInput.classList.add('error');
+                videoReelLinkError.textContent = "Please enter the Instagram post/reel/video link (URL).";
+                hasErrors = true;
+            }
+
+            if (commentType === 'create') {
+                if (isNaN(quantity) || quantity < commentsConfig.minimumOrderQuantity) {
+                    quantityInput.classList.add('error');
+                    quantityError.textContent = `Please enter a quantity of at least ${commentsConfig.minimumOrderQuantity}.`;
+                    hasErrors = true;
+                }
+                if (commentList.length < 10) {
+                    commentsInput.classList.add('error');
+                    commentsError.textContent = "Please provide at least 10 comments (one per line).";
+                    hasErrors = true;
+                }
+            } else if (commentType === 'full') {
+                if (commentList.length !== quantity) {
+                    commentsInput.classList.add('error');
+                    commentsError.textContent = `Please enter exactly ${quantity} comments (one per line).`;
+                    hasErrors = true;
+                } else if (commentList.length === 0 && quantity >= commentsConfig.minimumOrderQuantity) {
+                    commentsInput.classList.add('error');
+                    commentsError.textContent = "Please enter your comments.";
+                    hasErrors = true;
+                }
+            }
+
+            if (!customerName) {
+                // You can add error handling for customer name if needed
+            }
+
+            if (hasErrors) {
+                return;
+            }
+
+            let message = `Hello InstaGrowMo Team,
+
+I would like to place an order for Instagram Comments:
+
+Instagram Post/Reel/Video Link (URL): ${videoReelLink}
+Customer Name: ${encodeURIComponent(customerName)}
+Quantity: ${quantity}
+Comment Type: ${commentType === 'full' ? 'Give Full Comments' : 'Let us create comments for you'}
+`;
+
+            if (commentType === 'full') {
+                message += `Comments:\n${commentList.map(comment => `- ${comment}`).join('\n')}\n`;
+            } else if (commentType === 'create') {
+                message += `Base Comments (at least 10):\n${commentList.map(comment => `- ${comment}`).join('\n')}\n`;
+                message += `Additional Cost: 20% of the base order value.\n`;
+            }
+
+            message += `Base Order Value: ₹${baseOrderValue.toFixed(2)}\n`;
+            message += `Total Order Value: ₹${totalOrderValue.toFixed(2)}\n`;
+            message += `\nPlease let me know the payment process.
+
+Thank you!`;
+
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        });
+
+        // Clear video/reel link error on input
+        videoReelLinkInput.addEventListener('input', function() {
+            videoReelLinkInput.classList.remove('error');
+            videoReelLinkError.textContent = '';
+        });
+
+        // Clear comments error on input
+        commentsInput.addEventListener('input', function() {
+            commentsInput.classList.remove('error');
+            commentsError.textContent = '';
+            if (selectedCommentTypeInput.value === 'full') {
+                updateCalculatedQuantityAndOrderValue();
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InstaGrowMo - Choose Your Instagram Traffic</title>
+    <style>
+        /* Creative UI Designer Styles - Refined for Readability and Smoothness */
+        :root {
+            --primary-color: #5a55ca; /* Slightly darker, more accessible Purple */
+            --secondary-color: #00acc1; /* Teal instead of Cyan for better contrast */
+            --accent-color: #ff7043; /* Slightly warmer Orange */
+            --text-color-primary: #212529; /* Darker primary text for better readability */
+            --text-color-secondary: #495057; /* Darker secondary text */
+            --bg-color-primary: #f8f9fa; /* Lighter background */
+            --bg-color-secondary: #fff;
+            --box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08); /* Even softer shadow */
+            --border-radius: 8px; /* Even less rounded */
+            --transition: all 0.3s ease-in-out;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif; /* Modern, friendly font */
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color-primary);
+            color: var(--text-color-primary);
+            line-height: 1.6; /* Slightly tighter line height */
+            overflow-x: hidden; /* Prevent horizontal scrollbar */
+        }
+
+        h1, h2, h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+            line-height: 1.2; /* Tighter line height for headings */
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--accent-color);
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: darken(var(--accent-color), 10%);
+        }
+
+        /* Top Panel */
+        .top-panel {
+            background-color: var(--bg-color-secondary);
+            padding: 15px 20px; /* Further reduced padding */
+            text-align: left; /* Align logo to the left */
+            box-shadow: var(--box-shadow);
+            position: sticky; /* Keep at the top on scroll */
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-panel h1 {
+            margin: 0;
+            font-size: 2em; /* Further reduced font size */
+            letter-spacing: -1px;
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            padding: 60px 20px; /* Further reduced padding */
+            text-align: center;
+            color: var(--bg-color-secondary);
+            position: relative;
+            overflow: hidden;
+            transition: background-color 0.5s ease; /* Transition for background color */
+        }
+
+        .hero-headline {
+            font-size: 2.6em; /* Further reduced font size */
+            margin-bottom: 20px; /* Further reduced margin */
+            font-weight: 700;
+            letter-spacing: -1.5px;
+            opacity: 0;
+            transform: translateY(-15px); /* Further reduced transform */
+            animation: fadeInSlideDown 1s ease-out 0.2s forwards; /* Adjusted delay */
+        }
+
+        .hero-subheadline {
+            font-size: 1em; /* Further reduced font size */
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out 0.5s forwards; /* Adjusted delay */
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 60px 20px; /* Further reduced padding */
+            text-align: center;
+            background-color: var(--bg-color-secondary);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Significantly reduced minmax */
+            gap: 20px; /* Further reduced gap */
+            padding: 20px; /* Further reduced padding */
+        }
+
+        .service-card {
+            background-color: var(--bg-color-primary);
+            padding: 20px; /* Further reduced padding */
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .service-card:hover {
+            transform: translateY(-3px); /* Further reduced lift */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Softer hover shadow */
+        }
+
+        .service-icon {
+            font-size: 2.2em; /* Further reduced font size */
+            color: var(--secondary-color);
+            margin-bottom: 12px; /* Further reduced margin */
+            transition: color 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            color: var(--primary-color);
+        }
+
+        .service-name {
+            font-weight: 600;
+            margin-bottom: 8px; /* Further reduced margin */
+            font-size: 1em; /* Further reduced font size */
+            color: var(--text-color-primary);
+        }
+
+        .service-description {
+            font-size: 0.9em; /* Further reduced font size */
+            color: var(--text-color-secondary);
+            margin-bottom: 15px; /* Further reduced margin */
+        }
+
+        .order-button {
+            background-color: var(--accent-color);
+            color: var(--bg-color-secondary);
+            border: none;
+            padding: 10px 20px; /* Further reduced padding */
+            border-radius: 6px; /* Less rounded */
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.9em; /* Further reduced font size */
+            transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+        }
+
+        .order-button:hover {
+            background-color: darken(var(--accent-color), 10%);
+            transform: scale(1.02); /* Further reduced scale */
+        }
+
+        /* Organic Traffic Promotion Section */
+        .organic-traffic-section {
+            padding: 60px 20px; /* Further reduced padding */
+            text-align: center;
+            background: linear-gradient(135deg, #e0f7fa, #80deea); /* Softer blue */
+        }
+
+        .organic-traffic-headline {
+            font-size: 2.2em; /* Further reduced font size */
+            color: var(--primary-color);
+            margin-bottom: 30px; /* Further reduced margin */
+            font-weight: 700;
+        }
+
+        .promote-service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Further reduced minmax */
+            gap: 20px; /* Further reduced gap */
+            padding: 20px; /* Further reduced padding */
+        }
+
+        .promote-reel-box, .promote-post-box {
+            background-color: var(--bg-color-secondary);
+            padding: 25px; /* Further reduced padding */
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .promote-reel-box:hover, .promote-post-box:hover {
+            transform: translateY(-3px); /* Further reduced lift */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Softer hover shadow */
+        }
+
+        .promote-reel-image, .promote-post-image {
+            width: 60px; /* Further reduced size */
+            height: 60px; /* Further reduced size */
+            margin-bottom: 10px; /* Further reduced margin */
+            object-fit: contain;
+        }
+
+        .promote-reel-heading, .promote-post-heading {
+            font-size: 1.4em; /* Further reduced font size */
+            color: var(--secondary-color);
+            margin-bottom: 8px; /* Further reduced margin */
+            font-weight: 600;
+        }
+
+        .promote-reel-description, .promote-post-description {
+            font-size: 0.9em; /* Further reduced font size */
+            color: var(--text-color-secondary);
+            line-height: 1.6; /* Slightly tighter line height */
+            margin-bottom: 15px; /* Further reduced margin */
+        }
+
+        .promote-reel-box {
+            /* Specific styles for the Reel box if needed */
+        }
+
+        .promote-post-box {
+            /* Specific styles for the Post box if needed */
+        }
+
+        .coming-soon {
+            background-color: #ffca28; /* Slightly less intense yellow */
+            color: var(--text-color-primary);
+            padding: 5px 10px; /* Further reduced padding */
+            border-radius: 6px; /* Less rounded */
+            font-size: 0.8em; /* Further reduced font size */
+            margin-top: 6px; /* Further reduced margin */
+            font-weight: bold;
+        }
+
+        /* Why Choose InstaGrowMo? Section */
+        .why-choose-section {
+            padding: 70px 20px; /* Further reduced padding */
+            background-color: var(--bg-color-secondary);
+            text-align: center;
+        }
+
+        .why-choose-title {
+            font-size: 2.4em; /* Further reduced font size */
+            color: var(--primary-color);
+            margin-bottom: 35px; /* Further reduced margin */
+            font-weight: 700;
+            opacity: 0;
+            transform: translateY(-10px); /* Further reduced transform */
+            animation: fadeInSlideDown 0.9s ease-out 0.1s forwards; /* Adjusted delay */
+        }
+
+        .benefits-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Further reduced minmax */
+            gap: 20px; /* Further reduced gap */
+            padding: 20px; /* Further reduced padding */
+        }
+
+        .benefit-item {
+            background-color: var(--bg-color-primary);
+            padding: 20px; /* Further reduced padding */
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: left;
+            display: flex;
+            align-items: center;
+            opacity: 0;
+            transform: translateX(-15px); /* Further reduced transform */
+            animation: fadeInSlideRight 0.7s ease-out forwards; /* Adjusted duration */
+        }
+
+        .benefit-item:nth-child(2) { animation-delay: 0.2s; }
+        .benefit-item:nth-child(3) { animation-delay: 0.4s; }
+        .benefit-item:nth-child(4) { animation-delay: 0.6s; }
+        .benefit-item:nth-child(5) { animation-delay: 0.8s; }
+        .benefit-item:nth-child(6) { animation-delay: 1.0s; }
+
+        .benefit-icon {
+            font-size: 1.8em; /* Further reduced font size */
+            color: var(--accent-color);
+            margin-right: 15px; /* Further reduced margin */
+        }
+
+        .benefit-text {
+            font-size: 0.9em; /* Further reduced font size */
+            color: var(--text-color-primary);
+        }
+
+        .benefit-text strong {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* Trust and Proof Section */
+        .trust-proof-section {
+            background-color: #e1f5fe; /* Even lighter blue */
+            padding: 60px 20px; /* Further reduced padding */
+            text-align: center;
+            color: var(--text-color-primary);
+            border-top: 1px solid #b0bec5;
+            margin-top: 40px; /* Further reduced margin */
+        }
+
+        .trust-proof-headline {
+            font-size: 2em; /* Further reduced font size */
+            color: var(--secondary-color);
+            margin-bottom: 20px; /* Further reduced margin */
+            font-weight: 700;
+        }
+
+        .trust-proof-paragraph {
+            font-size: 0.9em; /* Further reduced font size */
+            color: var(--text-color-secondary);
+            line-height: 1.6; /* Slightly tighter line height */
+            margin-bottom: 15px; /* Further reduced margin */
+        }
+
+        .trust-proof-link {
+            color: var(--primary-color);
+            font-weight: bold;
+            transition: color 0.3s ease, text-decoration 0.3s ease;
+        }
+
+        .trust-proof-link:hover {
+            color: darken(var(--primary-color), 10%);
+            text-decoration: underline;
+        }
+
+        /* Footer (Example) */
+        footer {
+            background-color: var(--bg-color-secondary);
+            padding: 20px; /* Further reduced padding */
+            text-align: center;
+            color: var(--text-color-secondary);
+            font-size: 0.8em; /* Further reduced font size */
+            border-top: 1px solid #eee;
+            margin-top: 30px; /* Further reduced margin */
+        }
+
+        /* Animations */
+        @keyframes fadeInSlideDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInSlideRight {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-headline { font-size: 2.4em; }
+            .services-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+            .promote-service-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+            .benefits-list { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+        }
+
+        @media (max-width: 768px) {
+            .top-panel { padding: 10px; }
+            .top-panel h1 { font-size: 1.6em; }
+            .hero-section { padding: 50px 15px; }
+            .hero-headline { font-size: 2em; }
+            .services-section { padding: 40px 15px; }
+            .services-grid { padding: 10px; }
+            .promote-service-grid { padding: 10px; }
+            .why-choose-section { padding: 50px 15px; }
+            .benefits-list { padding: 10px; }
+            .benefit-item { flex-direction: column; align-items: flex-start; }
+            .benefit-icon { margin-right: 8px; margin-bottom: 6px; font-size: 1.6em; }
+            .trust-proof-section { padding: 40px 15px; }
+        }
+
+        @media (max-width: 576px) {
+            .hero-headline { font-size: 1.6em; }
+            .service-card { padding: 15px; }
+            .promote-reel-box, .promote-post-box { padding: 20px; }
+            .benefit-item { padding: 20px; }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="top-panel">
+        <h1>InstaGrowMo</h1>
+        </div>
+
+    <section class="hero-section" id="hero">
+        <h2 class="hero-headline">Unlock Your Instagram Growth Potential</h2>
+        <p class="hero-subheadline">Choose from a variety of traffic options to boost your presence.</p>
+        </section>
+
+    <section class="services-section">
+        <h2>Explore Our Dummy Traffic Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-users service-icon"></i>
+                <h3 class="service-name">Followers</h3>
+                <p class="service-description">Boost your follower count with high-quality, non-engaging profiles. Ideal for social proof.</p>
+                <a href="/followers.html" class="order-button">Order Now</a>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-heart service-icon"></i>
+                <h3 class="service-name">Likes</h3>
+                <p class="service-description">Increase the number of likes on your posts to enhance perceived popularity.</p>
+                <a href="/likes.html" class="order-button">Order Now</a>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-eye service-icon"></i>
+                <h3 class="service-name">Views</h3>
+                <p class="service-description">Enhance the visibility and appeal of your videos and reels with more views.</p>
+                <a href="/views.html" class="order-button">Order Now</a>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-share-alt service-icon"></i>
+                <h3 class="service-name">Shares</h3>
+                <p class="service-description">Expand your content's reach by increasing the number of shares.</p>
+                <a href="/shares.html" class="order-button">Order Now</a>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-comment service-icon"></i>
+                <h3 class="service-name">Comments</h3>
+                <p class="service-description">Add engaging, pre-written comments to your posts to spark interaction.</p>
+                <a href="/comments.html" class="order-button">Order Now</a>
+            </div>
+            </div>
+    </section>
+
+    <section class="organic-traffic-section">
+        <h2 class="organic-traffic-headline">Real Instagram Growth with Organic Promotion</h2>
+        <div class="promote-service-grid">
+            <div class="promote-reel-box">
+                <img src="reel.jpg" alt="Promote Reel" class="promote-reel-image">
+                <h3 class="promote-reel-heading">Promote Reel</h3>
+                <p class="promote-reel-description">Get genuine engagement by promoting your Instagram Reels on third-party platforms. Expect real views, likes, and potential followers.</p>
+                <a href="/promote-reel.html" class="order-button">Learn More & Order</a>
+            </div>
+            <div class="promote-post-box">
+                <img src="post.png" style="zoom: 150%;" alt="Promote Post" class="promote-post-image">
+                <h3 class="promote-post-heading">Promote Post</h3>
+                <p class="promote-post-description">Boost the visibility of your regular Instagram posts. We'll showcase your content to a wider audience for organic reach and engagement.</p>
+                <span class="coming-soon">Coming Soon</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-choose-section">
+        <h2 class="why-choose-title">Why Choose InstaGrowMo?</h2>
+        <ul class="benefits-list">
+            <li class="benefit-item">
+                <i class="fas fa-bolt benefit-icon"></i>
+                <div class="benefit-text"><strong>Instant Boost:</strong> See a rapid increase in your chosen metrics.</div>
+            </li>
+            <li class="benefit-item">
+                <i class="fas fa-shield-alt benefit-icon"></i>
+                <div class="benefit-text"><strong>Safe & Secure:</strong> Our methods are designed to be safe for your Instagram account.</div>
+            </li>
+            <li class="benefit-item">
+                <i class="fas fa-chart-line benefit-icon"></i>
+                <div class="benefit-text"><strong>Enhance Visibility:</strong> Improve your profile's discoverability on Instagram.</div>
+            </li>
+            <li class="benefit-item">
+                <i class="fas fa-users benefit-icon"></i>
+                <div class="benefit-text"><strong>Grow Your Audience:</strong> Attract more attention to your content and profile.</div>
+            </li>
+            <li class="benefit-item">
+                <i class="fas fa-clock benefit-icon"></i>
+                <div class="benefit-text"><strong>Convenient & Easy:</strong> Get started quickly and effortlessly.</div>
+            </li>
+            <li class="benefit-item">
+                <i class="fas fa-hand-holding-usd benefit-icon"></i>
+                <div class="benefit-text"><strong>Affordable Packages:</strong> Choose from a range of options to suit your budget.</div>
+            </li>
+            </ul>
+    </section>
+
+    <section class="trust-proof-section">
+        <h2 class="trust-proof-headline">Trusted by 200+ users all over India.</h2>
+        <p class="trust-proof-paragraph">Join over 200 satisfied users who have leveraged InstaGrowMo to enhance their Instagram presence. We are committed to providing reliable and effective services.</p>
+        <p class="trust-proof-paragraph">See the results for yourself! Check out our Instagram profile for testimonials and examples of how InstaGrowMo has helped others achieve their growth goals.</p>
+        <p><a href="YOUR_INSTAGRAM_PROFILE_LINK" target="_blank" class="trust-proof-link">View Success Stories on Instagram</a></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 InstaGrowMo. All rights reserved.</p>
+        <p><a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms of Service</a></p>
+    </footer>
+
+    <script>
+        const heroSection = document.getElementById('hero');
+        const heroHeadline = document.querySelector('.hero-headline');
+        const heroSubheadline = document.querySelector('.hero-subheadline');
+
+        const colorSchemes = [
+            { background: '#bbdefb', text: '#212529' }, // Light Blue
+            { background: '#ffe0b2', text: '#212529' }, // Light Orange
+            { background: '#c8e6c9', text: '#212529' }, // Light Green
+            { background: '#e1bee7', text: '#212529' }, // Light Purple
+            { background: '#b3e5fc', text: '#212529' }, // Another Light Blue
+            { background: '#fdd835', text: '#212529' }, // Light Yellow
+            { background: '#f48fb1', text: '#fff' },    // Pink with White Text
+            { background: '#4fc3f7', text: '#fff' }     // Bright Blue with White Text
+            // Add more color schemes as needed for different website/business types
+        ];
+
+        let currentIndex = 0;
+
+        function changeHeroColors() {
+            const currentScheme = colorSchemes[currentIndex];
+            heroSection.style.backgroundColor = currentScheme.background;
+            heroHeadline.style.color = currentScheme.text;
+            heroSubheadline.style.color = currentScheme.text;
+            currentIndex = (currentIndex + 1) % colorSchemes.length;
+        }
+
+        // Change colors every 3 seconds (adjust as needed)
+        setInterval(changeHeroColors, 3000);
+
+        // Initial call to set the first color scheme
+        changeHeroColors();
+
+        // Animation on Scroll (rest of the script)
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                    observer.unobserve(entry.target);
+                } else {
+                    entry.target.style.animationPlayState = 'paused'; // Optional: pause animation when not in view
+                }
+            });
+        }, { threshold: 0.2 }); // Adjust threshold as needed
+
+        const elementsToAnimate = document.querySelectorAll('.hero-headline, .hero-subheadline, .why-choose-title, .benefit-item');
+        elementsToAnimate.forEach((element) => {
+            element.style.animationPlayState = 'paused';
+            observer.observe(element);
+        });
+    </script>
+
+</body>
+</html>

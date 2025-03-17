@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Instagram Shares - InstaGrowMo</title>
+    <style>
+        /* Inherit styles from the main page with some specific adjustments */
+        :root {
+            --primary-color: #5a55ca;
+            --secondary-color: #00acc1;
+            --accent-color: #ff7043;
+            --text-color-primary: #212529;
+            --text-color-secondary: #495057;
+            --bg-color-primary: #f8f9fa;
+            --bg-color-secondary: #fff;
+            --box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08); /* More subtle shadow */
+            --border-radius: 8px;
+            --transition: all 0.3s ease-in-out;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color-primary);
+            color: var(--text-color-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--accent-color);
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: darken(var(--accent-color), 10%);
+        }
+
+        .top-panel {
+            background-color: var(--bg-color-secondary);
+            padding: 15px 20px;
+            text-align: left;
+            box-shadow: var(--box-shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-panel h1 {
+            margin: 0;
+            font-size: 1.8em; /* Slightly smaller for better fit */
+            letter-spacing: -1px;
+            color: var(--primary-color);
+        }
+        .home-button {
+            background-color: var(--primary-color);
+            color: var(--bg-color-secondary); /* White color */
+            padding: 10px 15px;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.95em;
+            text-decoration: none; /* Remove underline from link */
+            transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+        }
+
+        .home-button:hover {
+            background-color: darken(var(--primary-color), 10%);
+            transform: scale(1.05);
+        }
+        .service-page-container {
+            padding: 30px 15px; /* Reduced overall padding */
+            background-color: var(--bg-color-secondary);
+            text-align: center;
+        }
+
+        .service-info {
+            max-width: 90%; /* Adjust max width to be responsive */
+            margin: 20px auto; /* Reduced top margin */
+            padding: 25px; /* Slightly reduced padding */
+            background-color: var(--bg-color-primary);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+        }
+
+        .service-title {
+            font-size: 2.4em; /* Adjust font size */
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            letter-spacing: -1px;
+        }
+
+        .service-info p {
+            font-size: 1em;
+            color: var(--text-color-secondary);
+            line-height: 1.6; /* Adjust line height */
+            margin-bottom: 15px; /* Reduced bottom margin */
+            text-align: left;
+        }
+
+        .order-form {
+            max-width: 90%; /* Adjust max width to be responsive */
+            margin: 20px auto; /* Reduced top margin */
+            padding: 25px; /* Slightly reduced padding */
+            background-color: var(--bg-color-primary);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: left;
+        }
+
+        .form-group {
+            margin-bottom: 15px; /* Reduced margin */
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: var(--text-color-primary);
+            font-size: 0.95em; /* Slightly smaller label font */
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="number"] {
+            width: calc(100% - 22px); /* Adjust width to account for padding and border */
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            font-size: 0.95em; /* Slightly smaller input font */
+            box-sizing: border-box;
+        }
+
+        .form-group input.error {
+            border-color: red;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 0.85em; /* Smaller error message font */
+            margin-top: 3px; /* Reduced top margin */
+        }
+
+        .form-group input[type="number"]::-webkit-inner-spin-button,
+        .form-group input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        .form-group input[type="number"] {
+            -moz-appearance: textfield;
+        }
+
+        .price-info {
+            text-align: center;
+            margin-bottom: 10px;
+            color: var(--text-color-secondary);
+            font-size: 0.85em; /* Smaller price info font */
+        }
+
+        .order-value {
+            text-align: center;
+            font-size: 1.1em; /* Slightly smaller order value font */
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        .order-button {
+            background-color: var(--accent-color);
+            color: var(--bg-color-secondary);
+            border: none;
+            padding: 10px 20px; /* Reduced button padding */
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.95em; /* Slightly smaller button font */
+            transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+            width: 100%;
+            text-align: center;
+            display: block;
+        }
+
+        .order-button:hover {
+            background-color: #222;
+            transform: scale(1.01); /* Reduced scale on hover */
+        }
+
+        .whatsapp-icon {
+            margin-right: 6px; /* Reduced icon margin */
+        }
+
+        .payment-info {
+            text-align: center;
+            color: var(--text-color-secondary);
+            font-size: 0.8em; /* Smaller payment info font */
+            margin-top: 10px; /* Reduced top margin */
+            margin-bottom: 10px; /* Reduced bottom margin */
+            line-height: 1.5; /* Adjust line height */
+        }
+
+        .important-note {
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        footer {
+            background-color: var(--bg-color-secondary);
+            padding: 15px; /* Reduced footer padding */
+            text-align: center;
+            color: var(--text-color-secondary);
+            font-size: 0.75em; /* Smaller footer font */
+            border-top: 1px solid #eee;
+            margin-top: 20px; /* Reduced top margin */
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .top-panel h1 {
+                font-size: 1.6em;
+            }
+            .service-page-container {
+                padding: 20px 10px;
+            }
+            .service-info {
+                padding: 20px;
+            }
+            .service-title {
+                font-size: 2em;
+            }
+            .order-form {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .top-panel h1 {
+                font-size: 1.4em;
+            }
+            .service-info {
+                padding: 15px;
+            }
+            .service-title {
+                font-size: 1.8em;
+            }
+            .order-form {
+                padding: 15px;
+            }
+            .form-group label {
+                font-size: 0.9em;
+            }
+            .form-group input[type="text"],
+            .form-group input[type="number"] {
+                font-size: 0.9em;
+            }
+            .price-info, .order-value, .payment-info, footer {
+                font-size: 0.75em;
+            }
+            .order-button {
+                font-size: 0.9em;
+                padding: 8px 15px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="top-panel">
+        <h1>InstaGrowMo</h1>
+        <a href="/" class="home-button">Home</a>
+    </div>
+
+    <div class="service-page-container">
+        <div class="service-info">
+            <h2 class="service-title">Instagram Shares</h2>
+            <p>Expand your content's reach by increasing the number of shares.</p>
+        </div>
+
+        <div class="order-form">
+            <h3>Place Your Order</h3>
+            <div class="form-group">
+                <label for="videoReelLink">Instagram Video/Reel Link (URL):</label>
+                <input type="text" id="videoReelLink" name="videoReelLink" placeholder="Enter your Instagram video/reel link (URL)">
+                <p class="error-message" id="videoReelLinkError"></p>
+            </div>
+            <div class="form-group">
+                <label for="customerName">Your Name:</label>
+                <input type="text" id="customerName" name="customerName" placeholder="Enter your name">
+            </div>
+            <div class="form-group">
+                <label for="quantity">Quantity (Minimum <span id="minShares"></span>):</label>
+                <input type="number" id="quantity" name="quantity" min="" placeholder="Enter quantity (e.g., 50)">
+                <p class="error-message" id="quantityError"></p>
+            </div>
+
+            <p class="price-info">Price per share: ₹<span id="pricePerShare"></span></p>
+
+            <div class="order-value">
+                Order Value: ₹<span id="orderValue">0.00</span>
+            </div>
+
+            <p class="payment-info">
+                <span class="important-note">Important:</span> Please note that this is a prepaid service. After you send us your order via WhatsApp, we will request you to send the payment first. Your order will be processed quickly once we receive the payment and confirm your Instagram post/video/reel details.
+            </p>
+
+            <button id="orderButton" class="order-button">
+                <i class="fab fa-whatsapp whatsapp-icon"></i> Send Order on WhatsApp
+            </button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 InstaGrowMo. All rights reserved.</p>
+        <p><a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms of Service</a></p>
+    </footer>
+
+    <script>
+        // Configuration for Instagram Shares service
+        const sharesConfig = {
+            pricePerShare: 0.01, // Price per share in Rupees
+            minimumOrderQuantity: 100 // Minimum order quantity for shares
+        };
+
+        // Get references to HTML elements
+        const videoReelLinkInput = document.getElementById('videoReelLink');
+        const quantityInput = document.getElementById('quantity');
+        const orderValueSpan = document.getElementById('orderValue');
+        const orderButton = document.getElementById('orderButton');
+        const pricePerShareSpan = document.getElementById('pricePerShare');
+        const videoReelLinkError = document.getElementById('videoReelLinkError');
+        const quantityError = document.getElementById('quantityError');
+        const minSharesSpan = document.getElementById('minShares');
+
+        // Display the initial price per share and minimum quantity from the config
+        pricePerShareSpan.textContent = sharesConfig.pricePerShare.toFixed(2);
+        minSharesSpan.textContent = sharesConfig.minimumOrderQuantity;
+        quantityInput.min = sharesConfig.minimumOrderQuantity; // Set the min attribute dynamically
+
+        // Function to update the order value
+        function updateOrderValue() {
+            const quantity = parseFloat(quantityInput.value);
+            if (!isNaN(quantity)) {
+                orderValueSpan.textContent = (quantity * sharesConfig.pricePerShare).toFixed(2);
+            } else {
+                orderValueSpan.textContent = '0.00';
+            }
+            // Clear quantity error on input
+            quantityInput.classList.remove('error');
+            quantityError.textContent = '';
+        }
+
+        // Event listener for quantity input change
+        quantityInput.addEventListener('input', updateOrderValue);
+
+        // Initial call to set the order value on page load (in case there's a default value)
+        updateOrderValue();
+
+        // Event listener for the order button click
+        orderButton.addEventListener('click', function() {
+            const videoReelLink = videoReelLinkInput.value.trim();
+            const customerName = document.getElementById('customerName').value.trim();
+            const quantity = parseInt(quantityInput.value);
+            const orderTotal = parseFloat(orderValueSpan.textContent);
+            const whatsappNumber = "+917417232597";
+            let hasErrors = false;
+
+            // Clear previous errors
+            videoReelLinkInput.classList.remove('error');
+            videoReelLinkError.textContent = '';
+            quantityInput.classList.remove('error');
+            quantityError.textContent = '';
+
+            if (!videoReelLink) {
+                videoReelLinkInput.classList.add('error');
+                videoReelLinkError.textContent = "Please enter the Instagram video/reel link (URL).";
+                hasErrors = true;
+            }
+
+            if (isNaN(quantity) || quantity < sharesConfig.minimumOrderQuantity) {
+                quantityInput.classList.add('error');
+                quantityError.textContent = `Please enter a quantity of at least ${sharesConfig.minimumOrderQuantity}.`;
+                hasErrors = true;
+            }
+
+            if (!customerName) {
+                // You can add error handling for customer name if needed
+            }
+
+            if (hasErrors) {
+                return;
+            }
+
+            const message = `Hello InstaGrowMo Team,
+
+I would like to place an order for Instagram Shares:
+
+Instagram Video/Reel Link (URL): ${videoReelLink}
+Customer Name: ${encodeURIComponent(customerName)}
+Quantity: ${quantity}
+Order Value: ₹${orderTotal.toFixed(2)}
+
+Please let me know the payment process.
+
+Thank you!`;
+
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        });
+
+        // Clear video/reel link error on input
+        videoReelLinkInput.addEventListener('input', function() {
+            videoReelLinkInput.classList.remove('error');
+            videoReelLinkError.textContent = '';
+        });
+    </script>
+
+</body>
+</html>
