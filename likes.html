@@ -219,6 +219,22 @@
             color: var(--primary-color);
         }
 
+        .warning-message {
+            background-color: #ffe0b2; /* Light orange background */
+            color: #d84315; /* Dark orange text */
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin-bottom: 15px;
+            text-align: left;
+            font-size: 0.9em;
+            border: 1px solid #ffb74d; /* Slightly darker orange border */
+        }
+
+        .warning-message strong {
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
         footer {
             background-color: var(--bg-color-secondary);
             padding: 15px; /* Reduced footer padding */
@@ -297,6 +313,9 @@
 
         <div class="order-form">
             <h3>Place Your Order</h3>
+
+          
+
             <div class="form-group">
                 <label for="postLink">Instagram Post Link (URL):</label>
                 <input type="text" id="postLink" name="postLink" placeholder="Enter your Instagram post link (URL)">
@@ -325,6 +344,10 @@
             <button id="orderButton" class="order-button">
                 <i class="fab fa-whatsapp whatsapp-icon"></i> Send Order on WhatsApp
             </button>
+        </div>
+        <div class="warning-message">
+            <strong>Important:</strong> To use our Instagram Likes service, your Instagram account must be <strong>public</strong>. Please ensure your account is set to public before placing your order. You can switch back to a private account after the service is completed. <br><br>
+            <strong>Post/Reel/Video Link:</strong> If you delete, archive, or make any changes to the target link of the post/reel/video after placing the order, you will be responsible for this, and InstaGrowMo will not initiate any refunds. Once a service has started, no refund will be provided. If InstaGrowMo cannot provide the service, we will refund your money back to you, or you can order another service. Do not hide Likes, Shares, Comments from the targetted post/reel for which you want to order the service. Please consider all these points carefully before placing your order.
         </div>
     </div>
 
@@ -414,7 +437,7 @@
 I would like to place an order for Instagram Likes:
 
 Instagram Post Link (URL): ${postLink}
-Customer Name: ${encodeURIComponent(customerName)}
+Customer Name: ${customerName}
 Quantity: ${quantity}
 Order Value: ₹${orderTotal.toFixed(2)}
 
