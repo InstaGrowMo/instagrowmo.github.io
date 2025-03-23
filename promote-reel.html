@@ -537,7 +537,7 @@
             const reelLink = reelLinkInput.value.trim();
             const customerName = customerNameInput.value.trim();
             const selectedPlan = selectedPlanInput.value;
-            const whatsappNumber = "+917417232597";
+            const whatsappNumber = "+917417232597"; // Consider making this configurable or verifying it.
             let hasErrors = false;
 
             // Clear previous errors
@@ -564,11 +564,11 @@
                 return;
             }
 
-            const planDetails = {
-                'Basic': `Followers: ${plansData.basic.followers}+, Likes: ${plansData.basic.likes}+, Views: ${plansData.basic.views}+, Shares: ${plansData.basic.shares}+, Comments: ${plansData.basic.comments}+ - Rs. ${plansData.basic.price}/-`,
-                'Standard': `Followers: ${plansData.standard.followers}+, Likes: ${plansData.standard.likes}+, Views: ${plansData.standard.views}+, Shares: ${plansData.standard.shares}+, Comments: ${plansData.standard.comments}+ - Rs. ${plansData.standard.price}/-`,
-                'Ultimate': `Followers: ${plansData.ultimate.followers}+, Likes: ${plansData.ultimate.likes}+, Views: ${plansData.ultimate.views}+, Shares: ${plansData.ultimate.shares}+, Comments: ${plansData.ultimate.comments}+ - Rs. ${plansData.ultimate.price}/-`
-            };
+            const planDetails = plansData[selectedPlan.toLowerCase()];
+            let planDescription = '';
+            if (planDetails) {
+                planDescription = `Followers: ${planDetails.followers}+, Likes: ${planDetails.likes}+, Views: ${planDetails.views}+, Shares: ${planDetails.shares}+, Comments: ${planDetails.comments}+ - Rs. ${planDetails.price}/-`;
+            }
 
             const message = `Hello InstaGrowMo Team,
 
@@ -576,7 +576,7 @@ I would like to promote my Instagram Reel:
 
 Reel/Video Link (URL): ${reelLink}
 Customer Name: ${encodeURIComponent(customerName)}
-Selected Plan: ${selectedPlan} (${planDetails[selectedPlan]})
+Selected Plan: ${selectedPlan} (${planDescription})
 
 Please let me know the payment process.
 

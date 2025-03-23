@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="favicon.jpg" type="image/x-icon">
-    <title>Buy Instagram Shares - InstaGrowMo</title>
+    <title>Buy Instagram Story Views - InstaGrowMo</title>
     <style>
         /* Inherit styles from the main page with some specific adjustments */
         :root {
@@ -15,7 +16,8 @@
             --text-color-secondary: #495057;
             --bg-color-primary: #f8f9fa;
             --bg-color-secondary: #fff;
-            --box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08); /* More subtle shadow */
+            --box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            /* More subtle shadow */
             --border-radius: 8px;
             --transition: all 0.3s ease-in-out;
         }
@@ -30,7 +32,9 @@
             overflow-x: hidden;
         }
 
-        h1, h2, h3 {
+        h1,
+        h2,
+        h3 {
             color: var(--primary-color);
             margin-top: 0;
             line-height: 1.2;
@@ -61,20 +65,24 @@
 
         .top-panel h1 {
             margin: 0;
-            font-size: 1.8em; /* Slightly smaller for better fit */
+            font-size: 1.8em;
+            /* Slightly smaller for better fit */
             letter-spacing: -1px;
             color: var(--primary-color);
         }
+
         .home-button {
             background-color: var(--primary-color);
-            color: var(--bg-color-secondary); /* White color */
+            color: var(--bg-color-secondary);
+            /* White color */
             padding: 10px 15px;
             border: none;
             border-radius: var(--border-radius);
             cursor: pointer;
             font-weight: bold;
             font-size: 0.95em;
-            text-decoration: none; /* Remove underline from link */
+            text-decoration: none;
+            /* Remove underline from link */
             transition: background-color 0.3s ease, transform 0.2s ease-in-out;
         }
 
@@ -82,16 +90,21 @@
             background-color: darken(var(--primary-color), 10%);
             transform: scale(1.05);
         }
+
         .service-page-container {
-            padding: 30px 15px; /* Reduced overall padding */
+            padding: 30px 15px;
+            /* Reduced overall padding */
             background-color: var(--bg-color-secondary);
             text-align: center;
         }
 
         .service-info {
-            max-width: 90%; /* Adjust max width to be responsive */
-            margin: 20px auto; /* Reduced top margin */
-            padding: 25px; /* Slightly reduced padding */
+            max-width: 90%;
+            /* Adjust max width to be responsive */
+            margin: 20px auto;
+            /* Reduced top margin */
+            padding: 25px;
+            /* Slightly reduced padding */
             background-color: var(--bg-color-primary);
             border-radius: var(--border-radius);
             box-shadow: var(--box-shadow);
@@ -99,7 +112,8 @@
         }
 
         .service-title {
-            font-size: 2.4em; /* Adjust font size */
+            font-size: 2.4em;
+            /* Adjust font size */
             color: var(--secondary-color);
             margin-bottom: 10px;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
@@ -109,15 +123,20 @@
         .service-info p {
             font-size: 1em;
             color: var(--text-color-secondary);
-            line-height: 1.6; /* Adjust line height */
-            margin-bottom: 15px; /* Reduced bottom margin */
+            line-height: 1.6;
+            /* Adjust line height */
+            margin-bottom: 15px;
+            /* Reduced bottom margin */
             text-align: left;
         }
 
         .order-form {
-            max-width: 90%; /* Adjust max width to be responsive */
-            margin: 20px auto; /* Reduced top margin */
-            padding: 25px; /* Slightly reduced padding */
+            max-width: 90%;
+            /* Adjust max width to be responsive */
+            margin: 20px auto;
+            /* Reduced top margin */
+            padding: 25px;
+            /* Slightly reduced padding */
             background-color: var(--bg-color-primary);
             border-radius: var(--border-radius);
             box-shadow: var(--box-shadow);
@@ -125,7 +144,8 @@
         }
 
         .form-group {
-            margin-bottom: 15px; /* Reduced margin */
+            margin-bottom: 15px;
+            /* Reduced margin */
         }
 
         .form-group label {
@@ -133,16 +153,19 @@
             font-weight: bold;
             margin-bottom: 5px;
             color: var(--text-color-primary);
-            font-size: 0.95em; /* Slightly smaller label font */
+            font-size: 0.95em;
+            /* Slightly smaller label font */
         }
 
         .form-group input[type="text"],
         .form-group input[type="number"] {
-            width: calc(100% - 22px); /* Adjust width to account for padding and border */
+            width: calc(100% - 22px);
+            /* Adjust width to account for padding and border */
             padding: 10px;
             border: 1px solid #ced4da;
             border-radius: 6px;
-            font-size: 0.95em; /* Slightly smaller input font */
+            font-size: 0.95em;
+            /* Slightly smaller input font */
             box-sizing: border-box;
         }
 
@@ -152,8 +175,10 @@
 
         .error-message {
             color: red;
-            font-size: 0.85em; /* Smaller error message font */
-            margin-top: 3px; /* Reduced top margin */
+            font-size: 0.85em;
+            /* Smaller error message font */
+            margin-top: 3px;
+            /* Reduced top margin */
         }
 
         .form-group input[type="number"]::-webkit-inner-spin-button,
@@ -170,12 +195,14 @@
             text-align: center;
             margin-bottom: 10px;
             color: var(--text-color-secondary);
-            font-size: 0.85em; /* Smaller price info font */
+            font-size: 0.85em;
+            /* Smaller price info font */
         }
 
         .order-value {
             text-align: center;
-            font-size: 1.1em; /* Slightly smaller order value font */
+            font-size: 1.1em;
+            /* Slightly smaller order value font */
             font-weight: bold;
             color: var(--secondary-color);
             margin-bottom: 15px;
@@ -185,11 +212,13 @@
             background-color: var(--accent-color);
             color: var(--bg-color-secondary);
             border: none;
-            padding: 10px 20px; /* Reduced button padding */
+            padding: 10px 20px;
+            /* Reduced button padding */
             border-radius: 6px;
             cursor: pointer;
             font-weight: bold;
-            font-size: 0.95em; /* Slightly smaller button font */
+            font-size: 0.95em;
+            /* Slightly smaller button font */
             transition: background-color 0.3s ease, transform 0.2s ease-in-out;
             width: 100%;
             text-align: center;
@@ -198,20 +227,26 @@
 
         .order-button:hover {
             background-color: #222;
-            transform: scale(1.01); /* Reduced scale on hover */
+            transform: scale(1.01);
+            /* Reduced scale on hover */
         }
 
         .whatsapp-icon {
-            margin-right: 6px; /* Reduced icon margin */
+            margin-right: 6px;
+            /* Reduced icon margin */
         }
 
         .payment-info {
             text-align: center;
             color: var(--text-color-secondary);
-            font-size: 0.8em; /* Smaller payment info font */
-            margin-top: 10px; /* Reduced top margin */
-            margin-bottom: 10px; /* Reduced bottom margin */
-            line-height: 1.5; /* Adjust line height */
+            font-size: 0.8em;
+            /* Smaller payment info font */
+            margin-top: 10px;
+            /* Reduced top margin */
+            margin-bottom: 10px;
+            /* Reduced bottom margin */
+            line-height: 1.5;
+            /* Adjust line height */
         }
 
         .important-note {
@@ -220,14 +255,17 @@
         }
 
         .warning-message {
-            background-color: #ffe0b2; /* Light orange background */
-            color: #d84315; /* Dark orange text */
+            background-color: #ffe0b2;
+            /* Light orange background */
+            color: #d84315;
+            /* Dark orange text */
             padding: 15px;
             border-radius: var(--border-radius);
             margin-bottom: 15px;
             text-align: left;
             font-size: 0.9em;
-            border: 1px solid #ffb74d; /* Slightly darker orange border */
+            border: 1px solid #ffb74d;
+            /* Slightly darker orange border */
         }
 
         .warning-message strong {
@@ -237,12 +275,15 @@
 
         footer {
             background-color: var(--bg-color-secondary);
-            padding: 15px; /* Reduced footer padding */
+            padding: 15px;
+            /* Reduced footer padding */
             text-align: center;
             color: var(--text-color-secondary);
-            font-size: 0.75em; /* Smaller footer font */
+            font-size: 0.75em;
+            /* Smaller footer font */
             border-top: 1px solid #eee;
-            margin-top: 20px; /* Reduced top margin */
+            margin-top: 20px;
+            /* Reduced top margin */
         }
 
         /* Responsive adjustments */
@@ -250,15 +291,19 @@
             .top-panel h1 {
                 font-size: 1.6em;
             }
+
             .service-page-container {
                 padding: 20px 10px;
             }
+
             .service-info {
                 padding: 20px;
             }
+
             .service-title {
                 font-size: 2em;
             }
+
             .order-form {
                 padding: 20px;
             }
@@ -268,36 +313,49 @@
             .top-panel h1 {
                 font-size: 1.4em;
             }
+
             .service-info {
                 padding: 15px;
             }
+
             .service-title {
                 font-size: 1.8em;
             }
+
             .order-form {
                 padding: 15px;
             }
+
             .form-group label {
                 font-size: 0.9em;
             }
+
             .form-group input[type="text"],
             .form-group input[type="number"] {
                 font-size: 0.9em;
             }
-            .price-info, .order-value, .payment-info, footer {
+
+            .price-info,
+            .order-value,
+            .payment-info,
+            footer {
                 font-size: 0.75em;
             }
+
             .order-button {
                 font-size: 0.9em;
                 padding: 8px 15px;
             }
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
     <div class="top-panel">
@@ -307,41 +365,58 @@
 
     <div class="service-page-container">
         <div class="service-info">
-            <h2 class="service-title">Instagram Shares</h2>
-            <p>Expand your content's reach by increasing the number of shares.</p>
+            <h2 class="service-title">Instagram Story Views</h2>
+            <p>Boost the engagement and reach of your Instagram stories with genuine views from real Instagram accounts.
+                Increase your story visibility and attract more attention to your content.</p>
         </div>
 
         <div class="order-form">
             <h3>Place Your Order</h3>
+
             <div class="warning-message">
-                <strong>Important:</strong> To use our Instagram Shares service, your Instagram account must be <strong>public</strong>. Please ensure your account is set to public before placing your order. You can switch back to a private account after the service is completed. <br><br>
-                <strong>Post/Reel Link:</strong> Please ensure the link you provide is correct and the post/reel is still available and public during the service period. If the customer deletes the post, archives it, or makes any changes to the targeted link, the customer will be responsible for this case, and no refund will be initiated by InstaGrowMo. <br><br>
-                <strong>Refund Policy:</strong> Once a service has started, no refund will be provided. If InstaGrowMo cannot provide you with the service, InstaGrowMo will refund your money back to you, or you can order another service. <br><br>
-                <strong>Visibility:</strong> Do not hide Likes, Shares, or Comments on the targeted post/reel for which you want to order this service.
+                <strong>Important:</strong> To use our Instagram Story Views service, please note the following:
+                <ul>
+                    <li>Your Instagram account must be <strong>public</strong>. Ensure it is set to public before
+                        placing your order. You can switch back to private after the service is completed.</li>
+                    <li><strong>Account and Content Changes:</strong> Please do not change your username or set your
+                        account to private during the order processing. If you delete your account, make it private, or
+                        change the username while the order is in progress, InstaGrowMo will not be responsible and no
+                        refund will be initiated.</li>
+                    <li><strong>Refund Policy:</strong> Once a service has started, no refund will be provided. If, for
+                        any reason, InstaGrowMo cannot provide you with the service, we will refund your money back to
+                        you, or you can choose to order another service of equal value.</li>
+                    <li><strong>Target Specification:</strong> Please ensure you have provided the correct Instagram
+                        account link or username for the story views service.</li>
+                </ul>
+                Please consider these points carefully before proceeding with your order.
             </div>
+
             <div class="form-group">
-                <label for="videoReelLink">Instagram Video/Reel Link (URL):</label>
-                <input type="text" id="videoReelLink" name="videoReelLink" placeholder="Enter your Instagram video/reel link (URL)">
-                <p class="error-message" id="videoReelLinkError"></p>
+                <label for="instagramAccount">Instagram Username or Profile Link:</label>
+                <input type="text" id="instagramAccount" name="instagramAccount"
+                    placeholder="Enter your Instagram username or profile link">
+                <p class="error-message" id="instagramAccountError"></p>
             </div>
             <div class="form-group">
                 <label for="customerName">Your Name:</label>
                 <input type="text" id="customerName" name="customerName" placeholder="Enter your name">
             </div>
             <div class="form-group">
-                <label for="quantity">Quantity (Minimum <span id="minShares"></span>):</label>
-                <input type="number" id="quantity" name="quantity" min="" placeholder="Enter quantity (e.g., 50)">
+                <label for="quantity">Quantity (Minimum <span id="minViews"></span>):</label>
+                <input type="number" id="quantity" name="quantity" min="" placeholder="Enter quantity (e.g., 500)">
                 <p class="error-message" id="quantityError"></p>
             </div>
 
-            <p class="price-info">Price per share: ₹<span id="pricePerShare"></span></p>
+            <p class="price-info">Price per view: ₹<span id="pricePerView"></span></p>
 
             <div class="order-value">
                 Order Value: ₹<span id="orderValue">0.00</span>
             </div>
 
             <p class="payment-info">
-                <span class="important-note">Important:</span> Please note that this is a prepaid service. After you send us your order via WhatsApp, we will request you to send the payment first. Your order will be processed quickly once we receive the payment and confirm your Instagram post/video/reel details.
+                <span class="important-note">Important:</span> Please note that this is a prepaid service. After you
+                send us your order via WhatsApp, we will request you to send the payment first. Your order will be
+                processed quickly once we receive the payment and confirm your Instagram account details.
             </p>
 
             <button id="orderButton" class="order-button">
@@ -356,32 +431,32 @@
     </footer>
 
     <script>
-        // Configuration for Instagram Shares service
-        const sharesConfig = {
-            pricePerShare: 0.03, // Price per share in Rupees
-            minimumOrderQuantity: 100 // Minimum order quantity for shares
+        // Configuration for Instagram Story Views service
+        const storyViewsConfig = {
+            pricePerView: 0.03, // Price per view in Rupees
+            minimumOrderQuantity: 50 // Minimum order quantity for story views
         };
 
         // Get references to HTML elements
-        const videoReelLinkInput = document.getElementById('videoReelLink');
+        const instagramAccountInput = document.getElementById('instagramAccount');
         const quantityInput = document.getElementById('quantity');
         const orderValueSpan = document.getElementById('orderValue');
         const orderButton = document.getElementById('orderButton');
-        const pricePerShareSpan = document.getElementById('pricePerShare');
-        const videoReelLinkError = document.getElementById('videoReelLinkError');
+        const pricePerViewSpan = document.getElementById('pricePerView');
+        const instagramAccountError = document.getElementById('instagramAccountError');
         const quantityError = document.getElementById('quantityError');
-        const minSharesSpan = document.getElementById('minShares');
+        const minViewsSpan = document.getElementById('minViews');
 
-        // Display the initial price per share and minimum quantity from the config
-        pricePerShareSpan.textContent = sharesConfig.pricePerShare.toFixed(2);
-        minSharesSpan.textContent = sharesConfig.minimumOrderQuantity;
-        quantityInput.min = sharesConfig.minimumOrderQuantity; // Set the min attribute dynamically
+        // Display the initial price per view and minimum quantity from the config
+        pricePerViewSpan.textContent = storyViewsConfig.pricePerView.toFixed(2);
+        minViewsSpan.textContent = storyViewsConfig.minimumOrderQuantity;
+        quantityInput.min = storyViewsConfig.minimumOrderQuantity; // Set the min attribute dynamically
 
         // Function to update the order value
         function updateOrderValue() {
             const quantity = parseFloat(quantityInput.value);
             if (!isNaN(quantity)) {
-                orderValueSpan.textContent = (quantity * sharesConfig.pricePerShare).toFixed(2);
+                orderValueSpan.textContent = (quantity * storyViewsConfig.pricePerView).toFixed(2);
             } else {
                 orderValueSpan.textContent = '0.00';
             }
@@ -397,8 +472,8 @@
         updateOrderValue();
 
         // Event listener for the order button click
-        orderButton.addEventListener('click', function() {
-            const videoReelLink = videoReelLinkInput.value.trim();
+        orderButton.addEventListener('click', function () {
+            const instagramAccount = instagramAccountInput.value.trim();
             const customerName = document.getElementById('customerName').value.trim();
             const quantity = parseInt(quantityInput.value);
             const orderTotal = parseFloat(orderValueSpan.textContent);
@@ -406,20 +481,20 @@
             let hasErrors = false;
 
             // Clear previous errors
-            videoReelLinkInput.classList.remove('error');
-            videoReelLinkError.textContent = '';
+            instagramAccountInput.classList.remove('error');
+            instagramAccountError.textContent = '';
             quantityInput.classList.remove('error');
             quantityError.textContent = '';
 
-            if (!videoReelLink) {
-                videoReelLinkInput.classList.add('error');
-                videoReelLinkError.textContent = "Please enter the Instagram video/reel link (URL).";
+            if (!instagramAccount) {
+                instagramAccountInput.classList.add('error');
+                instagramAccountError.textContent = "Please enter your Instagram username or profile link.";
                 hasErrors = true;
             }
 
-            if (isNaN(quantity) || quantity < sharesConfig.minimumOrderQuantity) {
+            if (isNaN(quantity) || quantity < storyViewsConfig.minimumOrderQuantity) {
                 quantityInput.classList.add('error');
-                quantityError.textContent = `Please enter a quantity of at least ${sharesConfig.minimumOrderQuantity}.`;
+                quantityError.textContent = `Please enter a quantity of at least ${storyViewsConfig.minimumOrderQuantity}.`;
                 hasErrors = true;
             }
 
@@ -433,9 +508,9 @@
 
             const message = `Hello InstaGrowMo Team,
 
-I would like to place an order for Instagram Shares:
+I would like to place an order for Instagram Story Views:
 
-Instagram Video/Reel Link (URL): ${videoReelLink}
+Instagram Username/Link: ${instagramAccount}
 Customer Name: ${customerName}
 Quantity: ${quantity}
 Order Value: ₹${orderTotal.toFixed(2)}
@@ -448,12 +523,13 @@ Thank you!`;
             window.open(whatsappUrl, '_blank');
         });
 
-        // Clear video/reel link error on input
-        videoReelLinkInput.addEventListener('input', function() {
-            videoReelLinkInput.classList.remove('error');
-            videoReelLinkError.textContent = '';
+        // Clear Instagram account error on input
+        instagramAccountInput.addEventListener('input', function () {
+            instagramAccountInput.classList.remove('error');
+            instagramAccountError.textContent = '';
         });
     </script>
 
 </body>
+
 </html>
