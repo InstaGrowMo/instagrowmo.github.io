@@ -235,6 +235,22 @@
             color: var(--accent-color);
         }
 
+        .discount-note {
+            background-color: #e3f2fd; /* Light blue background */
+            color: #1e88e5; /* Blue text */
+            padding: 10px;
+            border-radius: var(--border-radius);
+            margin-bottom: 10px;
+            text-align: left;
+            font-size: 0.9em;
+            border: 1px solid #bbdefb; /* Light blue border */
+        }
+
+        .discount-note strong {
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
         footer {
             background-color: var(--bg-color-secondary);
             padding: 15px; /* Reduced footer padding */
@@ -313,7 +329,9 @@
 
         <div class="order-form">
             <h3>Place Your Order</h3>
-            
+
+          
+
             <div class="form-group">
                 <label for="videoReelLink">Instagram Post/Video/Reel Link (URL):</label>
                 <input type="text" id="videoReelLink" name="videoReelLink" placeholder="Enter your Instagram post/video/reel link (URL)">
@@ -335,12 +353,13 @@
                 Order Value: ₹<span id="orderValue">0.00</span>
             </div>
 
-            <p class="payment-info">
-                <span class="important-note">Important:</span> Please note that this is a prepaid service. After you send us your order via WhatsApp, we will request you to send the payment first. Your order will be processed quickly once we receive the payment and confirm your Instagram post/video/reel details.
-            </p>
+            <div class="discount-note">
+                <p><strong>Discount Offer:</strong> Enjoy a discount of 45% on your order when you purchase more than 500 shares.</p>
+                <p><strong>Discount Offer [Hindi Translation]:</strong> 500 से ज़्यादा शेयर खरीदने पर अपने ऑर्डर पर 45% की छूट का आनंद लें।</p>
+            </div>
 
             <p class="payment-info">
-                <span class="important-note">Note:</span> Please note that if you order in bulk, we will provide a discount. You will get a 30% discount when you order a service with a quantity greater than 500.
+                <span class="important-note">Important:</span> Please note that this is a prepaid service. After you send us your order via WhatsApp, we will request you to send the payment first. Your order will be processed quickly once we receive the payment and confirm your Instagram post/video/reel details.
             </p>
 
             <button id="orderButton" class="order-button">
@@ -363,9 +382,13 @@
     <script>
         // Configuration for Instagram Shares service
         const sharesConfig = {
-            pricePerShare: 0.05, // Price per share in Rupees
+            pricePerShare: 0.07, // Price per share in Rupees
             minimumOrderQuantity: 100 // Minimum order quantity for shares
         };
+
+        // Configuration for discount offer
+        const sharesDiscountThresholdQuantity = 499;
+        const sharesDiscountPercentage = 45;
 
         // Get references to HTML elements
         const videoReelLinkInput = document.getElementById('videoReelLink');
@@ -385,8 +408,15 @@
         // Function to update the order value
         function updateOrderValue() {
             const quantity = parseFloat(quantityInput.value);
+            let orderValue = 0;
+
             if (!isNaN(quantity)) {
-                orderValueSpan.textContent = (quantity * sharesConfig.pricePerShare).toFixed(2);
+                orderValue = quantity * sharesConfig.pricePerShare;
+                if (quantity > sharesDiscountThresholdQuantity) {
+                    const discountAmount = orderValue * (sharesDiscountPercentage / 100);
+                    orderValue -= discountAmount;
+                }
+                orderValueSpan.textContent = orderValue.toFixed(2);
             } else {
                 orderValueSpan.textContent = '0.00';
             }
@@ -418,7 +448,7 @@
 
             if (!videoReelLink) {
                 videoReelLinkInput.classList.add('error');
-                videoReelLinkError.textContent = "Please enter the Instagram video/reel link (URL).";
+                videoReelLinkError.textContent = "Please enter the Instagram post/video/reel link (URL).";
                 hasErrors = true;
             }
 

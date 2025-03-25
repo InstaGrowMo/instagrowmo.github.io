@@ -235,6 +235,22 @@
             color: var(--accent-color);
         }
 
+        .discount-note {
+            background-color: #e3f2fd; /* Light blue background */
+            color: #1e88e5; /* Blue text */
+            padding: 10px;
+            border-radius: var(--border-radius);
+            margin-bottom: 10px;
+            text-align: left;
+            font-size: 0.9em;
+            border: 1px solid #bbdefb; /* Light blue border */
+        }
+
+        .discount-note strong {
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
         footer {
             background-color: var(--bg-color-secondary);
             padding: 15px; /* Reduced footer padding */
@@ -314,7 +330,7 @@
         <div class="order-form">
             <h3>Place Your Order</h3>
 
-          
+            
 
             <div class="form-group">
                 <label for="postLink">Instagram Post/Reel Link (URL):</label>
@@ -337,11 +353,13 @@
                 Order Value: ₹<span id="orderValue">0.00</span>
             </div>
 
+            <div class="discount-note">
+                <p><strong>Discount Offer:</strong> Enjoy a discount of 80% on your order when you purchase more than 1,000 likes.</p>
+                <p><strong>Discount Offer [Hindi Translation]:</strong> 1,000 से ज़्यादा लाइक्स खरीदने पर अपने ऑर्डर पर 80% की छूट का आनंद लें।</p>
+            </div>
+
             <p class="payment-info">
                 <span class="important-note">Important:</span> Please note that this is a prepaid service. After you send us your order via WhatsApp, we will request you to send the payment first. Your order will be processed quickly once we receive the payment and confirm your Instagram post details.
-            </p>
-            <p class="payment-info">
-                <span class="important-note">Note:</span> Please note that if you order in bulk, we will provide a discount. The order quantity must be greater than 1,000.
             </p>
 
             <button id="orderButton" class="order-button">
@@ -362,9 +380,13 @@
     <script>
         // Configuration for Instagram Likes service
         const likesConfig = {
-            pricePerLike: 0.03, // Price per like in Rupees
+            pricePerLike: 0.05, // Price per like in Rupees
             minimumOrderQuantity: 200 // Minimum order quantity for likes
         };
+
+        // Configuration for discount offer
+        const discountThresholdQuantity = 999;
+        const discountPercentage = 80;
 
         // Get references to HTML elements
         const postLinkInput = document.getElementById('postLink');
@@ -384,8 +406,15 @@
         // Function to update the order value
         function updateOrderValue() {
             const quantity = parseFloat(quantityInput.value);
+            let orderValue = 0;
+
             if (!isNaN(quantity)) {
-                orderValueSpan.textContent = (quantity * likesConfig.pricePerLike).toFixed(2);
+                orderValue = quantity * likesConfig.pricePerLike;
+                if (quantity > discountThresholdQuantity) {
+                    const discountAmount = orderValue * (discountPercentage / 100);
+                    orderValue -= discountAmount;
+                }
+                orderValueSpan.textContent = orderValue.toFixed(2);
             } else {
                 orderValueSpan.textContent = '0.00';
             }
@@ -417,7 +446,7 @@
 
             if (!postLink) {
                 postLinkInput.classList.add('error');
-                postLinkError.textContent = "Please enter the Instagram post link (URL).";
+                postLinkError.textContent = "Please enter the Instagram post/reel link (URL).";
                 hasErrors = true;
             }
 
@@ -439,7 +468,7 @@
 
 I would like to place an order for Instagram Likes:
 
-Instagram Post Link (URL): ${postLink}
+Instagram Post/Reel Link (URL): ${postLink}
 Customer Name: ${customerName}
 Quantity: ${quantity}
 Order Value: ₹${orderTotal.toFixed(2)}

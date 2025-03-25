@@ -273,6 +273,22 @@
             color: var(--accent-color);
         }
 
+        .discount-note {
+            background-color: #e3f2fd; /* Light blue background */
+            color: #1e88e5; /* Blue text */
+            padding: 10px;
+            border-radius: var(--border-radius);
+            margin-bottom: 10px;
+            text-align: left;
+            font-size: 0.9em;
+            border: 1px solid #bbdefb; /* Light blue border */
+        }
+
+        .discount-note strong {
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
         footer {
             background-color: var(--bg-color-secondary);
             padding: 15px;
@@ -373,7 +389,7 @@
         <div class="order-form">
             <h3>Place Your Order</h3>
 
-           
+            
 
             <div class="form-group">
                 <label for="instagramAccount">Instagram Username or Profile Link:</label>
@@ -395,6 +411,11 @@
 
             <div class="order-value">
                 Order Value: ₹<span id="orderValue">0.00</span>
+            </div>
+
+            <div class="discount-note">
+                <p><strong>Discount Offer:</strong> Enjoy a discount of 50% on your order when you purchase more than 500 story views.</p>
+                <p><strong>Discount Offer [Hindi Translation]:</strong> 500 से ज़्यादा स्टोरी व्यूज खरीदने पर अपने ऑर्डर पर 50% की छूट का आनंद लें।</p>
             </div>
 
             <p class="payment-info">
@@ -434,9 +455,13 @@
     <script>
         // Configuration for Instagram Story Views service
         const storyViewsConfig = {
-            pricePerView: 0.03, // Price per view in Rupees
+            pricePerView: 0.04, // Price per view in Rupees
             minimumOrderQuantity: 50 // Minimum order quantity for story views
         };
+
+        // Configuration for discount offer
+        const discountThresholdQuantity = 499;
+        const discountPercentage = 50;
 
         // Get references to HTML elements
         const instagramAccountInput = document.getElementById('instagramAccount');
@@ -456,8 +481,14 @@
         // Function to update the order value
         function updateOrderValue() {
             const quantity = parseFloat(quantityInput.value);
+            let orderValue = 0;
             if (!isNaN(quantity)) {
-                orderValueSpan.textContent = (quantity * storyViewsConfig.pricePerView).toFixed(2);
+                orderValue = quantity * storyViewsConfig.pricePerView;
+                if (quantity > discountThresholdQuantity) {
+                    const discountAmount = orderValue * (discountPercentage / 100);
+                    orderValue -= discountAmount;
+                }
+                orderValueSpan.textContent = orderValue.toFixed(2);
             } else {
                 orderValueSpan.textContent = '0.00';
             }

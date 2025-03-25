@@ -235,6 +235,22 @@
             color: var(--accent-color);
         }
 
+        .discount-note {
+            background-color: #e3f2fd; /* Light blue background */
+            color: #1e88e5; /* Blue text */
+            padding: 10px;
+            border-radius: var(--border-radius);
+            margin-bottom: 10px;
+            text-align: left;
+            font-size: 0.9em;
+            border: 1px solid #bbdefb; /* Light blue border */
+        }
+
+        .discount-note strong {
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
         footer {
             background-color: var(--bg-color-secondary);
             padding: 15px; /* Reduced footer padding */
@@ -313,7 +329,9 @@
 
         <div class="order-form">
             <h3>Place Your Order</h3>
+
            
+
             <div class="form-group">
                 <label for="videoReelLink">Instagram Video/Reel Link (URL):</label>
                 <input type="text" id="videoReelLink" name="videoReelLink" placeholder="Enter your Instagram video/reel link (URL)">
@@ -333,6 +351,11 @@
 
             <div class="order-value">
                 Order Value: ₹<span id="orderValue">0.00</span>
+            </div>
+
+            <div class="discount-note">
+                <p><strong>Discount Offer:</strong> Enjoy a discount of 80% on your order when you purchase more than 2,000 views.</p>
+                <p><strong>Discount Offer [Hindi Translation]:</strong> 2,000 से ज़्यादा व्यूज़ खरीदने पर अपने ऑर्डर पर 80% की छूट का आनंद लें।</p>
             </div>
 
             <p class="payment-info">
@@ -358,9 +381,13 @@
     <script>
         // Configuration for Instagram Views service
         const viewsConfig = {
-            pricePerView: 0.01, // Price per view in Rupees
+            pricePerView: 0.03, // Price per view in Rupees
             minimumOrderQuantity: 500 // Minimum order quantity for views
         };
+
+        // Configuration for discount offer
+        const discountThresholdQuantity = 1999;
+        const discountPercentage = 80;
 
         // Get references to HTML elements
         const videoReelLinkInput = document.getElementById('videoReelLink');
@@ -380,8 +407,15 @@
         // Function to update the order value
         function updateOrderValue() {
             const quantity = parseFloat(quantityInput.value);
+            let orderValue = 0;
+
             if (!isNaN(quantity)) {
-                orderValueSpan.textContent = (quantity * viewsConfig.pricePerView).toFixed(2);
+                orderValue = quantity * viewsConfig.pricePerView;
+                if (quantity > discountThresholdQuantity) {
+                    const discountAmount = orderValue * (discountPercentage / 100);
+                    orderValue -= discountAmount;
+                }
+                orderValueSpan.textContent = orderValue.toFixed(2);
             } else {
                 orderValueSpan.textContent = '0.00';
             }
