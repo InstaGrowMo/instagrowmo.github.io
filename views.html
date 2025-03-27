@@ -347,7 +347,7 @@
                 <p class="error-message" id="quantityError"></p>
             </div>
 
-            <p class="price-info">Price per view: ₹<span id="pricePerView"></span></p>
+        <!--    <p class="price-info">Price per view: ₹<span id="pricePerView"></span></p> -->
 
             <div class="order-value">
                 Order Value: ₹<span id="orderValue">0.00</span>
@@ -381,13 +381,13 @@
     <script>
         // Configuration for Instagram Views service
         const viewsConfig = {
-            pricePerView: 0.03, // Price per view in Rupees
+            pricePerView: 0.006, // Price per view in Rupees
             minimumOrderQuantity: 500 // Minimum order quantity for views
         };
 
         // Configuration for discount offer
         const discountThresholdQuantity = 1999;
-        const discountPercentage = 80;
+        const discountPercentage = 50;
 
         // Get references to HTML elements
         const videoReelLinkInput = document.getElementById('videoReelLink');
