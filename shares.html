@@ -347,7 +347,7 @@
                 <p class="error-message" id="quantityError"></p>
             </div>
 
-            <p class="price-info">Price per share: ₹<span id="pricePerShare"></span></p>
+        <!--    <p class="price-info">Price per share: ₹<span id="pricePerShare"></span></p> -->
 
             <div class="order-value">
                 Order Value: ₹<span id="orderValue">0.00</span>
@@ -382,13 +382,13 @@
     <script>
         // Configuration for Instagram Shares service
         const sharesConfig = {
-            pricePerShare: 0.07, // Price per share in Rupees
+            pricePerShare: 0.01, // Price per share in Rupees
             minimumOrderQuantity: 100 // Minimum order quantity for shares
         };
 
         // Configuration for discount offer
         const sharesDiscountThresholdQuantity = 499;
-        const sharesDiscountPercentage = 45;
+        const sharesDiscountPercentage = 50;
 
         // Get references to HTML elements
         const videoReelLinkInput = document.getElementById('videoReelLink');
