@@ -422,7 +422,7 @@
                 </div>
             </div>
 
-            <p class="price-info">Price per comment: ₹<span id="pricePerComment"></span></p>
+        <!--    <p class="price-info">Price per comment: ₹<span id="pricePerComment"></span></p> -->
 
             <div class="order-value" id="defaultOrderValueSection">
                 Order Value: ₹<span id="orderValue">0.00</span>
@@ -460,13 +460,13 @@
     <script>
         // Configuration for Instagram Comments service
         const commentsConfig = {
-            pricePerComment: 0.35, // Price per comment in Rupees
+            pricePerComment: 0.15, // Price per comment in Rupees
             minimumOrderQuantity: 20 // Minimum order quantity for comments
         };
 
         // Configuration for discount offer
         const commentsDiscountThresholdQuantity = 99;
-        const commentsDiscountPercentage = 50;
+        const commentsDiscountPercentage = 30;
 
         // Get references to HTML elements
         const fullCommentsButton = document.getElementById('fullCommentsButton');
