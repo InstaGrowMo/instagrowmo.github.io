@@ -155,6 +155,7 @@
             font-weight: bold;
             font-size: 0.9em; /* Further reduced font size */
             transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+            text-decoration: none;
         }
 
         .order-button:hover {
@@ -229,6 +230,7 @@
             /* Specific styles for the Post box if needed */
         }
 
+
         .coming-soon {
             background-color: #ffca28; /* Slightly less intense yellow */
             color: var(--text-color-primary);
@@ -299,6 +301,117 @@
             color: var(--primary-color);
             font-weight: 600;
         }
+
+        /* Payment Assistance Section */
+        .payment-assistance-section {
+            padding: 60px 20px;
+            text-align: center;
+            background-color: #fff9c4; /* Light yellow background for attention */
+            border-top: 1px solid #fbc02d;
+            border-bottom: 1px solid #fbc02d; /* Added bottom border */
+            margin-top: 40px; /* Added margin top */
+        }
+
+        .payment-assistance-headline {
+            font-size: 2.2em;
+            color: #fbc02d; /* Darker yellow */
+            margin-bottom: 25px;
+            font-weight: 700;
+        }
+
+        .payment-assistance-paragraph {
+            font-size: 1em;
+            color: var(--text-color-primary);
+            line-height: 1.7;
+            margin-bottom: 20px;
+            max-width: 700px; /* Limit paragraph width */
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .payment-options {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .qr-code-container img {
+            max-width: 200px; /* Adjust size as needed */
+            height: auto;
+            border-radius: 8px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .upi-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .upi-id {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: var(--text-color-primary);
+        }
+
+        .copy-button {
+            background-color: var(--secondary-color);
+            color: var(--bg-color-secondary);
+            border: none;
+            padding: 8px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: background-color 0.3s ease;
+        }
+
+        .copy-button:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .upi-pay-button {
+            background-color: #4CAF50; /* Green for payment button */
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1em;
+            transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+            text-decoration: none;
+            display: inline-block; /* To apply padding and margin correctly */
+            margin-top: 15px;
+        }
+
+        .upi-pay-button:hover {
+            background-color: darken(#4CAF50, 10%);
+            transform: scale(1.02);
+        }
+
+        .contact-payment-button {
+            background-color: #007bff; /* Blue for contact button */
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1em;
+            transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px; /* Space above this button */
+        }
+
+        .contact-payment-button:hover {
+            background-color: darken(#007bff, 10%);
+            transform: scale(1.02);
+        }
+
 
         /* Trust and Proof Section */
         .trust-proof-section {
@@ -425,15 +538,15 @@
             </div>
             <div class="service-card">
                 <i class="fas fa-eye service-icon"></i>
-                <h3 class="service-name">Story Views</h3>
-                <p class="service-description">Get real views on your Instagram stories from genuine accounts. Increase visibility and engagement.</p>
-                <a href="/story-views.html" class="order-button">Order Now</a>
+                <h3 class="service-name">Reels Views</h3>
+                <p class="service-description">Enhance the visibility and appeal of your videos and reels with more views.</p>
+                <a href="/views.html" class="order-button">Order Now</a>
             </div>
             <div class="service-card">
                 <i class="fas fa-eye service-icon"></i>
-                <h3 class="service-name">Views</h3>
-                <p class="service-description">Enhance the visibility and appeal of your videos and reels with more views.</p>
-                <a href="/views.html" class="order-button">Order Now</a>
+                <h3 class="service-name">Story Views</h3>
+                <p class="service-description">Get real views on your Instagram stories from genuine accounts. Increase visibility and engagement.</p>
+                <a href="/story-views.html" class="order-button">Order Now</a>
             </div>
             <div class="service-card">
                 <i class="fas fa-share-alt service-icon"></i>
@@ -450,23 +563,7 @@
             </div>
     </section>
 
-  <!--  <section class="organic-traffic-section">
-        <h2 class="organic-traffic-headline">Real Instagram Growth with Organic Promotion</h2>
-        <div class="promote-service-grid">
-            <div class="promote-reel-box">
-                <img src="reel.jpg" alt="Promote Reel" class="promote-reel-image">
-                <h3 class="promote-reel-heading">Promote Reel</h3>
-                <p class="promote-reel-description">Get genuine engagement by promoting your Instagram Reels on third-party platforms. Expect real views, likes, and potential followers.</p>
-                <a href="/promote-reel.html" class="order-button">Learn More & Order</a>
-            </div>
-            <div class="promote-post-box">
-                <img src="post.png" style="zoom: 150%;" alt="Promote Post" class="promote-post-image">
-                <h3 class="promote-post-heading">Promote Post</h3>
-                <p class="promote-post-description">Boost the visibility of your regular Instagram posts. We'll showcase your content to a wider audience for organic reach and engagement.</p>
-                <span class="coming-soon">Coming Soon</span>
-            </div>
-        </div>
-    </section> -->
+
 
     <section class="why-choose-section">
         <h2 class="why-choose-title">Why Choose InstaGrowMo?</h2>
@@ -498,6 +595,33 @@
             </ul>
     </section>
 
+    <section class="payment-assistance-section">
+        <h2 class="payment-assistance-headline">Alternative Payment Options</h2>
+        <p class="payment-assistance-paragraph">If you encountered an issue with the payment link sent via WhatsApp after placing your order, you can use the options below to complete your payment directly. Please send a screenshot of your successful payment to InstaGrowMo on WhatsApp afterwards.</p>
+
+        <div class="payment-options">
+            <div class="qr-code-container">
+                <p>Scan to Pay:</p>
+                <img src="abhinit16.jpeg" alt="Payment QR Code">
+            </div>
+
+            <div class="upi-info">
+                <p>Or Pay via UPI ID:</p>
+                <span class="upi-id">abhinit16@fam</span>
+                <button class="copy-button" onclick="copyUpiId()">Copy UPI ID</button>
+                <span id="copy-feedback" style="display: none; color: green; font-size: 0.9em;">Copied!</span>
+            </div>
+
+            <a href="upi://pay?pa=abhinit16@fam" class="upi-pay-button">
+                Pay Now via UPI App
+                </a>
+
+            <a href="https://wa.me/917417232597/?text=I%20am%20experiencing%20difficulties%20completing%20my%20payment." class="contact-payment-button" target="_blank">
+                Contact for Payment Help
+                </a>
+        </div>
+    </section>
+
     <section class="trust-proof-section">
         <h2 class="trust-proof-headline">Trusted by 200+ users all over India.</h2>
         <p class="trust-proof-paragraph">Join over 200 satisfied users who have leveraged InstaGrowMo to enhance their Instagram presence. We are committed to providing reliable and effective services.</p>
@@ -522,8 +646,8 @@
             { background: '#e1bee7', text: '#212529' }, // Light Purple
             { background: '#b3e5fc', text: '#212529' }, // Another Light Blue
             { background: '#fdd835', text: '#212529' }, // Light Yellow
-            { background: '#f48fb1', text: '#fff' },     // Pink with White Text
-            { background: '#4fc3f7', text: '#fff' }      // Bright Blue with White Text
+            { background: '#f48fb1', text: '#fff' },    // Pink with White Text
+            { background: '#4fc3f7', text: '#fff' }     // Bright Blue with White Text
             // Add more color schemes as needed for different website/business types
         ];
 
@@ -542,6 +666,22 @@
 
         // Initial call to set the first color scheme
         changeHeroColors();
+
+        // Function to copy UPI ID
+        function copyUpiId() {
+            const upiId = document.querySelector('.upi-id').textContent;
+            navigator.clipboard.writeText(upiId).then(() => {
+                const feedback = document.getElementById('copy-feedback');
+                feedback.style.display = 'inline';
+                setTimeout(() => {
+                    feedback.style.display = 'none';
+                }, 2000); // Hide feedback after 2 seconds
+            }).catch(err => {
+                console.error('Failed to copy UPI ID: ', err);
+                // Optionally, provide a visual indication of failure
+            });
+        }
+
 
         // Animation on Scroll (rest of the script)
         const observer = new IntersectionObserver((entries) => {

@@ -181,7 +181,7 @@
             margin-bottom: 15px;
         }
 
-        .order-button {
+         .order-button, .pay-now-button {
             background-color: var(--accent-color);
             color: var(--bg-color-secondary);
             border: none;
@@ -194,9 +194,20 @@
             width: 100%;
             text-align: center;
             display: block;
+            margin-top: 15px;
+            text-decoration: none; /* Ensure links don't have underlines */
         }
 
-        .order-button:hover {
+          .pay-now-button {
+            background-color: #4CAF50;
+            /* Green for payment button */
+            padding-left: 0;
+            padding-right: 0;
+            /* Reduced margin between buttons */
+        }
+
+
+        .order-button:hover, .pay-now-button:hover {
             background-color: #222;
             transform: scale(1.01); /* Reduced scale on hover */
         }
@@ -303,9 +314,25 @@
             .price-info, .order-value, .payment-info, footer {
                 font-size: 0.75em;
             }
-            .order-button {
+            .order-button, .pay-now-button {
                 font-size: 0.9em;
                 padding: 8px 15px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .top-panel h1 {
+                font-size: 1.2em;
+            }
+            .service-title {
+                font-size: 1.6em;
+            }
+            .order-value {
+                font-size: 1.2em;
+            }
+            .order-button, .pay-now-button {
+                font-size: 0.8em;
+                padding: 8px 12px;
             }
         }
     </style>
@@ -323,14 +350,12 @@
 
     <div class="service-page-container">
         <div class="service-info">
-            <h2 class="service-title">Instagram Followers</h2>
+            <h2 class="service-title">Instagram Gobal Followers</h2>
             <p>Boost your follower count with high-quality, non-engaging profiles. Ideal for social proof.</p>
         </div>
 
         <div class="order-form">
             <h3>Place Your Order</h3>
-
-         
 
             <div class="form-group">
                 <label for="accountLink">Instagram Account Link (URL) or Username:</label>
@@ -347,8 +372,9 @@
                 <p class="error-message" id="quantityError"></p>
             </div>
 
-        <p style="display: none;" class="price-info">Price per follower: ₹<span id="pricePerFollower">0.15</span></p>
+        <p style="display: none;" class="price-info">Price per follower: ₹<span id="pricePerFollower">0.22</span></p>
             <p class="price-info">Minimum order quantity: 100</p>
+
 
             <div class="order-value">
                 Order Value: ₹<span id="orderValue">0.00</span>
@@ -366,6 +392,11 @@
             <button id="orderButton" class="order-button">
                 <i class="fab fa-whatsapp whatsapp-icon"></i> Send Order on WhatsApp
             </button>
+
+             <a href="#" id="payNowButton" class="pay-now-button" style="display: none;">
+                Pay Now or Pay via WhatsApp
+                </a>
+
         </div>
         <div class="warning-message">
             <strong>Important:</strong> Please ensure your Instagram account is <strong>public</strong> during the follower delivery process. While this service doesn't strictly require a public account to start, having it public ensures smooth and timely delivery. <br><br>
@@ -382,14 +413,17 @@
     </footer>
 
     <script>
-        // Price per follower (in Rupees)
-        const pricePerFollower = 0.220;
+        // Service Configuration
+        const serviceName = "Instagram Gobal Followers"; // Name of this service
+
+        // Price per follower (in Rupees) - Note: Price was 0.15 in comment, but 0.22 in JS. Keeping 0.22 as per JS code.
+        const pricePerFollower = 0.22;
 
         // Minimum order quantity
         const minimumOrderQuantity = 100;
 
         // Configuration for discount offer
-        const discountThresholdQuantity = 1999;
+        const discountThresholdQuantity = 2000; // Corrected from 1999 to match text
         const discountPercentage = 20;
 
         // Get references to HTML elements
@@ -400,18 +434,22 @@
         const pricePerFollowerSpan = document.getElementById('pricePerFollower');
         const accountLinkError = document.getElementById('accountLinkError');
         const quantityError = document.getElementById('quantityError');
+        const payNowButton = document.getElementById('payNowButton'); // Get the new button
 
         // Display the initial price per follower
         pricePerFollowerSpan.textContent = pricePerFollower.toFixed(2);
+        quantityInput.min = minimumOrderQuantity; // Ensure HTML min attribute is correct
 
-        // Function to update the order value
+        // Function to update the order value and button visibility
         function updateOrderValue() {
             const quantity = parseFloat(quantityInput.value);
             let orderValue = 0;
+            let isValidQuantity = false;
 
-            if (!isNaN(quantity)) {
+            if (!isNaN(quantity) && quantity >= minimumOrderQuantity) {
+                isValidQuantity = true;
                 orderValue = quantity * pricePerFollower;
-                if (quantity > discountThresholdQuantity) {
+                if (quantity >= discountThresholdQuantity) { // Use >= for threshold
                     const discountAmount = orderValue * (discountPercentage / 100);
                     orderValue -= discountAmount;
                 }
@@ -419,24 +457,54 @@
             } else {
                 orderValueSpan.textContent = '0.00';
             }
+
             // Clear quantity error on input
             quantityInput.classList.remove('error');
             quantityError.textContent = '';
+
+            // Show/hide Pay Now button based on valid quantity and order value
+            if (isValidQuantity && orderValue > 0) {
+                 payNowButton.style.display = 'block';
+            } else {
+                 payNowButton.style.display = 'none';
+            }
+
+            updatePayNowButtonLink(); // Update the Pay Now button link
         }
+
+         // Function to update the href of the Pay Now button
+        function updatePayNowButtonLink() {
+            const quantity = parseFloat(quantityInput.value);
+            const orderTotal = parseFloat(orderValueSpan.textContent);
+
+             // Only update link if quantity and order value are valid
+            if (!isNaN(quantity) && quantity >= minimumOrderQuantity && !isNaN(orderTotal) && orderTotal > 0) {
+                const transactionNote = `${serviceName} Qty:${quantity}`;
+                const upiLink = `upi://pay?pa=abhinit16@fam&am=${orderTotal.toFixed(2)}&tn=${encodeURIComponent(transactionNote)}`;
+                payNowButton.href = upiLink;
+            } else {
+                payNowButton.href = "#"; // Or disable the button
+            }
+        }
+
 
         // Event listener for quantity input change
         quantityInput.addEventListener('input', updateOrderValue);
+         accountLinkInput.addEventListener('input', updatePayNowButtonLink); // Also update if account link changes (though not strictly needed for link but good practice)
 
-        // Initial call to set the order value on page load (in case there's a default value)
+
+        // Initial call to set the order value and button state on page load
         updateOrderValue();
+        updatePayNowButtonLink();
 
-        // Event listener for the order button click
+
+        // Event listener for the order button click (WhatsApp)
         orderButton.addEventListener('click', function() {
             const accountLink = accountLinkInput.value.trim();
             const customerName = document.getElementById('customerName').value.trim();
             const quantity = parseInt(quantityInput.value);
             const orderTotal = parseFloat(orderValueSpan.textContent);
-            const whatsappNumber = "+917417232597";
+            const whatsappNumber = "917417232597"; // WhatsApp number without '+'
             let hasErrors = false;
 
             // Clear previous errors
@@ -459,28 +527,43 @@
 
             if (!customerName) {
                 // You can add error handling for customer name if needed
+                // For now, we'll just include it if provided
             }
 
             if (hasErrors) {
-                return;
+                return; // Stop if there are validation errors
             }
 
-            const message = `Hello InstaGrowMo Team,
+             // Construct the dynamic UPI link for the WhatsApp message
+            const transactionNote = `${serviceName} Qty:${quantity}`;
+            const upiLink = `upi://pay?pa=abhinit16@fam&am=${orderTotal.toFixed(2)}&tn=${encodeURIComponent(transactionNote)}`;
 
-I would like to place an order for Instagram Followers:
+
+            let message = `Hello InstaGrowMo Team,
+
+I would like to place an order for Instagram ${serviceName}:
 
 Instagram Account Link/Username: ${accountLink}
-Customer Name: ${customerName}
+${customerName ? `Customer Name: ${customerName}` : ''}
 Quantity: ${quantity}
 Order Value: ₹${orderTotal.toFixed(2)}
 
-Please let me know the payment process.
+----------
+`;
+            // Add payment instructions and link (Formal Hindi and English)
+            message += `To complete your order, please make the payment of ₹${orderTotal.toFixed(2)} using the UPI link below or by returning to the website's payment assistance section if the link doesn't work.\n\n`;
+            message += `Order Payment Link:\n${upiLink}\n\n`;
+            message += `भुगतान पूरा करने के लिए, कृपया नीचे दिए गए UPI लिंक का उपयोग करके ₹${orderTotal.toFixed(2)} का भुगतान करें या यदि लिंक काम नहीं कर रहा है तो वेबसाइट के पेमेंट असिस्टेंस सेक्शन पर वापस आएं।\n`;
+            message += `----------\n`;
+
+            message += `\nPlease let me know once the payment is done (please share a screenshot of the successful transaction).
 
 Thank you!`;
 
             const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
         });
+
 
         // Clear account link error on input
         accountLinkInput.addEventListener('input', function() {
