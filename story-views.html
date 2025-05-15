@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="favicon.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
     <title>Buy Instagram Story Views - InstaGrowMo</title>
     <style>
         /* Inherit styles from the main page with some specific adjustments */
@@ -47,7 +47,11 @@
         }
 
         a:hover {
-            color: darken(var(--accent-color), 10%);
+            /* Note: 'darken' is a SASS/LESS function. Using CSS rgba or hex adjustments */
+            /* For simplicity, let's pick a slightly darker shade or adjust alpha */
+            color: rgba(255, 112, 67, 0.8);
+            /* Example: slightly less opaque */
+            /* Or a specific darker hex color like #e65100 */
         }
 
         .top-panel {
@@ -87,14 +91,18 @@
         }
 
         .home-button:hover {
-            background-color: darken(var(--primary-color), 10%);
+            /* Note: 'darken' is a SASS/LESS function. Using CSS rgba or hex adjustments */
+            background-color: rgba(90, 85, 202, 0.9);
+            /* Example: slightly less opaque */
+            /* Or a specific darker hex color like #4527a0 */
             transform: scale(1.05);
         }
 
         .service-page-container {
             padding: 30px 15px;
             /* Reduced overall padding */
-            background-color: var(--bg-color-secondary);
+            background-color: var(--bg-color-primary);
+            /* Changed to primary background */
             text-align: center;
         }
 
@@ -105,7 +113,8 @@
             /* Reduced top margin */
             padding: 25px;
             /* Slightly reduced padding */
-            background-color: var(--bg-color-primary);
+            background-color: var(--bg-color-secondary);
+            /* Changed to secondary background */
             border-radius: var(--border-radius);
             box-shadow: var(--box-shadow);
             text-align: center;
@@ -137,7 +146,8 @@
             /* Reduced top margin */
             padding: 25px;
             /* Slightly reduced padding */
-            background-color: var(--bg-color-primary);
+            background-color: var(--bg-color-secondary);
+            /* Changed to secondary background */
             border-radius: var(--border-radius);
             box-shadow: var(--box-shadow);
             text-align: left;
@@ -227,13 +237,14 @@
             margin-top: 15px;
             text-decoration: none;
             /* Ensure links don't have underlines */
+            box-sizing: border-box;
+            /* Include padding in width */
         }
 
-         .pay-now-button {
+        .pay-now-button {
             background-color: #4CAF50;
             /* Green for payment button */
-            padding-left: 0;
-            padding-right: 0;
+            margin-top: 10px;
             /* Reduced margin between buttons */
         }
 
@@ -280,6 +291,10 @@
             font-size: 0.9em;
             border: 1px solid #ffb74d;
             /* Slightly darker orange border */
+            max-width: 90%;
+            /* Adjust max width */
+            margin: 20px auto;
+            /* Center the div */
         }
 
         .warning-message strong {
@@ -329,16 +344,16 @@
                 padding: 20px 10px;
             }
 
-            .service-info {
+            .service-info,
+            .order-form,
+            .warning-message {
                 padding: 20px;
+                max-width: 95%;
+                /* Slightly wider on smaller screens */
             }
 
             .service-title {
                 font-size: 2em;
-            }
-
-            .order-form {
-                padding: 20px;
             }
         }
 
@@ -347,16 +362,16 @@
                 font-size: 1.4em;
             }
 
-            .service-info {
+            .service-info,
+            .order-form,
+            .warning-message {
                 padding: 15px;
+                max-width: 100%;
+                /* Full width on very small screens */
             }
 
             .service-title {
                 font-size: 1.8em;
-            }
-
-            .order-form {
-                padding: 15px;
             }
 
             .form-group label {
@@ -375,7 +390,8 @@
                 font-size: 0.75em;
             }
 
-            .order-button {
+            .order-button,
+            .pay-now-button {
                 font-size: 0.9em;
                 padding: 8px 15px;
             }
@@ -394,14 +410,15 @@
                 font-size: 1.2em;
             }
 
-            .order-button {
+            .order-button,
+            .pay-now-button {
                 font-size: 0.8em;
                 padding: 8px 12px;
             }
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvU9xC6qOPnzFeg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -430,28 +447,24 @@
             <div class="form-group">
                 <label for="instagramAccount">Instagram Username or Profile Link:</label>
                 <input type="text" id="instagramAccount" name="instagramAccount"
-                    placeholder="Enter your Instagram username or profile link">
+                    placeholder="Enter your Instagram username or profile link" required>
                 <p class="error-message" id="instagramAccountError"></p>
             </div>
             <div class="form-group">
-                <label for="customerName">Your Name:</label>
-                <input type="text" id="customerName" name="customerName" placeholder="Enter your name">
+                <label for="customerName">Your Name (Optional):</label> <input type="text" id="customerName" name="customerName" placeholder="Enter your name">
             </div>
             <div class="form-group">
-                <label for="quantity">Quantity (Minimum <span id="minViews"></span>):</label>
-                <input type="number" id="quantity" name="quantity" min="" placeholder="Enter quantity (e.g., 500)">
-                <p class="error-message" id="quantityError"></p>
+                <label for="quantity">Quantity:</label> <input type="number" id="quantity" name="quantity" min="1" placeholder="Enter quantity (e.g., 50)"> <p class="error-message" id="quantityError"></p>
             </div>
 
-            <p style="display: none;" class="price-info">Price per view: ₹<span id="pricePerView"></span></p>
-
-            <div class="order-value">
+            <p class="price-info">Price per view: ₹<span id="pricePerView"></span></p>
+            <p class="price-info">Minimum order quantity: <span id="minViewsDisplay"></span></p> <div class="order-value">
                 Order Value: ₹<span id="orderValue">0.00</span>
             </div>
 
             <div class="discount-note">
-                <p><strong>Discount Offer:</strong> Enjoy a discount of 60% on your order when you purchase more than 500 story views.</p>
-                <p><strong>Discount Offer [Hindi Translation]:</strong> 500 से ज़्यादा स्टोरी व्यूज खरीदने पर अपने ऑर्डर पर 60% की छूट का आनंद लें।</p>
+                <p><strong>Discount Offer:</strong> Enjoy a discount of <span id="discountPercentDisplay">60</span>% on your order when you purchase more than <span id="discountThresholdDisplay">500</span> story views.</p>
+                <p><strong>Discount Offer [Hindi Translation]:</strong> <span id="discountThresholdDisplayHindi">500</span> से ज़्यादा स्टोरी व्यूज खरीदने पर अपने ऑर्डर पर <span id="discountPercentDisplayHindi">60</span>% की छूट का आनंद लें।</p>
             </div>
 
             <p class="payment-info">
@@ -460,13 +473,21 @@
                 processed quickly once we receive the payment and confirm your Instagram account details.
             </p>
 
-            <button id="orderButton" class="order-button">
-                <i class="fab fa-whatsapp whatsapp-icon"></i> Send Order on WhatsApp
-            </button>
 
-            <a href="#" id="payNowButton" class="pay-now-button" style="display: none;">
-                Pay Now or Pay via WhatsApp
+            <button id="orderButton" class="order-button" style="margin-top: 20px;"> <i class="fab fa-whatsapp whatsapp-icon"></i> Send Order Details on WhatsApp
+            </button>
+            <div id="paymentInstructions"
+                style="display: none; text-align: center; margin-top: 20px; padding: 15px; background-color: #e8f5e9; border-radius: var(--border-radius); border: 1px solid #c8e6c9;">
+                <h4 style="color: #2e7d32; margin-top: 0;">Payment Instructions</h4>
+                <p style="word-break: break-all;">UPI ID: <strong id="upiIdDisplay"></strong></p>
+                <p style="color: #558b2f; font-size: 0.9em;">Click the button below to pay directly via UPI app.</p>
+                <a href="#" id="payNowButton" class="pay-now-button">
+                    <i class="fas fa-qrcode whatsapp-icon"></i> Pay Now
                 </a>
+                <p style="color: #388e3c; font-size: 0.85em; margin-top: 10px;">After payment, please share the screenshot on WhatsApp for quick processing.</p>
+            </div>
+
+
         </div>
         <div class="warning-message">
             <strong>Important:</strong> To use our Instagram Story Views service, please note the following:
@@ -506,103 +527,156 @@
         const discountThresholdQuantity = 500; // Corrected to match the text
         const discountPercentage = 60;
 
+        // UPI ID for payment
+        const upiId = "abhinit16@fam"; // Your UPI ID
+
+        // WhatsApp number
+        const whatsappNumber = "917417232597"; // WhatsApp number without '+'
+
+
         // Get references to HTML elements
         const instagramAccountInput = document.getElementById('instagramAccount');
+        const customerNameInput = document.getElementById('customerName'); // Added
         const quantityInput = document.getElementById('quantity');
         const orderValueSpan = document.getElementById('orderValue');
-        const orderButton = document.getElementById('orderButton');
         const pricePerViewSpan = document.getElementById('pricePerView');
         const instagramAccountError = document.getElementById('instagramAccountError');
         const quantityError = document.getElementById('quantityError');
-        const minViewsSpan = document.getElementById('minViews');
-        const payNowButton = document.getElementById('payNowButton'); // Get the new button
+        const minViewsDisplaySpan = document.getElementById('minViewsDisplay'); // Added
+        const discountPercentDisplaySpan = document.getElementById('discountPercentDisplay'); // Added
+        const discountThresholdDisplaySpan = document.getElementById('discountThresholdDisplay'); // Added
+        const discountThresholdDisplayHindiSpan = document.getElementById('discountThresholdDisplayHindi'); // Added
+        const discountPercentDisplayHindiSpan = document.getElementById('discountPercentDisplayHindi'); // Added
+        const orderButton = document.getElementById('orderButton');
+        const payNowButton = document.getElementById('payNowButton');
+        const paymentInstructionsDiv = document.getElementById('paymentInstructions'); // Added
+        const upiIdDisplaySpan = document.getElementById('upiIdDisplay'); // Added
 
 
-        // Display the initial price per view and minimum quantity from the config
-        pricePerViewSpan.textContent = storyViewsConfig.pricePerView.toFixed(2);
-        minViewsSpan.textContent = storyViewsConfig.minimumOrderQuantity;
-        quantityInput.min = storyViewsConfig.minimumOrderQuantity; // Set the min attribute dynamically
+        // Display initial configuration values in HTML
+        pricePerViewSpan.textContent = storyViewsConfig.pricePerView.toFixed(2); // Display price with 2 decimal places
+        minViewsDisplaySpan.textContent = storyViewsConfig.minimumOrderQuantity;
+        discountPercentDisplaySpan.textContent = discountPercentage;
+        discountThresholdDisplaySpan.textContent = discountThresholdQuantity.toLocaleString(); // Use toLocaleString for comma formatting
+        discountThresholdDisplayHindiSpan.textContent = discountThresholdQuantity.toLocaleString();
+        discountPercentDisplayHindiSpan.textContent = discountPercentage;
+        upiIdDisplaySpan.textContent = upiId;
 
-        // Function to update the order value and button visibility
+        // Set the min attribute dynamically for client-side browser validation hint
+        quantityInput.min = 1; // Allow any number > 0 for basic calculation hint
+
+
+        // Function to update the order value, validation messages, and button visibility
         function updateOrderValue() {
             const quantity = parseFloat(quantityInput.value);
             let orderValue = 0;
-            let isValidQuantity = false;
+            let isValidForOrder = false; // Flag to determine if the quantity meets the minimum for placing an order
 
-
-            if (!isNaN(quantity)) {
-                 isValidQuantity = true;
+            // Always calculate the base value if quantity is a valid number
+            if (!isNaN(quantity) && quantity > 0) { // Calculate if quantity is a positive number
                 orderValue = quantity * storyViewsConfig.pricePerView;
-                 if (quantity >= discountThresholdQuantity) { // Use >= for threshold
+
+                // Apply discount ONLY if quantity meets the discount threshold
+                if (quantity >= discountThresholdQuantity) {
                     const discountAmount = orderValue * (discountPercentage / 100);
                     orderValue -= discountAmount;
                 }
-                // Ensure minimum order value is met
-                const minOrderValue = storyViewsConfig.minimumOrderQuantity * storyViewsConfig.pricePerView;
-                 if (quantity < storyViewsConfig.minimumOrderQuantity) {
-                     orderValue = minOrderValue;
-                 }
 
-                orderValueSpan.textContent = orderValue.toFixed(2);
+                // Update the displayed order value with the calculated value (including potential discount)
+                orderValueSpan.textContent = orderValue.toFixed(2); // Display order value with 2 decimal places
+
+                // Check if the quantity meets the minimum requirement for placing an order
+                if (quantity >= storyViewsConfig.minimumOrderQuantity) {
+                    isValidForOrder = true;
+                    // Clear quantity error if it was previously set and is now valid
+                    quantityInput.classList.remove('error');
+                    quantityError.textContent = '';
+                } else {
+                    // Set quantity error message if below minimum
+                    quantityInput.classList.add('error');
+                    quantityError.textContent = `Minimum order quantity is ${storyViewsConfig.minimumOrderQuantity}.`;
+                }
 
             } else {
+                // Handle non-numeric or zero/negative input: set order value to 0 and show error
                 orderValueSpan.textContent = '0.00';
+                // Only show error if input is not just empty, but invalid number
+                if (quantityInput.value.trim() !== '') {
+                    quantityInput.classList.add('error');
+                    quantityError.textContent = "Please enter a valid positive number for quantity.";
+                } else {
+                    // Clear error if input is empty
+                    quantityInput.classList.remove('error');
+                    quantityError.textContent = '';
+                }
+                isValidForOrder = false; // Quantity is not valid for ordering
             }
 
-            // Clear quantity error on input
-            quantityInput.classList.remove('error');
-            quantityError.textContent = '';
-
-            // Show/hide Pay Now button based on valid quantity and order value
-            if (isValidQuantity && orderValue > 0) {
-                 payNowButton.style.display = 'block';
+            // Control the visibility of the payment instructions and "Pay Now" button
+            if (isValidForOrder) {
+                paymentInstructionsDiv.style.display = 'block'; // Show payment section
             } else {
-                 payNowButton.style.display = 'none';
+                paymentInstructionsDiv.style.display = 'none'; // Hide payment section
             }
 
-            updatePayNowButtonLink(); // Update the Pay Now button link
+            // Update the UPI payment link href whenever the order value or quantity changes
+            updatePayNowButtonLink();
         }
 
-         // Function to update the href of the Pay Now button
+        // Function to update the href of the Pay Now button (UPI link)
         function updatePayNowButtonLink() {
             const quantity = parseFloat(quantityInput.value);
-            const orderTotal = parseFloat(orderValueSpan.textContent);
+            const orderTotal = parseFloat(orderValueSpan.textContent); // Get the *displayed* value
 
-             // Only update link if quantity and order value are valid
+            // Only generate a valid UPI link if the quantity is valid for ordering and the total is positive
             if (!isNaN(quantity) && quantity >= storyViewsConfig.minimumOrderQuantity && !isNaN(orderTotal) && orderTotal > 0) {
                 const transactionNote = `${serviceName} Qty:${quantity}`;
-                const upiLink = `upi://pay?pa=abhinit16@fam&am=${orderTotal.toFixed(2)}&tn=${encodeURIComponent(transactionNote)}`;
+                const upiLink = `upi://pay?pa=${upiId}&am=${orderTotal.toFixed(2)}&tn=${encodeURIComponent(transactionNote)}`;
                 payNowButton.href = upiLink;
             } else {
-                payNowButton.href = "#"; // Or disable the button
+                // Set href to '#' or disable button if not valid for order
+                payNowButton.href = "#";
+                // Optionally, you could also disable the button visually or functionally here
+                // payNowButton.style.pointerEvents = 'none';
+                // payNowButton.style.opacity = '0.6';
             }
         }
 
 
-        // Event listener for quantity input change
+        // Event listeners for input changes
         quantityInput.addEventListener('input', updateOrderValue);
-        instagramAccountInput.addEventListener('input', updatePayNowButtonLink); // Also update if account link changes (though not strictly needed for link but good practice)
+        instagramAccountInput.addEventListener('input', function () { // Clear account link error on input
+            instagramAccountInput.classList.remove('error');
+            instagramAccountError.textContent = '';
+            // No need to call updateOrderValue here based on requirements, but it doesn't hurt
+            // updateOrderValue();
+        });
+        // Add listener for customer name input if you ever want to use it for validation
+        customerNameInput.addEventListener('input', function () {
+            // No validation needed per current requirements, but added listener
+        });
 
 
-        // Initial call to set the order value and button state on page load
+        // Initial calls to set the order value, errors, and button state on page load
         updateOrderValue();
         updatePayNowButtonLink();
 
 
-        // Event listener for the order button click (WhatsApp)
+        // Event listener for the WhatsApp order button click
         orderButton.addEventListener('click', function () {
             const instagramAccount = instagramAccountInput.value.trim();
-            const customerName = document.getElementById('customerName').value.trim();
-            const quantity = parseInt(quantityInput.value);
-            const orderTotal = parseFloat(orderValueSpan.textContent);
-            const whatsappNumber = "917417232597"; // WhatsApp number without '+'
+            const customerName = customerNameInput.value.trim(); // Get customer name
+            const quantity = parseFloat(quantityInput.value); // Use parseFloat for consistency
+            const orderTotal = parseFloat(orderValueSpan.textContent); // Get calculated value
+
             let hasErrors = false;
 
+            // --- Validation for sending WhatsApp message ---
             // Clear previous errors
             instagramAccountInput.classList.remove('error');
             instagramAccountError.textContent = '';
             quantityInput.classList.remove('error');
-            quantityError.textContent = '';
+            quantityError.textContent = ''; // Clear quantity error before re-checking
 
             if (!instagramAccount) {
                 instagramAccountInput.classList.add('error');
@@ -610,24 +684,30 @@
                 hasErrors = true;
             }
 
-            if (isNaN(quantity) || quantity < storyViewsConfig.minimumOrderQuantity) {
+            // This check is crucial for the WhatsApp message - ensure quantity is valid for ordering
+            if (isNaN(quantity) || quantity < storyViewsConfig.minimumOrderQuantity || quantity <= 0) { // Also check for 0 or negative
                 quantityInput.classList.add('error');
-                quantityError.textContent = `Please enter a quantity of at least ${storyViewsConfig.minimumOrderQuantity}.`;
+                // Display the correct error message if the quantity is invalid for ordering
+                quantityError.textContent = `Minimum order quantity is ${storyViewsConfig.minimumOrderQuantity}. Please enter a valid quantity.`;
                 hasErrors = true;
             }
 
-            if (!customerName) {
-                // You can add error handling for customer name if needed
-                // For now, we'll just include it if provided
-            }
+            // Note: Customer name is optional as per placeholder, so not strictly required here unless you change that.
+            // if (!customerName) { ... add validation if name is required ... }
+
 
             if (hasErrors) {
-                return; // Stop if there are validation errors
+                // If there are validation errors, stop the process
+                // The error messages are already displayed by the checks above.
+                return;
             }
+            // --- End Validation ---
 
-             // Construct the dynamic UPI link for the WhatsApp message
+
+            // Construct the dynamic UPI link for the WhatsApp message text
+            // Only construct if validation passed, orderTotal will be >= minimum order value
             const transactionNote = `${serviceName} Qty:${quantity}`;
-            const upiLink = `upi://pay?pa=abhinit16@fam&am=${orderTotal.toFixed(2)}&tn=${encodeURIComponent(transactionNote)}`;
+            const upiLink = `upi://pay?pa=${upiId}&am=${orderTotal.toFixed(2)}&tn=${encodeURIComponent(transactionNote)}`;
 
 
             let message = `Hello InstaGrowMo Team,
@@ -635,16 +715,13 @@
 I would like to place an order for Instagram ${serviceName}:
 
 Instagram Username/Link: ${instagramAccount}
-${customerName ? `Customer Name: ${customerName}` : ''}
-Quantity: ${quantity}
-Order Value: ₹${orderTotal.toFixed(2)}
-
-----------
+${customerName ? `Customer Name: ${customerName}\n` : ''} Quantity: ${quantity}
+Calculated Order Value: ₹${orderTotal.toFixed(2)} ----------
 `;
-             // Add payment instructions and link (Formal Hindi and English)
-            message += `To complete your order, please make the payment of ₹${orderTotal.toFixed(2)} using the UPI link below or by returning to the website's payment assistance section if the link doesn't work.\n\n`;
+            // Add payment instructions and link (Formal Hindi and English)
+            message += `To complete your order, please make the payment of ₹${orderTotal.toFixed(2)} using the UPI link below or by returning to the website if the link doesn't work or you can wait till InstaGrowMo support team message you.\n\n`;
             message += `Order Payment Link:\n${upiLink}\n\n`;
-            message += `भुगतान पूरा करने के लिए, कृपया नीचे दिए गए UPI लिंक का उपयोग करके ₹${orderTotal.toFixed(2)} का भुगतान करें या यदि लिंक काम नहीं कर रहा है तो वेबसाइट के पेमेंट असिस्टेंस सेक्शन पर वापस आएं।\n`;
+            message += `भुगतान पूरा करने के लिए, कृपया नीचे दिए गए UPI लिंक का उपयोग करके ₹${orderTotal.toFixed(2)} का भुगतान करें या यदि लिंक काम नहीं कर रहा है तो वेबसाइट पर वापस जाएं या फिर थोड़ी देर में InstaGrowMo की support team आपको message करेगी। \n`;
             message += `----------\n`;
 
 

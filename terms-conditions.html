@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <title>Terms and Conditions - InstaGrowMo</title>
+    <style>
+        /* Inherit styles from the main page for consistency */
+        :root {
+            --primary-color: #5a55ca; /* Purple */
+            --secondary-color: #00acc1; /* Teal */
+            --accent-color: #ff7043; /* Orange */
+            --text-color-primary: #212529; /* Dark text */
+            --text-color-secondary: #495057; /* Secondary text */
+            --bg-color-primary: #f8f9fa; /* Light background */
+            --bg-color-secondary: #fff; /* White background */
+            --box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            --border-radius: 8px;
+            --transition: all 0.3s ease-in-out;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color-primary);
+            color: var(--text-color-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--accent-color);
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: darken(var(--accent-color), 10%);
+        }
+
+        .top-panel {
+            background-color: var(--bg-color-secondary);
+            padding: 15px 20px;
+            text-align: left;
+            box-shadow: var(--box-shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-panel h1 {
+            margin: 0;
+            font-size: 1.8em;
+            letter-spacing: -1px;
+            color: var(--primary-color);
+        }
+
+        .home-button {
+            background-color: var(--primary-color);
+            color: var(--bg-color-secondary); /* White color */
+            padding: 10px 15px;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.95em;
+            text-decoration: none; /* Remove underline from link */
+            transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+        }
+
+        .home-button:hover {
+            background-color: darken(var(--primary-color), 10%);
+            transform: scale(1.05);
+        }
+
+        .terms-container {
+            max-width: 800px; /* Limit width for readability */
+            margin: 30px auto; /* Center block with space */
+            padding: 20px;
+            background-color: var(--bg-color-secondary);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: left;
+        }
+
+        .terms-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+
+        .terms-container h3 {
+             color: var(--primary-color);
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .terms-container p {
+            margin-bottom: 15px;
+            font-size: 0.95em;
+            color: var(--text-color-secondary);
+        }
+
+         .terms-container ul {
+            margin-bottom: 15px;
+             padding-left: 20px;
+         }
+
+         .terms-container ul li {
+             margin-bottom: 8px;
+             color: var(--text-color-secondary);
+             font-size: 0.95em;
+         }
+
+        footer {
+            background-color: var(--bg-color-secondary);
+            padding: 20px;
+            text-align: center;
+            color: var(--text-color-secondary);
+            font-size: 0.8em;
+            border-top: 1px solid #eee;
+            margin-top: 40px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .top-panel { padding: 10px; }
+            .top-panel h1 { font-size: 1.6em; }
+            .terms-container {
+                margin: 20px;
+                padding: 15px;
+            }
+            .terms-container h2 { font-size: 1.8em; }
+            .terms-container h3 { font-size: 1.1em; }
+            .terms-container p, .terms-container ul li { font-size: 0.9em; }
+            footer { padding: 15px; font-size: 0.75em; }
+        }
+
+         @media (max-width: 400px) {
+             .top-panel h1 { font-size: 1.4em; }
+              .terms-container h2 { font-size: 1.6em; }
+             .terms-container h3 { font-size: 1em; }
+         }
+    </style>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="top-panel">
+        <h1>InstaGrowMo</h1>
+        <a href="/" class="home-button">Home</a>
+    </div>
+
+    <div class="terms-container">
+        <h2>Terms and Conditions</h2>
+
+        <p>Welcome to InstaGrowMo. By accessing and using this website and our services, you agree to comply with and be bound by the following terms and conditions. Please review these terms carefully.</p>
+
+        <h3>Service Description</h3>
+        <p>InstaGrowMo provides services intended to boost your presence on Instagram by increasing metrics such as followers, likes, views, shares, and comments. These services are offered on a prepaid basis.</p>
+
+        <h3>Ordering Process</h3>
+        <p>Orders for our services are placed by contacting us directly via WhatsApp. Our website serves as a catalogue and information resource.</p>
+
+        <h3>Payment</h3>
+        <p>All services offered by InstaGrowMo are prepaid. Payment must be received and confirmed before the processing of your order begins.</p>
+
+         <h3>No Website Data Collection</h3>
+         <p>This website is static and does not directly collect any personal data from your Browse activity. Information related to your order, such as your Instagram link, desired quantity, and name, is collected by us only when you voluntarily provide it through WhatsApp communication to place an order. For details on how we handle information collected via WhatsApp and other communications, please refer to our separate <a href="/privacy.html">Privacy Policy</a>.</p>
+
+
+        <h3>Service Usage and Risks</h3>
+        <ul>
+            <li>You are solely responsible for ensuring the correct Instagram link or details are provided for your order. Errors in provided information are not the responsibility of InstaGrowMo.</li>
+            <li>Your Instagram account must be public for most services to be successfully delivered. You can typically set your account back to private after the service is completed.</li>
+            <li>InstaGrowMo is not affiliated with Instagram.</li>
+            <li>The effectiveness and results of our services may vary. We provide estimates based on past performance but cannot guarantee specific outcomes or retention rates.</li>
+            <li>Once the service has started, refunds are generally not provided. If InstaGrowMo is unable to deliver the service for reasons within our control, a refund may be considered or an alternative service offered.</li>
+            <li>Do not hide engagement metrics (likes, shares, comments) on targeted posts while the service is active.</li>
+        </ul>
+
+         <h3>Changes to Terms</h3>
+        <p>InstaGrowMo reserves the right to modify or replace these Terms and Conditions at any time. It is your responsibility to check these Terms periodically for changes. Your continued use of the website following the posting of any changes constitutes acceptance of those changes.</p>
+
+        <h3>Contact Information</h3>
+        <p>If you have any questions about these Terms and Conditions, please contact us via the WhatsApp number provided on our website.</p>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2025 InstaGrowMo. All rights reserved.</p>
+        <p><a href="/privacy-policy.html">Privacy Policy</a> 
+    </footer>
+
+    </body>
+</html>

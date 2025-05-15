@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="favicon.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
     <title>Buy Instagram Comments - InstaGrowMo</title>
     <style>
         /* Inherit styles from the main page with some specific adjustments */
@@ -15,7 +16,8 @@
             --text-color-secondary: #495057;
             --bg-color-primary: #f8f9fa;
             --bg-color-secondary: #fff;
-            --box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08); /* More subtle shadow */
+            --box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            /* More subtle shadow */
             --border-radius: 8px;
             --transition: all 0.3s ease-in-out;
         }
@@ -30,7 +32,9 @@
             overflow-x: hidden;
         }
 
-        h1, h2, h3 {
+        h1,
+        h2,
+        h3 {
             color: var(--primary-color);
             margin-top: 0;
             line-height: 1.2;
@@ -43,7 +47,11 @@
         }
 
         a:hover {
-            color: darken(var(--accent-color), 10%);
+            /* Note: 'darken' is a SASS/LESS function. Using CSS rgba or hex adjustments */
+            /* For simplicity, let's pick a slightly darker shade or adjust alpha */
+            color: rgba(255, 112, 67, 0.8);
+            /* Example: slightly less opaque */
+            /* Or a specific darker hex color like #e65100 */
         }
 
         .top-panel {
@@ -62,46 +70,58 @@
         .top-panel h1 {
             margin: 0;
             font-size: 1.8em;
+            /* Slightly smaller for better fit */
             letter-spacing: -1px;
             color: var(--primary-color);
         }
 
         .home-button {
             background-color: var(--primary-color);
-            color: var(--bg-color-secondary); /* White color */
+            color: var(--bg-color-secondary);
+            /* White color */
             padding: 10px 15px;
             border: none;
             border-radius: var(--border-radius);
             cursor: pointer;
             font-weight: bold;
             font-size: 0.95em;
-            text-decoration: none; /* Remove underline from link */
+            text-decoration: none;
+            /* Remove underline from link */
             transition: background-color 0.3s ease, transform 0.2s ease-in-out;
         }
 
         .home-button:hover {
-            background-color: darken(var(--primary-color), 10%);
+            /* Note: 'darken' is a SASS/LESS function. Using CSS rgba or hex adjustments */
+            background-color: rgba(90, 85, 202, 0.9);
+            /* Example: slightly less opaque */
+            /* Or a specific darker hex color like #4527a0 */
             transform: scale(1.05);
         }
 
         .service-page-container {
-            padding: 20px; /* Adjusted padding for responsiveness */
-            background-color: var(--bg-color-secondary);
+            padding: 20px;
+            /* Adjusted padding for responsiveness */
+            background-color: var(--bg-color-primary);
+            /* Changed to primary background */
             text-align: center;
         }
 
         .service-info {
-            max-width: 95%; /* Increased max-width for better flow on smaller screens */
+            max-width: 95%;
+            /* Increased max-width for better flow on smaller screens */
             margin: 20px auto;
-            padding: 20px; /* Adjusted padding */
-            background-color: var(--bg-color-primary);
+            padding: 20px;
+            /* Adjusted padding */
+            background-color: var(--bg-color-secondary);
+            /* Changed to secondary background */
             border-radius: var(--border-radius);
             box-shadow: var(--box-shadow);
             text-align: center;
         }
 
         .service-title {
-            font-size: 2em; /* Adjusted font size for responsiveness */
+            font-size: 2em;
+            /* Adjusted font size for responsiveness */
             color: var(--secondary-color);
             margin-bottom: 10px;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
@@ -109,7 +129,8 @@
         }
 
         .service-info p {
-            font-size: 0.95em; /* Adjusted font size for responsiveness */
+            font-size: 0.95em;
+            /* Adjusted font size for responsiveness */
             color: var(--text-color-secondary);
             line-height: 1.6;
             margin-bottom: 15px;
@@ -117,10 +138,13 @@
         }
 
         .order-form {
-            max-width: 95%; /* Increased max-width for better flow on smaller screens */
+            max-width: 95%;
+            /* Increased max-width for better flow on smaller screens */
             margin: 20px auto;
-            padding: 20px; /* Adjusted padding */
-            background-color: var(--bg-color-primary);
+            padding: 20px;
+            /* Adjusted padding */
+            background-color: var(--bg-color-secondary);
+            /* Changed to secondary background */
             border-radius: var(--border-radius);
             box-shadow: var(--box-shadow);
             text-align: left;
@@ -135,7 +159,8 @@
             font-weight: bold;
             margin-bottom: 5px;
             color: var(--text-color-primary);
-            font-size: 0.9em; /* Adjusted font size for responsiveness */
+            font-size: 0.9em;
+            /* Adjusted font size for responsiveness */
         }
 
         .form-group input[type="text"],
@@ -144,7 +169,8 @@
             padding: 10px;
             border: 1px solid #ced4da;
             border-radius: 6px;
-            font-size: 0.9em; /* Adjusted font size for responsiveness */
+            font-size: 0.9em;
+            /* Adjusted font size for responsiveness */
             box-sizing: border-box;
         }
 
@@ -154,7 +180,8 @@
 
         .error-message {
             color: red;
-            font-size: 0.8em; /* Adjusted font size for responsiveness */
+            font-size: 0.8em;
+            /* Adjusted font size for responsiveness */
             margin-top: 3px;
         }
 
@@ -172,43 +199,52 @@
             text-align: center;
             margin-bottom: 10px;
             color: var(--text-color-secondary);
-            font-size: 0.9em; /* Adjusted font size for responsiveness */
+            font-size: 0.9em;
+            /* Adjusted font size for responsiveness */
         }
 
         .order-value {
             text-align: center;
-            font-size: 1.4em; /* Adjusted font size for responsiveness */
+            font-size: 1.4em;
+            /* Adjusted font size for responsiveness */
             font-weight: bold;
             color: var(--secondary-color);
             margin-bottom: 15px;
         }
 
-         .order-button, .pay-now-button {
+        .order-button,
+        .pay-now-button {
             background-color: var(--accent-color);
             color: var(--bg-color-secondary);
             border: none;
-            padding: 10px 20px; /* Adjusted button padding for responsiveness */
+            padding: 10px 20px;
+            /* Adjusted button padding for responsiveness */
             border-radius: 6px;
             cursor: pointer;
             font-weight: bold;
-            font-size: 0.9em; /* Adjusted button font size for responsiveness */
+            font-size: 0.9em;
+            /* Adjusted button font size for responsiveness */
             transition: background-color 0.3s ease, transform 0.2s ease-in-out;
             width: 100%;
             text-align: center;
             display: block;
             margin-top: 15px;
-            text-decoration: none; /* Ensure links don't have underlines */
+            text-decoration: none;
+            /* Ensure links don't have underlines */
+            box-sizing: border-box;
+            /* Include padding in width */
         }
 
-         .pay-now-button {
-            background-color: #4CAF50; /* Green for payment button */
-            padding-left: 0;
-            padding-right: 0;
-            margin-top: 10px; /* Reduced margin between buttons */
+        .pay-now-button {
+            background-color: #4CAF50;
+            /* Green for payment button */
+            margin-top: 10px;
+            /* Reduced margin between buttons */
         }
 
 
-        .order-button:hover, .pay-now-button:hover {
+        .order-button:hover,
+        .pay-now-button:hover {
             background-color: #222;
             transform: scale(1.02);
         }
@@ -220,7 +256,8 @@
         .payment-info {
             text-align: center;
             color: var(--text-color-secondary);
-            font-size: 0.75em; /* Adjusted font size for responsiveness */
+            font-size: 0.75em;
+            /* Adjusted font size for responsiveness */
             margin-top: 15px;
             margin-bottom: 15px;
             line-height: 1.5;
@@ -232,14 +269,21 @@
         }
 
         .warning-message {
-            background-color: #ffe0b2; /* Light orange background */
-            color: #d84315; /* Dark orange text */
+            background-color: #ffe0b2;
+            /* Light orange background */
+            color: #d84315;
+            /* Dark orange text */
             padding: 15px;
             border-radius: var(--border-radius);
             margin-bottom: 15px;
             text-align: left;
             font-size: 0.9em;
-            border: 1px solid #ffb74d; /* Slightly darker orange border */
+            border: 1px solid #ffb74d;
+            /* Slightly darker orange border */
+            max-width: 95%;
+            /* Increased max-width for better flow on smaller screens */
+            margin: 20px auto;
+            /* Center the div */
         }
 
         .warning-message strong {
@@ -248,14 +292,17 @@
         }
 
         .discount-note {
-            background-color: #e3f2fd; /* Light blue background */
-            color: #1e88e5; /* Blue text */
+            background-color: #e3f2fd;
+            /* Light blue background */
+            color: #1e88e5;
+            /* Blue text */
             padding: 10px;
             border-radius: var(--border-radius);
             margin-bottom: 10px;
             text-align: left;
             font-size: 0.9em;
-            border: 1px solid #bbdefb; /* Light blue border */
+            border: 1px solid #bbdefb;
+            /* Light blue border */
         }
 
         .discount-note strong {
@@ -265,10 +312,12 @@
 
         footer {
             background-color: var(--bg-color-secondary);
-            padding: 10px; /* Adjusted footer padding for responsiveness */
+            padding: 10px;
+            /* Adjusted footer padding for responsiveness */
             text-align: center;
             color: var(--text-color-secondary);
-            font-size: 0.7em; /* Adjusted footer font size for responsiveness */
+            font-size: 0.7em;
+            /* Adjusted footer font size for responsiveness */
             border-top: 1px solid #eee;
             margin-top: 20px;
         }
@@ -276,18 +325,21 @@
         /* Comment Type Buttons Styling */
         .comment-type-buttons {
             display: flex;
-            gap: 8px; /* Adjusted gap for smaller screens */
+            gap: 8px;
+            /* Adjusted gap for smaller screens */
             margin-bottom: 15px;
         }
 
         .comment-type-button {
             flex-grow: 1;
-            padding: 8px 12px; /* Adjusted button padding for responsiveness */
+            padding: 8px 12px;
+            /* Adjusted button padding for responsiveness */
             border: none;
             border-radius: 6px;
             cursor: pointer;
             font-weight: bold;
-            font-size: 0.85em; /* Adjusted button font size for responsiveness */
+            font-size: 0.85em;
+            /* Adjusted button font size for responsiveness */
             transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease-in-out;
         }
 
@@ -303,7 +355,8 @@
         }
 
         .comment-type-button:hover {
-            transform: scale(1.03); /* Slightly reduced scale on hover for smaller screens */
+            transform: scale(1.03);
+            /* Slightly reduced scale on hover for smaller screens */
         }
 
         /* Increase width of comment field and make it more responsive */
@@ -312,7 +365,8 @@
             padding: 10px;
             border: 1px solid #ced4da;
             border-radius: 6px;
-            font-size: 0.9em; /* Adjusted font size for responsiveness */
+            font-size: 0.9em;
+            /* Adjusted font size for responsiveness */
             box-sizing: border-box;
             min-height: 120px;
         }
@@ -322,40 +376,53 @@
             .top-panel h1 {
                 font-size: 1.4em;
             }
+
             .service-page-container {
                 padding: 15px;
             }
+
             .service-info {
                 padding: 15px;
             }
+
             .service-title {
                 font-size: 1.8em;
             }
+
             .order-form {
                 padding: 15px;
             }
+
             .form-group label {
                 font-size: 0.85em;
             }
+
             .form-group input[type="text"],
             .form-group input[type="number"] {
                 font-size: 0.85em;
             }
+
             .price-info {
                 font-size: 0.85em;
             }
+
             .order-value {
                 font-size: 1.3em;
             }
+
             .comment-type-buttons {
-                flex-direction: column; /* Stack buttons on smaller screens */
+                flex-direction: column;
+                /* Stack buttons on smaller screens */
                 gap: 5px;
             }
+
             .comment-type-button {
                 font-size: 0.9em;
                 padding: 10px;
             }
-             .order-button, .pay-now-button {
+
+            .order-button,
+            .pay-now-button {
                 font-size: 0.85em;
                 padding: 10px 15px;
             }
@@ -365,23 +432,30 @@
             .top-panel h1 {
                 font-size: 1.2em;
             }
+
             .service-title {
                 font-size: 1.6em;
             }
+
             .order-value {
                 font-size: 1.2em;
             }
-             .order-button, .pay-now-button {
+
+            .order-button,
+            .pay-now-button {
                 font-size: 0.8em;
                 padding: 8px 12px;
             }
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
     <div class="top-panel">
@@ -392,7 +466,8 @@
     <div class="service-page-container">
         <div class="service-info">
             <h2 class="service-title">Instagram Indian Real Comments</h2>
-            <p>Boost engagement with authentic, pre-written comments from real accounts—no bots or fake profiles. Order custom comments now.</p>
+            <p>Boost engagement with authentic, pre-written comments from real accounts—no bots or fake profiles. Order
+                custom comments now.</p>
         </div>
 
         <div class="order-form">
@@ -403,69 +478,83 @@
             <div class="form-group">
                 <label>Select Comment Type:</label>
                 <div class="comment-type-buttons">
-                    <button type="button" id="fullCommentsButton" class="comment-type-button active">Give Full Comments</button>
-                    <button type="button" id="createCommentsButton" class="comment-type-button">Let us create comments for you (Additional 20% cost)</button>
+                    <button type="button" id="fullCommentsButton" class="comment-type-button active">Give Full
+                        Comments</button>
+                    <button type="button" id="createCommentsButton" class="comment-type-button">Let us create comments
+                        for you (Additional 20% cost)</button>
                     <input type="hidden" id="selectedCommentType" name="commentType" value="full">
                 </div>
             </div>
-            <p id="createCommentsNote" style="display: none; font-size: 0.9em; color: var(--text-color-secondary); margin-top: 5px;">Please provide at least 10 comments below. Our team will use these to generate more engaging comments.</p>
+            <p id="createCommentsNote"
+                style="display: none; font-size: 0.9em; color: var(--text-color-secondary); margin-top: 5px;">Please
+                provide at least 10 comments below. Our team will use these to generate more engaging comments.</p>
             <div class="form-group">
                 <label for="videoReelLink">Instagram Post/Reel/Video Link (URL):</label>
-                <input type="text" id="videoReelLink" name="videoReelLink" placeholder="Enter your Instagram post/reel/video link (URL)">
+                <input type="text" id="videoReelLink" name="videoReelLink"
+                    placeholder="Enter your Instagram post/reel/video link (URL)" required>
                 <p class="error-message" id="videoReelLinkError"></p>
             </div>
             <div class="form-group">
-                <label for="customerName">Your Name:</label>
-                <input type="text" id="customerName" name="customerName" placeholder="Enter your name">
+                <label for="customerName">Your Name (Optional):</label> <input type="text" id="customerName" name="customerName" placeholder="Enter your name">
             </div>
             <div class="form-group" id="quantityFormField">
-                <label for="quantity">Quantity (Minimum <span id="minComments"></span>):</label>
-                <input type="number" id="quantity" name="quantity" min="" placeholder="Enter quantity (e.g., 5)">
-                <p class="error-message" id="quantityError"></p>
+                <label for="quantity">Quantity:</label> <input type="number" id="quantity" name="quantity" min="1" placeholder="Enter quantity (e.g., 20)"> <p class="error-message" id="quantityError"></p>
             </div>
             <div class="form-group">
                 <label for="comments" id="commentsLabel">Your Comments (One per line):</label>
-                <textarea id="comments" name="comments" rows="4" placeholder="Enter one comment per line" style="width: calc(100% - 22px); min-height: 120px;"></textarea>
+                <textarea id="comments" name="comments" rows="4" placeholder="Enter one comment per line"
+                    style="width: calc(100% - 22px); min-height: 120px;"></textarea>
                 <p class="error-message" id="commentsError"></p>
             </div>
-            <div id="calculatedQuantitySection" style="display: none; text-align: left; margin-top: 10px;">
-                Calculated Quantity: <span id="calculatedQuantity">0</span>
-                <div class="order-value">
-                    Order Value: ₹<span id="calculatedOrderValue">0.00</span>
-                </div>
-            </div>
 
-         <p style="display: none;" class="price-info">Price per comment: ₹<span id="pricePerComment"></span></p>
-
-            <div class="order-value" id="defaultOrderValueSection">
+            <p class="price-info">Price per comment: ₹<span id="pricePerComment"></span></p>
+            <p class="price-info">Minimum order quantity: <span id="minCommentsDisplay"></span></p> <div class="order-value" id="defaultOrderValueSection">
                 Order Value: ₹<span id="orderValue">0.00</span>
-                <div id="additionalCostInfo" style="display: none; text-align: center; color: var(--text-color-secondary); font-size: 0.9em; margin-top: 5px;">
+                <div id="additionalCostInfo"
+                    style="display: none; text-align: center; color: var(--text-color-secondary); font-size: 0.9em; margin-top: 5px;">
                     Additional Cost (for creating comments): 20% of the base order value.
                 </div>
             </div>
 
             <div class="discount-note">
-                <p><strong>Discount Offer:</strong> Enjoy a discount of 30% on your order when you purchase more than 100 comments.</p>
-                <p><strong>Discount Offer [Hindi Translation]:</strong> 100 से ज़्यादा कमेंट्स खरीदने पर अपने ऑर्डर पर 30% की छूट का आनंद लें।</p>
+                <p><strong>Discount Offer:</strong> Enjoy a discount of <span id="discountPercentDisplay">30</span>% on your order when you purchase more than <span id="discountThresholdDisplay">100</span> comments.</p>
+                <p><strong>Discount Offer [Hindi Translation]:</strong> <span id="discountThresholdDisplayHindi">100</span> से ज़्यादा कमेंट्स खरीदने पर अपने ऑर्डर पर <span id="discountPercentDisplayHindi">30</span>% की छूट का आनंद लें।</p>
             </div>
 
             <p class="payment-info">
-                <span class="important-note">Important:</span> Please note that this is a prepaid service. After you send us your order via WhatsApp, we will request you to send the payment first. Your order will be processed quickly once we receive the payment and confirm your Instagram post/reel/video details and your comments.
+                <span class="important-note">Important:</span> Please note that this is a prepaid service. After you
+                send us your order via WhatsApp, we will request you to send the payment first. Your order will be
+                processed quickly once we receive the payment and confirm your Instagram post/reel/video details and
+                your comments.
             </p>
-
-            <button id="orderButton" class="order-button">
-                <i class="fab fa-whatsapp whatsapp-icon"></i> Send Order on WhatsApp
+ <button id="orderButton" class="order-button" style="margin-top: 20px;"> <i class="fab fa-whatsapp whatsapp-icon"></i> Send Order Details on WhatsApp
             </button>
-
-            <a href="#" id="payNowButton" class="pay-now-button" style="display: none;">
-                Pay Now or Pay via WhatsApp
+            <div id="paymentInstructions"
+                style="display: none; text-align: center; margin-top: 20px; padding: 15px; background-color: #e8f5e9; border-radius: var(--border-radius); border: 1px solid #c8e6c9;">
+                <h4 style="color: #2e7d32; margin-top: 0;">Payment Instructions</h4>
+                <p style="word-break: break-all;">UPI ID: <strong id="upiIdDisplay"></strong></p>
+                <p style="color: #558b2f; font-size: 0.9em;">Click the button below to pay directly via UPI app.</p>
+                <a href="#" id="payNowButton" class="pay-now-button">
+                    <i class="fas fa-qrcode whatsapp-icon"></i> Pay Now
                 </a>
+                <p style="color: #388e3c; font-size: 0.85em; margin-top: 10px;">After payment, please share the screenshot on WhatsApp for quick processing.</p>
+            </div>
+
+
+           
+
         </div>
         <div class="warning-message">
-            <strong>Important:</strong> To use our Instagram Comments service, your Instagram account must be <strong>public</strong>. Please ensure your account is set to public before placing your order. You can switch back to a private account after the service is completed. <br><br>
-            <strong>Post/Reel/Video Link:</strong> Please ensure the link you provide is correct. If you delete, archive, or make any changes to the target post/reel/video after placing the order, you will be responsible for this, and InstaGrowMo will not initiate a refund. <br><br>
-            <strong>No Refund After Start:</strong> Once the service has started, no refund will be provided. If InstaGrowMo cannot provide the service, we will refund your money or you can order another service. <br><br>
-            <strong>Engagement Visibility:</strong> Do not hide Likes, Shares, or Comments on the targeted post/reel for which you are ordering the service.
+            <strong>Important:</strong> To use our Instagram Comments service, your Instagram account must be
+            <strong>public</strong>. Please ensure your account is set to public before placing your order. You can
+            switch back to a private account after the service is completed. <br><br>
+            <strong>Post/Reel/Video Link:</strong> Please ensure the link you provide is correct. If you delete,
+            archive, or make any changes to the target post/reel/video after placing the order, you will be responsible
+            for this, and InstaGrowMo will not initiate a refund. <br><br>
+            <strong>No Refund After Start:</strong> Once the service has started, no refund will be provided. If
+            InstaGrowMo cannot provide the service, we will refund your money or you can order another service. <br><br>
+            <strong>Engagement Visibility:</strong> Do not hide Likes, Shares, or Comments on the targeted post/reel
+            for which you are ordering the service.
         </div>
     </div>
 
@@ -480,174 +569,216 @@
 
         // Configuration for Instagram Comments service
         const commentsConfig = {
-            pricePerComment: 0.2, // Price per comment in Rupees
+            pricePerComment: 0.15, // Price per comment in Rupees
             minimumOrderQuantity: 20 // Minimum order quantity for comments
         };
 
         // Configuration for discount offer
         const commentsDiscountThresholdQuantity = 100; // Corrected to match text (more than 100 means >= 101, threshold is 100)
-        const commentsDiscountPercentage = 30;
+        const commentsDiscountPercentage = 30; // 30% discount
+
+        // UPI ID for payment
+        const upiId = "abhinit16@fam"; // Your UPI ID
+
+        // WhatsApp number
+        const whatsappNumber = "917417232597"; // WhatsApp number without '+'
+
 
         // Get references to HTML elements
         const fullCommentsButton = document.getElementById('fullCommentsButton');
         const createCommentsButton = document.getElementById('createCommentsButton');
         const createCommentsNote = document.getElementById('createCommentsNote');
         const videoReelLinkInput = document.getElementById('videoReelLink');
+        const customerNameInput = document.getElementById('customerName'); // Added
         const quantityInput = document.getElementById('quantity');
         const orderValueSpan = document.getElementById('orderValue');
         const orderButton = document.getElementById('orderButton');
         const pricePerCommentSpan = document.getElementById('pricePerComment');
         const videoReelLinkError = document.getElementById('videoReelLinkError');
         const quantityError = document.getElementById('quantityError');
-        const minCommentsSpan = document.getElementById('minComments');
+        const minCommentsDisplaySpan = document.getElementById('minCommentsDisplay'); // Added
+        const discountPercentDisplaySpan = document.getElementById('discountPercentDisplay'); // Added
+        const discountThresholdDisplaySpan = document.getElementById('discountThresholdDisplay'); // Added
+        const discountThresholdDisplayHindiSpan = document.getElementById('discountThresholdDisplayHindi'); // Added
+        const discountPercentDisplayHindiSpan = document.getElementById('discountPercentDisplayHindi'); // Added
         const commentsInput = document.getElementById('comments');
         const commentsError = document.getElementById('commentsError');
         const commentsLabel = document.getElementById('commentsLabel');
         const quantityFormField = document.getElementById('quantityFormField');
-        const calculatedQuantitySection = document.getElementById('calculatedQuantitySection');
-        const calculatedQuantitySpan = document.getElementById('calculatedQuantity');
-        const calculatedOrderValueSpan = document.getElementById('calculatedOrderValue');
+        // Removed calculatedQuantitySection, calculatedQuantitySpan, calculatedOrderValueSpan as they are no longer needed for display
         const defaultOrderValueSection = document.getElementById('defaultOrderValueSection');
         const additionalCostInfo = document.getElementById('additionalCostInfo');
         const selectedCommentTypeInput = document.getElementById('selectedCommentType');
         const payNowButton = document.getElementById('payNowButton'); // Get the new button
+        const paymentInstructionsDiv = document.getElementById('paymentInstructions'); // Added
+        const upiIdDisplaySpan = document.getElementById('upiIdDisplay'); // Added
 
-        // Display the initial price per comment and minimum quantity from the config
+
+        // Display initial configuration values in HTML
         pricePerCommentSpan.textContent = commentsConfig.pricePerComment.toFixed(2);
-        minCommentsSpan.textContent = commentsConfig.minimumOrderQuantity;
-        quantityInput.min = commentsConfig.minimumOrderQuantity; // Set the min attribute dynamically
+        minCommentsDisplaySpan.textContent = commentsConfig.minimumOrderQuantity;
+        discountPercentDisplaySpan.textContent = commentsDiscountPercentage;
+        discountThresholdDisplaySpan.textContent = commentsDiscountThresholdQuantity.toLocaleString(); // Use toLocaleString for comma formatting
+        discountThresholdDisplayHindiSpan.textContent = commentsDiscountThresholdQuantity.toLocaleString();
+        discountPercentDisplayHindiSpan.textContent = commentsDiscountPercentage;
+        upiIdDisplaySpan.textContent = upiId;
 
-        // Function to calculate order value for option 2 (Let us create comments) and update button visibility
-        function updateOrderValueOption2() {
-            const quantity = parseFloat(quantityInput.value);
+        // Set the min attribute dynamically for client-side browser validation hint
+        quantityInput.min = 1; // Allow any number > 0 for basic calculation hint
+
+
+        // Function to update the order value and button visibility
+        function updateOrderValue() {
+            const commentType = selectedCommentTypeInput.value;
+            let quantity;
             let basePrice = 0;
             let totalCost = 0;
-            let isValidOrder = false;
+            let isValidForOrder = false; // Flag to determine if the quantity meets the minimum for placing an order
 
-            if (!isNaN(quantity) && quantity >= commentsConfig.minimumOrderQuantity) {
-                isValidOrder = true;
-                basePrice = quantity * commentsConfig.pricePerComment;
-                totalCost = basePrice * 1.2; // Include 20% additional cost
+            if (commentType === 'create') {
+                quantity = parseFloat(quantityInput.value);
+                if (!isNaN(quantity) && quantity > 0) { // Calculate if quantity is a positive number
+                     basePrice = quantity * commentsConfig.pricePerComment;
+                     totalCost = basePrice * 1.2; // Include 20% additional cost
 
-                // Apply discount if quantity is above threshold
-                if (quantity >= commentsDiscountThresholdQuantity) { // Use >= for threshold
-                    const discountAmount = totalCost * (commentsDiscountPercentage / 100);
-                    totalCost -= discountAmount;
+                     // Apply discount ONLY if quantity meets the discount threshold
+                     if (quantity >= commentsDiscountThresholdQuantity) {
+                         const discountAmount = totalCost * (commentsDiscountPercentage / 100);
+                         totalCost -= discountAmount;
+                     }
+
+                     // Check if the quantity meets the minimum requirement for placing an order
+                     if (quantity >= commentsConfig.minimumOrderQuantity) {
+                         isValidForOrder = true;
+                         // Clear quantity error if it was previously set and is now valid
+                         quantityInput.classList.remove('error');
+                         quantityError.textContent = '';
+                     } else {
+                         // Set quantity error message if below minimum
+                         quantityInput.classList.add('error');
+                         quantityError.textContent = `Minimum order quantity is ${commentsConfig.minimumOrderQuantity}.`;
+                     }
+                } else {
+                    // Handle non-numeric or zero/negative input: set order value to 0 and show error
+                    totalCost = 0;
+                     // Only show error if input is not just empty, but invalid number
+                     if (quantityInput.value.trim() !== '') {
+                         quantityInput.classList.add('error');
+                         quantityError.textContent = "Please enter a valid positive number for quantity.";
+                     } else {
+                         // Clear error if input is empty
+                         quantityInput.classList.remove('error');
+                         quantityError.textContent = '';
+                     }
+                     isValidForOrder = false; // Quantity is not valid for ordering
                 }
-            } else {
-                 // If quantity is invalid, but we still need comments for this type
-                 const comments = commentsInput.value.trim();
-                 const commentList = comments.split('\n').filter(comment => comment.trim() !== '');
-                 if (commentList.length >= 10) { // Minimum comments needed even if quantity is wrong
-                     // This scenario shouldn't allow placing order, but calculate value if possible
-                      basePrice = commentsConfig.minimumOrderQuantity * commentsConfig.pricePerComment; // Assume min quantity for calculation if input is bad
-                      totalCost = basePrice * 1.2;
-                      if (commentsConfig.minimumOrderQuantity >= commentsDiscountThresholdQuantity) {
-                           const discountAmount = totalCost * (commentsDiscountPercentage / 100);
-                           totalCost -= discountAmount;
-                      }
-                 }
+
+            } else if (commentType === 'full') {
+                const comments = commentsInput.value.trim();
+                const commentList = comments.split('\n').filter(comment => comment.trim() !== '');
+                quantity = commentList.length; // Quantity is the number of comments provided
+
+                if (quantity > 0) { // Calculate if quantity is a positive number
+                    basePrice = quantity * commentsConfig.pricePerComment;
+                    totalCost = basePrice; // No additional cost for 'full'
+
+                    // Apply discount ONLY if quantity meets the discount threshold
+                    if (quantity >= commentsDiscountThresholdQuantity) {
+                        const discountAmount = totalCost * (commentsDiscountPercentage / 100);
+                        totalCost -= discountAmount;
+                    }
+
+                     // Check if the quantity meets the minimum requirement for placing an order
+                    if (quantity >= commentsConfig.minimumOrderQuantity) {
+                        isValidForOrder = true;
+                         // Clear comments error if it was previously set and is now valid
+                         commentsInput.classList.remove('error');
+                         commentsError.textContent = '';
+                    } else {
+                         // Set comments error message if below minimum
+                         commentsInput.classList.add('error');
+                         commentsError.textContent = `Please enter at least ${commentsConfig.minimumOrderQuantity} comments (one per line).`;
+                         isValidForOrder = false; // Quantity is not valid for ordering
+                    }
+                } else {
+                    // Handle no comments: set order value to 0 and show error if input is not empty
+                    totalCost = 0;
+                     if (commentsInput.value.trim() !== '') {
+                         commentsInput.classList.add('error');
+                         commentsError.textContent = "Please enter at least one comment.";
+                     } else {
+                         // Clear error if input is empty
+                         commentsInput.classList.remove('error');
+                         commentsError.textContent = '';
+                     }
+                     isValidForOrder = false; // Quantity is not valid for ordering
+                }
             }
 
-            orderValueSpan.textContent = totalCost.toFixed(2);
+            orderValueSpan.textContent = totalCost.toFixed(2); // Update the displayed order value
 
-            // Show/hide Pay Now button based on valid quantity for option 2
-             if (!isNaN(quantity) && quantity >= commentsConfig.minimumOrderQuantity && totalCost > 0) {
-                payNowButton.style.display = 'block';
-             } else {
-                 payNowButton.style.display = 'none';
-             }
+            // Control the visibility of the payment instructions and "Pay Now" button
+            if (isValidForOrder && totalCost > 0) {
+                paymentInstructionsDiv.style.display = 'block'; // Show payment section
+            } else {
+                paymentInstructionsDiv.style.display = 'none'; // Hide payment section
+            }
 
-            updatePayNowButtonLink(); // Update the Pay Now button link
+            updatePayNowButtonLink(); // Update the UPI payment link href whenever the order value or quantity changes
         }
 
-        // Function to calculate quantity and order value based on comments for option 1 (Give Full Comments) and update button visibility
-        function updateCalculatedQuantityAndOrderValue() {
-            if (selectedCommentTypeInput.value !== 'full') return;
 
-            const comments = commentsInput.value.trim();
-            const commentList = comments.split('\n').filter(comment => comment.trim() !== '');
-            let quantity = commentList.length;
-            let orderValue = 0;
-            let isValidOrder = false;
-
-            if (quantity >= commentsConfig.minimumOrderQuantity) {
-                 isValidOrder = true;
-                orderValue = quantity * commentsConfig.pricePerComment;
-
-                // Apply discount if quantity is above threshold
-                if (quantity >= commentsDiscountThresholdQuantity) { // Use >= for threshold
-                    const discountAmount = orderValue * (commentsDiscountPercentage / 100);
-                    orderValue -= discountAmount;
-                }
-            } else if (quantity > 0) { // If quantity is less than min but more than 0
-                 // Calculate based on quantity, but the button should be hidden
-                 orderValue = quantity * commentsConfig.pricePerComment;
-            }
-
-
-            calculatedQuantitySpan.textContent = quantity;
-            calculatedOrderValueSpan.textContent = orderValue.toFixed(2);
-
-            // Show/hide Pay Now button based on valid quantity for option 1
-            if (isValidOrder && orderValue > 0) {
-                payNowButton.style.display = 'block';
-            } else {
-                 payNowButton.style.display = 'none';
-            }
-
-            updatePayNowButtonLink(); // Update the Pay Now button link
-        }
-
-         // Function to update the href of the Pay Now button
+        // Function to update the href of the Pay Now button
         function updatePayNowButtonLink() {
+            const commentType = selectedCommentTypeInput.value;
             let quantity;
             let totalOrderValue;
 
-            if (selectedCommentTypeInput.value === 'full') {
+            if (commentType === 'full') {
                  const comments = commentsInput.value.trim();
                  quantity = comments.split('\n').filter(comment => comment.trim() !== '').length;
-                 totalOrderValue = parseFloat(calculatedOrderValueSpan.textContent);
-                 // For UPI link, use the displayed quantity and calculated value
+                 totalOrderValue = parseFloat(orderValueSpan.textContent); // Get the *displayed* value
+
+                 // If quantity is below min, the displayed order value reflects the calculated value for that quantity,
+                 // but the UPI link amount should be based on the minimum order value.
                  if (quantity < commentsConfig.minimumOrderQuantity) {
-                     // If quantity is below min, the displayed order value reflects the minimum,
-                     // but the transaction note quantity should probably still show the actual count
-                     // Let's use the actual count in the note but the minimum quantity price in the amount.
-                     // This requires recalculating the minimum value here for the UPI link.
-                      const minOrderValue = commentsConfig.minimumOrderQuantity * commentsConfig.pricePerComment;
-                      if (commentsConfig.minimumOrderQuantity >= commentsDiscountThresholdQuantity) {
-                           const discountAmount = minOrderValue * (commentsDiscountPercentage / 100);
-                           totalOrderValue = minOrderValue - discountAmount;
-                      } else {
-                          totalOrderValue = minOrderValue;
-                      }
+                     const minBasePrice = commentsConfig.minimumOrderQuantity * commentsConfig.pricePerComment;
+                     let minTotalCost = minBasePrice;
+                     if (commentsConfig.minimumOrderQuantity >= commentsDiscountThresholdQuantity) {
+                         const discountAmount = minTotalCost * (commentsDiscountPercentage / 100);
+                         minTotalCost -= discountAmount;
+                     }
+                     totalOrderValue = minTotalCost; // Use minimum order value for UPI amount
                  }
+
             } else { // commentType === 'create'
                  quantity = parseFloat(quantityInput.value);
-                 totalOrderValue = parseFloat(orderValueSpan.textContent);
-                 // For UPI link, use the input quantity and calculated value
+                 totalOrderValue = parseFloat(orderValueSpan.textContent); // Get the *displayed* value
+
+                 // If quantity is below min, the displayed order value reflects the calculated value for that quantity,
+                 // but the UPI link amount should be based on the minimum order value.
                  if (quantity < commentsConfig.minimumOrderQuantity) {
-                     // If quantity is below min, the displayed order value reflects the minimum,
-                      // but the transaction note quantity should probably still show the actual count
-                      // Let's use the actual count in the note but the minimum quantity price in the amount.
-                      // This requires recalculating the minimum value here for the UPI link.
-                       const minBasePrice = commentsConfig.minimumOrderQuantity * commentsConfig.pricePerComment;
-                       let minTotalCost = minBasePrice * 1.2; // Include 20% additional cost
-                       if (commentsConfig.minimumOrderQuantity >= commentsDiscountThresholdQuantity) {
-                            const discountAmount = minTotalCost * (commentsDiscountPercentage / 100);
-                            totalOrderValue = minTotalCost - discountAmount;
-                       } else {
-                           totalOrderValue = minTotalCost;
-                       }
+                     const minBasePrice = commentsConfig.minimumOrderQuantity * commentsConfig.pricePerComment;
+                     let minTotalCost = minBasePrice * 1.2; // Include 20% additional cost
+                      if (commentsConfig.minimumOrderQuantity >= commentsDiscountThresholdQuantity) {
+                         const discountAmount = minTotalCost * (commentsDiscountPercentage / 100);
+                         minTotalCost -= discountAmount;
+                     }
+                     totalOrderValue = minTotalCost; // Use minimum order value for UPI amount
                  }
             }
 
-             // Only update link if order value is valid (quantity check is implicitly handled by updateOrderValue)
+             // Only generate a valid UPI link if the calculated total order value is positive
             if (!isNaN(totalOrderValue) && totalOrderValue > 0) {
-                // Ensure quantity in transaction note is at least the minimum required for ordering
-                 const transactionNoteQuantity = Math.max(quantity, commentsConfig.minimumOrderQuantity);
+                 // Use the quantity that was used to calculate the totalOrderValue for the transaction note.
+                 // If the entered quantity was below the minimum, the totalOrderValue is based on the minimum,
+                 // so the transaction note quantity should also reflect the minimum.
+                 const transactionNoteQuantity = (commentType === 'full') ?
+                                                 Math.max(quantity, commentsConfig.minimumOrderQuantity) :
+                                                 Math.max(quantity, commentsConfig.minimumOrderQuantity);
+
                 const transactionNote = `${serviceName} Qty:${transactionNoteQuantity}`;
-                const upiLink = `upi://pay?pa=abhinit16@fam&am=${totalOrderValue.toFixed(2)}&tn=${encodeURIComponent(transactionNote)}`;
+                const upiLink = `upi://pay?pa=${upiId}&am=${totalOrderValue.toFixed(2)}&tn=${encodeURIComponent(transactionNote)}`;
                 payNowButton.href = upiLink;
             } else {
                 payNowButton.href = "#"; // Or disable the button
@@ -661,29 +792,30 @@
                 commentsLabel.textContent = "Provide at least 10 comments (one per line):";
                 createCommentsNote.style.display = 'block';
                 quantityFormField.style.display = 'block';
-                calculatedQuantitySection.style.display = 'none';
-                defaultOrderValueSection.style.display = 'block';
+                // Removed hiding/showing calculatedQuantitySection
+                // Removed hiding/showing defaultOrderValueSection
                 additionalCostInfo.style.display = 'block';
-                updateOrderValueOption2(); // Recalculate order value for option 2
-            } else {
+                // Removed clearing comments input here
+                // Removed clearing quantity input here
+            } else { // commentType === 'full'
                 commentsLabel.textContent = "Your Comments (One per line):";
                 createCommentsNote.style.display = 'none';
                 quantityFormField.style.display = 'none';
-                calculatedQuantitySection.style.display = 'block';
-                defaultOrderValueSection.style.display = 'none';
+                // Removed hiding/showing calculatedQuantitySection
+                // Removed hiding/showing defaultOrderValueSection
                 additionalCostInfo.style.display = 'none';
-                updateCalculatedQuantityAndOrderValue(); // Calculate based on comments for option 1
+                // Removed clearing comments input here
+                // Removed clearing quantity input here
             }
-            // Clear previous comments and errors when switching type
-            commentsInput.value = '';
-            commentsInput.classList.remove('error');
-            commentsError.textContent = '';
-             // Clear quantity input and error when switching to 'full'
-             if (selectedCommentTypeInput.value === 'full') {
-                 quantityInput.value = '';
-                 quantityInput.classList.remove('error');
-                 quantityError.textContent = '';
-             }
+             // Always clear quantity and comments inputs and their errors when switching type
+             commentsInput.value = '';
+             commentsInput.classList.remove('error');
+             commentsError.textContent = '';
+             quantityInput.value = '';
+             quantityInput.classList.remove('error');
+             quantityError.textContent = '';
+
+            updateOrderValue(); // Recalculate order value after toggle
             updatePayNowButtonLink(); // Update pay button link after toggle
         }
 
@@ -703,20 +835,19 @@
         });
 
         // Event listener for quantity input change (for option 2)
-        quantityInput.addEventListener('input', updateOrderValueOption2);
+        quantityInput.addEventListener('input', updateOrderValue);
 
         // Event listener for comments input change (for option 1 quantity calculation)
-        commentsInput.addEventListener('input', updateCalculatedQuantityAndOrderValue);
+        commentsInput.addEventListener('input', updateOrderValue);
 
-         // Event listeners to update the Pay Now button link on input changes
+         // Event listeners to update the Pay Now button link on other input changes
         videoReelLinkInput.addEventListener('input', updatePayNowButtonLink);
-        customerName.addEventListener('input', updatePayNowButtonLink); // Also update if name changes (though not strictly needed for link but good practice)
-        quantityInput.addEventListener('input', updatePayNowButtonLink);
-        commentsInput.addEventListener('input', updatePayNowButtonLink);
+        customerNameInput.addEventListener('input', updatePayNowButtonLink); // Also update if name changes (though not strictly needed for link but good practice)
 
 
         // Initial call to toggle input based on default selection and update buttons
         toggleCommentInput();
+        updateOrderValue(); // Ensure initial order value is calculated and displayed
         updatePayNowButtonLink(); // Initial update for the Pay Now button link
 
 
@@ -742,7 +873,7 @@
         // Event listener for the order button click (WhatsApp)
         orderButton.addEventListener('click', function() {
             const videoReelLink = videoReelLinkInput.value.trim();
-            const customerName = document.getElementById('customerName').value.trim();
+            const customerName = customerNameInput.value.trim(); // Get customer name
             let quantity;
             let baseOrderValue;
             let totalOrderValue;
@@ -753,6 +884,7 @@
 
             let hasErrors = false;
 
+            // --- Validation for sending WhatsApp message ---
             // Clear previous errors
             videoReelLinkInput.classList.remove('error');
             videoReelLinkError.textContent = '';
@@ -768,8 +900,8 @@
             }
 
             if (commentType === 'create') {
-                quantity = parseInt(quantityInput.value);
-                if (isNaN(quantity) || quantity < commentsConfig.minimumOrderQuantity) {
+                quantity = parseFloat(quantityInput.value); // Use parseFloat for consistency
+                if (isNaN(quantity) || quantity < commentsConfig.minimumOrderQuantity || quantity <= 0) { // Also check for 0 or negative
                     quantityInput.classList.add('error');
                     quantityError.textContent = `Please enter a quantity of at least ${commentsConfig.minimumOrderQuantity}.`;
                     hasErrors = true;
@@ -789,14 +921,14 @@
 
             } else if (commentType === 'full') {
                  quantity = commentList.length; // Quantity is the number of comments provided
-                if (quantity < commentsConfig.minimumOrderQuantity) {
+                if (quantity < commentsConfig.minimumOrderQuantity || quantity <= 0) { // Also check for 0 or negative
                      commentsInput.classList.add('error');
                      commentsError.textContent = `Please enter at least ${commentsConfig.minimumOrderQuantity} comments (one per line).`;
                      hasErrors = true;
                  }
                 // Calculate values based on actual comments quantity for message
                 baseOrderValue = quantity * commentsConfig.pricePerComment;
-                totalOrderValue = baseOrderValue;
+                totalOrderValue = baseOrderValue; // No additional cost for 'full'
                  if (quantity >= commentsDiscountThresholdQuantity) {
                       const discountAmount = totalOrderValue * (commentsDiscountPercentage / 100);
                       totalOrderValue -= discountAmount;
@@ -804,23 +936,22 @@
             }
 
 
-            if (!customerName) {
-                 // No error added for name, but it's good practice to include it in message
-            }
-
             if (hasErrors) {
-                return; // Stop if there are validation errors
+                // If there are validation errors, stop the process
+                // The error messages are already displayed by the checks above.
+                return;
             }
 
-             // Construct the dynamic UPI link for the WhatsApp message
-             // Use the quantity from the form input for the transaction note for Option 2
-             // Use the number of comments for the transaction note for Option 1
-             // Ensure minimum quantity is reflected in the transaction note quantity if less was entered
-            const transactionNoteQuantity = (commentType === 'full') ? commentList.length : quantity;
-            const finalTransactionNoteQuantity = Math.max(transactionNoteQuantity, commentsConfig.minimumOrderQuantity);
+             // Construct the dynamic UPI link for the WhatsApp message text
+             // Use the quantity that was used to calculate the totalOrderValue for the transaction note.
+             // If the entered quantity was below the minimum, the totalOrderValue is based on the minimum,
+             // so the transaction note quantity should also reflect the minimum.
+            const transactionNoteQuantity = (commentType === 'full') ?
+                                                Math.max(quantity, commentsConfig.minimumOrderQuantity) :
+                                                Math.max(quantity, commentsConfig.minimumOrderQuantity);
 
             // The totalOrderValue calculated reflects the price for the ordered quantity (or min quantity if below min)
-            const upiLink = `upi://pay?pa=abhinit16@fam&am=${totalOrderValue.toFixed(2)}&tn=${encodeURIComponent(`${serviceName} Qty:${finalTransactionNoteQuantity}`)}`;
+            const upiLink = `upi://pay?pa=${upiId}&am=${totalOrderValue.toFixed(2)}&tn=${encodeURIComponent(`${serviceName} Qty:${transactionNoteQuantity}`)}`;
 
 
             let message = `Hello InstaGrowMo Team,
@@ -828,8 +959,7 @@
 I would like to place an order for Instagram ${serviceName}:
 
 Instagram Post/Reel/Video Link (URL): ${videoReelLink}
-${customerName ? `Customer Name: ${customerName}` : ''}
-Quantity: ${quantity}
+${customerName ? `Customer Name: ${customerName}\n` : ''} Quantity: ${quantity}
 Comment Type: ${commentType === 'full' ? 'Give Full Comments' : 'Let us create comments for you'}
 `;
 
@@ -845,9 +975,9 @@ Comment Type: ${commentType === 'full' ? 'Give Full Comments' : 'Let us create c
 
             // Add payment instructions and link (Formal Hindi and English)
             message += `\n----------\n`;
-            message += `To complete your order, please make the payment of ₹${totalOrderValue.toFixed(2)} using the UPI link below or by returning to the website's payment assistance section if the link doesn't work.\n\n`;
+            message += `To complete your order, please make the payment of ₹${totalOrderValue.toFixed(2)} using the UPI link below or by returning to the website if the link doesn't work or you can wait till InstaGrowMo support team message you.\n\n`;
             message += `Order Payment Link:\n${upiLink}\n\n`;
-            message += `भुगतान पूरा करने के लिए, कृपया नीचे दिए गए UPI लिंक का उपयोग करके ₹${totalOrderValue.toFixed(2)} का भुगतान करें या यदि लिंक काम नहीं कर रहा है तो वेबसाइट के पेमेंट असिस्टेंस सेक्शन पर वापस आएं।\n`;
+            message += `भुगतान पूरा करने के लिए, कृपया नीचे दिए गए UPI लिंक का उपयोग करके ₹${totalOrderValue.toFixed(2)} का भुगतान करें या यदि लिंक काम नहीं कर रहा है तो वेबसाइट पर वापस जाएं या फिर थोड़ी देर में InstaGrowMo की support team आपको message करेगी। \n`;
             message += `----------\n`;
 
 
@@ -858,7 +988,23 @@ Thank you!`;
             const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
         });
+
+        // Clear input errors on input
+        videoReelLinkInput.addEventListener('input', function() {
+            videoReelLinkInput.classList.remove('error');
+            videoReelLinkError.textContent = '';
+        });
+         quantityInput.addEventListener('input', function() {
+             quantityInput.classList.remove('error');
+             quantityError.textContent = '';
+         });
+         commentsInput.addEventListener('input', function() {
+             commentsInput.classList.remove('error');
+             commentsError.textContent = '';
+         });
+
     </script>
 
 </body>
+
 </html>
