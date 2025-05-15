@@ -93,6 +93,42 @@
             animation: fadeIn 0.8s ease-out 0.5s forwards; /* Adjusted delay */
         }
 
+        /* Summer Sale Banner */
+        .summer-sale-banner {
+            background-color: #ffeb3b; /* Bright yellow background */
+            color: #333; /* Dark text */
+            padding: 20px; /* Moderate padding */
+            text-align: center;
+            box-shadow: var(--box-shadow);
+            margin: 20px auto; /* Center the banner and provide space */
+            max-width: 900px; /* Max width to prevent it from being too wide */
+            border-radius: var(--border-radius);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .summer-sale-banner h2 {
+            color: #f57f17; /* Orange color for headline */
+            margin-bottom: 10px;
+            font-size: 1.8em; /* Adjusted font size */
+        }
+
+        .summer-sale-banner p {
+             color: var(--text-color-primary); /* Darker text for readability */
+            font-size: 1em;
+            margin-bottom: 15px;
+        }
+
+        .summer-sale-banner img {
+            max-width: 100%; /* Make image responsive */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: var(--border-radius);
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+
         /* Services Section */
         .services-section {
             padding: 60px 20px; /* Further reduced padding */
@@ -142,6 +178,7 @@
         .service-description {
             font-size: 0.9em; /* Further reduced font size */
             color: var(--text-color-secondary);
+            line-height: 1.6; /* Slightly tighter line height */
             margin-bottom: 15px; /* Further reduced margin */
         }
 
@@ -314,7 +351,7 @@
 
         .payment-assistance-headline {
             font-size: 2.2em;
-            color: #fbc02d; /* Darker yellow */
+            color: #f57f17; /* Darker orange/yellow */
             margin-bottom: 25px;
             font-weight: 700;
         }
@@ -369,7 +406,7 @@
         }
 
         .copy-button:hover {
-            background-color: var(--secondary-color);
+            background-color: darken(var(--secondary-color), 10%);
         }
 
         .upi-pay-button {
@@ -496,6 +533,9 @@
             .benefit-item { flex-direction: column; align-items: flex-start; }
             .benefit-icon { margin-right: 8px; margin-bottom: 6px; font-size: 1.6em; }
             .trust-proof-section { padding: 40px 15px; }
+            .summer-sale-banner { padding: 15px; margin: 15px auto; }
+            .summer-sale-banner h2 { font-size: 1.5em; }
+            .summer-sale-banner p { font-size: 0.95em; }
         }
 
         @media (max-width: 576px) {
@@ -503,6 +543,8 @@
             .service-card { padding: 15px; }
             .promote-reel-box, .promote-post-box { padding: 20px; }
             .benefit-item { padding: 20px; }
+             .summer-sale-banner h2 { font-size: 1.3em; }
+             .summer-sale-banner p { font-size: 0.9em; }
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -514,13 +556,17 @@
 
     <div class="top-panel">
         <h1>InstaGrowMo</h1>
-        </div>
+    </div>
 
     <section class="hero-section" id="hero">
         <h2 class="hero-headline">Unlock Your Instagram Growth Potential</h2>
         <p class="hero-subheadline">Choose from a variety of traffic options to boost your presence.</p>
-        </section>
+    </section>
 
+    <section class="summer-sale-banner">
+        <h2> Big Summer Sale is LIVE! </h2>
+        <p>Enjoy amazing discounts from 15 May 2025 (3 PM) to 22 May 2025 (3 PM IST).</p>
+        </section>
     <section class="services-section">
         <h2>Explore Our Dummy Traffic Services</h2>
         <div class="services-grid">
@@ -646,8 +692,8 @@
             { background: '#e1bee7', text: '#212529' }, // Light Purple
             { background: '#b3e5fc', text: '#212529' }, // Another Light Blue
             { background: '#fdd835', text: '#212529' }, // Light Yellow
-            { background: '#f48fb1', text: '#fff' },    // Pink with White Text
-            { background: '#4fc3f7', text: '#fff' }     // Bright Blue with White Text
+            { background: '#f48fb1', text: '#fff' }, 	// Pink with White Text
+            { background: '#4fc3f7', text: '#fff' } 	// Bright Blue with White Text
             // Add more color schemes as needed for different website/business types
         ];
 
