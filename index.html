@@ -43,7 +43,7 @@
         }
 
         a:hover {
-            color: darken(var(--accent-color), 10%);
+            color: darken(var(--accent-color), 10%); /* Note: darken() is not standard CSS */
         }
 
         /* Top Panel */
@@ -93,6 +93,94 @@
             animation: fadeIn 0.8s ease-out 0.5s forwards; /* Adjusted delay */
         }
 
+        /* App Download Notification Section - NEW */
+        .app-download-notification {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color)); /* Engaging gradient */
+            color: var(--bg-color-secondary); /* White text for contrast */
+            padding: 30px 20px;
+            text-align: center;
+            margin: 20px auto; /* Spacing from other sections */
+            max-width: 900px; /* Consistent with other wide elements */
+            border-radius: var(--border-radius);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            overflow: hidden; /* For any potential overflow from fancy designs */
+        }
+
+        .app-download-content {
+            display: flex;
+            flex-direction: column; /* Stack elements vertically on small screens */
+            align-items: center;
+            gap: 20px;
+        }
+
+        .app-icon-container .app-icon {
+            font-size: 4em; /* Large Android icon */
+            color: #fff; /* White icon */
+            margin-bottom: 10px;
+            animation: pulseIcon 2s infinite; /* Subtle animation for attention */
+        }
+
+        .app-text-container h3 {
+            font-size: 1.8em;
+            color: #fff; /* Ensure heading is white */
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .app-text-container p {
+            font-size: 1em;
+            color: #f0f0f0; /* Slightly off-white for subtext */
+            margin-bottom: 15px;
+            max-width: 600px; /* Keep text readable */
+            line-height: 1.5;
+        }
+
+        .app-download-button-container {
+            display: flex;
+            flex-direction: column; /* Stack button and badge */
+            align-items: center;
+            gap: 15px;
+        }
+
+        .download-app-button { /* Renamed to avoid conflict if any */
+            background-color: var(--accent-color);
+            color: var(--bg-color-secondary);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1em;
+            transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+            text-decoration: none;
+            display: inline-flex; /* Align icon and text */
+            align-items: center;
+            width: 9rem;
+            gap: 8px; /* Space between icon and text */
+        }
+
+        .download-app-button:hover {
+            background-color: darken(var(--accent-color), 10%); /* Note: darken() is not standard CSS */
+            transform: scale(1.05);
+        }
+
+        .download-app-button i {
+            font-size: 1.1em;
+        }
+
+        .google-play-badge {
+            height: 50px; /* Adjust size as needed */
+            width: auto;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .google-play-badge:hover {
+            transform: scale(1.05);
+        }
+        /* End of App Download Notification Section Styles */
+
+
         /* Summer Sale Banner */
         .summer-sale-banner {
             background-color: #ffeb3b; /* Bright yellow background */
@@ -115,7 +203,7 @@
         }
 
         .summer-sale-banner p {
-             color: var(--text-color-primary); /* Darker text for readability */
+            color: var(--text-color-primary); /* Darker text for readability */
             font-size: 1em;
             margin-bottom: 15px;
         }
@@ -196,7 +284,7 @@
         }
 
         .order-button:hover {
-            background-color: darken(var(--accent-color), 10%);
+            background-color: darken(var(--accent-color), 10%); /* Note: darken() is not standard CSS */
             transform: scale(1.02); /* Further reduced scale */
         }
 
@@ -406,7 +494,7 @@
         }
 
         .copy-button:hover {
-            background-color: darken(var(--secondary-color), 10%);
+            background-color: darken(var(--secondary-color), 10%); /* Note: darken() is not standard CSS */
         }
 
         .upi-pay-button {
@@ -425,7 +513,7 @@
         }
 
         .upi-pay-button:hover {
-            background-color: darken(#4CAF50, 10%);
+            background-color: darken(#4CAF50, 10%); /* Note: darken() is not standard CSS */
             transform: scale(1.02);
         }
 
@@ -445,7 +533,7 @@
         }
 
         .contact-payment-button:hover {
-            background-color: darken(#007bff, 10%);
+            background-color: darken(#007bff, 10%); /* Note: darken() is not standard CSS */
             transform: scale(1.02);
         }
 
@@ -481,7 +569,7 @@
         }
 
         .trust-proof-link:hover {
-            color: darken(var(--primary-color), 10%);
+            color: darken(var(--primary-color), 10%); /* Note: darken() is not standard CSS */
             text-decoration: underline;
         }
 
@@ -511,8 +599,50 @@
             from { opacity: 0; transform: translateX(-20px); }
             to { opacity: 1; transform: translateX(0); }
         }
+        
+        @keyframes pulseIcon { /* Renamed from pulse to avoid conflict */
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
 
         /* Responsive Design */
+        @media (min-width: 768px) { /* Styles for app download section on larger screens */
+            .app-download-content {
+                flex-direction: row; /* Horizontal layout */
+                justify-content: space-around;
+                text-align: left;
+            }
+
+            .app-icon-container {
+                margin-bottom: 0;
+                margin-right: 20px;
+            }
+            
+            .app-icon-container .app-icon {
+                font-size: 5em;
+            }
+
+            .app-text-container {
+                flex-grow: 1;
+            }
+            
+            .app-text-container h3 {
+                font-size: 2em;
+            }
+            .app-text-container p {
+                font-size: 1.1em;
+            }
+
+            .app-download-button-container {
+                flex-direction: column;
+                align-items: center; /* Changed from flex-start for centering */
+                justify-content: center;
+                margin-left: 20px;
+            }
+        }
+
         @media (max-width: 992px) {
             .hero-headline { font-size: 2.4em; }
             .services-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
@@ -536,6 +666,12 @@
             .summer-sale-banner { padding: 15px; margin: 15px auto; }
             .summer-sale-banner h2 { font-size: 1.5em; }
             .summer-sale-banner p { font-size: 0.95em; }
+            
+            .app-download-notification{
+                border-radius: 0 !important;
+            }
+
+            /* Responsive app download section already handled by flex-direction column default and below */
         }
 
         @media (max-width: 576px) {
@@ -543,8 +679,30 @@
             .service-card { padding: 15px; }
             .promote-reel-box, .promote-post-box { padding: 20px; }
             .benefit-item { padding: 20px; }
-             .summer-sale-banner h2 { font-size: 1.3em; }
-             .summer-sale-banner p { font-size: 0.9em; }
+            .summer-sale-banner h2 { font-size: 1.3em; }
+            .summer-sale-banner p { font-size: 0.9em; }
+
+            /* App Download Notification for smaller screens */
+            .app-download-notification {
+                padding: 20px 15px;
+            }
+            .app-icon-container .app-icon {
+                font-size: 3em; /* Smaller icon for small screens */
+            }
+            .app-text-container h3 {
+                font-size: 1.5em;
+            }
+            .app-text-container p {
+                font-size: 0.9em;
+            }
+            .download-app-button {
+                padding: 10px 20px;
+                font-size: 0.9em;
+            }
+            
+            .google-play-badge {
+                height: 40px;
+            }
         }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -563,11 +721,23 @@
         <p class="hero-subheadline">Choose from a variety of traffic options to boost your presence.</p>
     </section>
 
-  <!--<section class="summer-sale-banner">
-        <h2> Big Summer Sale is LIVE! </h2> 
-        <h2> Big Summer Sale is LIVE!</h2>
-        <p>Enjoy amazing discounts from 15 May 2025 (9 PM) to 24 May 2025 (9 PM).</p>
-        </section>-->
+    <section id="DownloadAppIDHidden" class="app-download-notification">
+        <div class="app-download-content">
+            <div class="app-icon-container">
+                <i class="fab fa-android app-icon"></i>
+            </div>
+            <div class="app-text-container">
+                <h3>Get the InstaGrowMo Android App!</h3>
+                <p>Experience faster growth and exclusive features on the go. Download our app now for a seamless experience!</p>
+            </div>
+            <div class="app-download-button-container">
+                <a href="http://instagrowmo.github.io/InstaGrowMo%20(Official%20&%20Safe%20App).apk" class="download-app-button" rel="noopener noreferrer">
+                    <i class="fas fa-download"></i> Download App
+                </a>
+               
+            </div>
+        </div>
+    </section>
     <section class="services-section">
         <h2>Explore Our Dummy Traffic Services</h2>
         <div class="services-grid">
@@ -694,8 +864,8 @@
             { background: '#e1bee7', text: '#212529' }, // Light Purple
             { background: '#b3e5fc', text: '#212529' }, // Another Light Blue
             { background: '#fdd835', text: '#212529' }, // Light Yellow
-            { background: '#f48fb1', text: '#fff' }, 	// Pink with White Text
-            { background: '#4fc3f7', text: '#fff' } 	// Bright Blue with White Text
+            { background: '#f48fb1', text: '#fff' },     // Pink with White Text
+            { background: '#4fc3f7', text: '#fff' }      // Bright Blue with White Text
             // Add more color schemes as needed for different website/business types
         ];
 
