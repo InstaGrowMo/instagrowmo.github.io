@@ -32,7 +32,7 @@
 
         h1, h2, h3 {
             color: var(--primary-color);
-            margin-top: 0;
+            margin-top: 0; /* Removed default top margin for h3 */
             line-height: 1.2;
         }
 
@@ -43,10 +43,7 @@
         }
 
         a:hover {
-            /* Note: 'darken' is a SASS/LESS function. Using CSS rgba or hex adjustments */
-            /* For simplicity, let's pick a slightly darker shade or adjust alpha */
-            color: rgba(255, 112, 67, 0.8); /* Example: slightly less opaque */
-            /* Or a specific darker hex color like #e65100 */
+            color: rgba(255, 112, 67, 0.8);
         }
 
         .top-panel {
@@ -56,7 +53,7 @@
             box-shadow: var(--box-shadow);
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000; 
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -64,74 +61,132 @@
 
         .top-panel h1 {
             margin: 0;
-            font-size: 1.8em; /* Slightly smaller for better fit */
+            font-size: 1.8em;
             letter-spacing: -1px;
             color: var(--primary-color);
         }
         .home-button {
             background-color: var(--primary-color);
-            color: var(--bg-color-secondary); /* White color */
+            color: var(--bg-color-secondary);
             padding: 10px 15px;
             border: none;
             border-radius: var(--border-radius);
             cursor: pointer;
             font-weight: bold;
             font-size: 0.95em;
-            text-decoration: none; /* Remove underline from link */
+            text-decoration: none;
             transition: background-color 0.3s ease, transform 0.2s ease-in-out;
         }
 
         .home-button:hover {
-             /* Note: 'darken' is a SASS/LESS function. Using CSS rgba or hex adjustments */
-             background-color: rgba(90, 85, 202, 0.9); /* Example: slightly less opaque */
-             /* Or a specific darker hex color like #4527a0 */
+            background-color: rgba(90, 85, 202, 0.9);
             transform: scale(1.05);
         }
         .service-page-container {
-            padding: 30px 15px; /* Reduced overall padding */
-            background-color: var(--bg-color-primary); /* Changed to primary background */
+            padding: 30px 15px;
+            background-color: var(--bg-color-primary);
             text-align: center;
         }
 
-         .service-info {
-             max-width: 90%; /* Adjust max width to be responsive */
-             margin: 20px auto; /* Reduced top margin */
-             padding: 25px; /* Slightly reduced padding */
-             background-color: var(--bg-color-secondary); /* Changed to secondary background */
-             border-radius: var(--border-radius);
-             box-shadow: var(--box-shadow);
-             text-align: center;
-         }
+        .service-selection-container {
+            max-width: 90%;
+            margin: 0 auto 20px auto; 
+            padding: 20px; /* Increased padding a bit */
+            background-color: var(--bg-color-secondary);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+        }
+
+        .service-selection-title { /* New style for the title */
+            margin-top: 0; /* Override general h3 margin-top if any */
+            margin-bottom: 15px; 
+            font-size: 1.3em; 
+            color: var(--primary-color); 
+            text-align: center; 
+            font-weight: 600; /* Slightly bolder */
+        }
+
+        .service-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 15px;
+            gap: 10px; 
+        }
+
+        .service-tab-button {
+            padding: 10px 15px;
+            font-size: 1em;
+            font-weight: bold;
+            border: 2px solid var(--primary-color);
+            background-color: var(--bg-color-secondary);
+            color: var(--primary-color);
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .service-tab-button:hover {
+            background-color: rgba(90, 85, 202, 0.1); 
+        }
+
+        .service-tab-button.active {
+            background-color: var(--primary-color);
+            color: var(--bg-color-secondary);
+        }
+        
+        .service-description-text { 
+            font-size: 0.9em;
+            color: var(--text-color-secondary);
+            line-height: 1.5;
+            text-align: left; 
+            padding: 0 10px; 
+            margin-top: 10px; /* Added margin-top */
+        }
+        .service-description-text strong {
+            color: var(--primary-color);
+        }
+
+
+        .service-info {
+            max-width: 90%;
+            margin: 20px auto;
+            padding: 25px;
+            background-color: var(--bg-color-secondary);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+        }
 
 
         .service-title {
-            font-size: 2.4em; /* Adjust font size */
+            font-size: 2.4em;
             color: var(--secondary-color);
             margin-bottom: 10px;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
             letter-spacing: -1px;
         }
 
-        .service-info p {
+        .service-info p#currentServiceDescription { 
             font-size: 1em;
             color: var(--text-color-secondary);
-            line-height: 1.6; /* Adjust line height */
-            margin-bottom: 15px; /* Reduced bottom margin */
-            text-align: left;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            text-align: left; 
         }
 
         .order-form {
-            max-width: 90%; /* Adjust max width to be responsive */
-            margin: 20px auto; /* Reduced top margin */
-            padding: 25px; /* Slightly reduced padding */
-            background-color: var(--bg-color-secondary); /* Changed to secondary background */
+            max-width: 90%;
+            margin: 20px auto;
+            padding: 25px;
+            background-color: var(--bg-color-secondary);
             border-radius: var(--border-radius);
             box-shadow: var(--box-shadow);
             text-align: left;
         }
 
         .form-group {
-            margin-bottom: 15px; /* Reduced margin */
+            margin-bottom: 15px;
         }
 
         .form-group label {
@@ -139,16 +194,16 @@
             font-weight: bold;
             margin-bottom: 5px;
             color: var(--text-color-primary);
-            font-size: 0.95em; /* Slightly smaller label font */
+            font-size: 0.95em;
         }
 
         .form-group input[type="text"],
         .form-group input[type="number"] {
-            width: calc(100% - 22px); /* Adjust width to account for padding and border */
+            width: calc(100% - 22px);
             padding: 10px;
             border: 1px solid #ced4da;
             border-radius: 6px;
-            font-size: 0.95em; /* Slightly smaller input font */
+            font-size: 0.95em;
             box-sizing: border-box;
         }
 
@@ -158,8 +213,8 @@
 
         .error-message {
             color: red;
-            font-size: 0.85em; /* Smaller error message font */
-            margin-top: 3px; /* Reduced top margin */
+            font-size: 0.85em;
+            margin-top: 3px;
         }
 
         .form-group input[type="number"]::-webkit-inner-spin-button,
@@ -176,59 +231,57 @@
             text-align: center;
             margin-bottom: 10px;
             color: var(--text-color-secondary);
-            font-size: 0.85em; /* Smaller price info font */
+            font-size: 0.85em;
         }
 
         .order-value {
             text-align: center;
-            font-size: 1.1em; /* Slightly smaller order value font */
+            font-size: 1.1em;
             font-weight: bold;
             color: var(--secondary-color);
             margin-bottom: 15px;
         }
 
-         .order-button, .pay-now-button {
+        .order-button, .pay-now-button {
             background-color: var(--accent-color);
             color: var(--bg-color-secondary);
             border: none;
-            padding: 10px 20px; /* Reduced button padding */
+            padding: 10px 20px;
             border-radius: 6px;
             cursor: pointer;
             font-weight: bold;
-            font-size: 0.95em; /* Slightly smaller button font */
+            font-size: 0.95em;
             transition: background-color 0.3s ease, transform 0.2s ease-in-out;
             width: 100%;
             text-align: center;
             display: block;
             margin-top: 15px;
-            text-decoration: none; /* Ensure links don't have underlines */
-            box-sizing: border-box; /* Include padding in width */
+            text-decoration: none;
+            box-sizing: border-box;
         }
 
-         .pay-now-button {
-             background-color: #4CAF50; /* Green for payment button */
-             margin-top: 10px; /* Reduced margin between buttons */
-         }
+        .pay-now-button {
+            background-color: #4CAF50; /* Green for payment button */
+            margin-top: 10px;
+        }
 
 
         .order-button:hover, .pay-now-button:hover {
-             /* Note: 'darken' is a SASS/LESS function. Using CSS rgba or hex adjustments */
-             background-color: rgba(34, 34, 34, 0.9); /* Example: slightly less opaque #222 */
-             /* Or a specific darker hex color like #111 */
-            transform: scale(1.01); /* Reduced scale on hover */
+            background-color: rgba(34, 34, 34, 0.9);
+            transform: scale(1.01);
         }
 
         .whatsapp-icon {
-            margin-right: 6px; /* Reduced icon margin */
+            margin-right: 6px;
         }
 
         .payment-info {
             text-align: center;
             color: var(--text-color-secondary);
-            font-size: 0.8em; /* Smaller payment info font */
-            margin-top: 10px; /* Reduced top margin */
-            margin-bottom: 10px; /* Reduced bottom margin */
-            line-height: 1.5; /* Adjust line height */
+            font-size: 0.8em;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            line-height: 1.5;
         }
 
         .important-note {
@@ -237,16 +290,16 @@
         }
 
         .warning-message {
-            background-color: #ffe0b2; /* Light orange background */
-            color: #d84315; /* Dark orange text */
+            background-color: #ffe0b2;
+            color: #d84315;
             padding: 15px;
             border-radius: var(--border-radius);
             margin-bottom: 15px;
             text-align: left;
             font-size: 0.9em;
-            border: 1px solid #ffb74d; /* Slightly darker orange border */
-             max-width: 90%; /* Adjust max width */
-             margin: 20px auto; /* Center the div */
+            border: 1px solid #ffb74d;
+            max-width: 90%;
+            margin: 20px auto;
         }
 
         .warning-message strong {
@@ -255,14 +308,14 @@
         }
 
         .discount-note {
-            background-color: #e3f2fd; /* Light blue background */
-            color: #1e88e5; /* Blue text */
+            background-color: #e3f2fd;
+            color: #1e88e5;
             padding: 10px;
             border-radius: var(--border-radius);
             margin-bottom: 10px;
             text-align: left;
             font-size: 0.9em;
-            border: 1px solid #bbdefb; /* Light blue border */
+            border: 1px solid #bbdefb;
         }
 
         .discount-note strong {
@@ -272,12 +325,12 @@
 
         footer {
             background-color: var(--bg-color-secondary);
-            padding: 15px; /* Reduced footer padding */
+            padding: 15px;
             text-align: center;
             color: var(--text-color-secondary);
-            font-size: 0.75em; /* Smaller footer font */
+            font-size: 0.75em;
             border-top: 1px solid #eee;
-            margin-top: 20px; /* Reduced top margin */
+            margin-top: 20px;
         }
 
         /* Responsive adjustments */
@@ -288,12 +341,19 @@
             .service-page-container {
                 padding: 20px 10px;
             }
-            .service-info, .order-form, .warning-message {
+            .service-selection-container, .service-info, .order-form, .warning-message {
                 padding: 20px;
-                max-width: 95%; /* Slightly wider on smaller screens */
+                max-width: 95%;
             }
             .service-title {
                 font-size: 2em;
+            }
+            .service-selection-title {
+                font-size: 1.2em;
+            }
+            .service-tab-button {
+                font-size: 0.9em;
+                padding: 8px 12px;
             }
         }
 
@@ -301,12 +361,15 @@
             .top-panel h1 {
                 font-size: 1.4em;
             }
-            .service-info, .order-form, .warning-message {
+            .service-selection-container, .service-info, .order-form, .warning-message {
                 padding: 15px;
-                max-width: 100%; /* Full width on very small screens */
+                max-width: 100%;
             }
             .service-title {
                 font-size: 1.8em;
+            }
+            .service-selection-title {
+                font-size: 1.1em;
             }
             .form-group label {
                 font-size: 0.9em;
@@ -322,6 +385,16 @@
                 font-size: 0.9em;
                 padding: 8px 15px;
             }
+             .service-tabs {
+                flex-direction: column; 
+            }
+            .service-tab-button {
+                width: 100%; 
+                margin-bottom: 5px; 
+            }
+            .service-tab-button:last-child {
+                margin-bottom: 0;
+            }
         }
 
         @media (max-width: 400px) {
@@ -331,8 +404,11 @@
             .service-title {
                 font-size: 1.6em;
             }
+             .service-selection-title {
+                font-size: 1em;
+            }
             .order-value {
-                font-size: 1.2em;
+                font-size: 1.2em; 
             }
             .order-button, .pay-now-button {
                 font-size: 0.8em;
@@ -353,8 +429,20 @@
     </div>
 
     <div class="service-page-container">
+
+        <div class="service-selection-container">
+            <h3 class="service-selection-title">Please select your followers type</h3>
+            <div class="service-tabs">
+                <button id="btnGlobalFollowers" class="service-tab-button" data-service="global">Global Instagram Followers</button>
+                <button id="btnIndianFollowers" class="service-tab-button" data-service="indian">Indian Instagram Followers</button>
+            </div>
+            <div id="serviceDescriptionContainer" class="service-description-text">
+            </div>
+        </div>
+
         <div class="service-info">
-            <h2 class="service-title">Instagram Global Followers</h2> <p>Boost your follower count with high-quality, non-engaging profiles. Ideal for social proof.</p>
+            <h2 class="service-title" id="currentServiceTitle"></h2>
+            <p id="currentServiceDescription"></p>
         </div>
 
         <div class="order-form">
@@ -365,30 +453,35 @@
                 <input type="text" id="accountLink" name="accountLink" placeholder="Enter your Instagram profile link or username" required>
                 <p class="error-message" id="accountLinkError"></p>
             </div>
-             <div class="form-group">
-                 <label for="customerName">Your Name (Optional):</label> <input type="text" id="customerName" name="customerName" placeholder="Enter your name">
-             </div>
             <div class="form-group">
-                <label for="quantity">Quantity:</label> <input type="number" id="quantity" name="quantity" min="1" placeholder="Enter quantity (e.g., 100)"> <p class="error-message" id="quantityError"></p>
+                <label for="customerName">Your Name (Optional):</label>
+                <input type="text" id="customerName" name="customerName" placeholder="Enter your name">
+            </div>
+            <div class="form-group">
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" min="1" placeholder="Enter quantity (e.g., 100)">
+                <p class="error-message" id="quantityError"></p>
             </div>
 
-        <p class="price-info">Price per follower: ₹<span id="pricePerFollower">0.13</span></p>
-            <p class="price-info">Minimum order quantity: <span id="minQuantityDisplay">100</span></p> <div class="order-value">
+            <p class="price-info">Price per follower: ₹<span id="pricePerFollower">0.00</span></p>
+            <p class="price-info">Minimum order quantity: <span id="minQuantityDisplay">0</span></p>
+            <div class="order-value">
                 Order Value: ₹<span id="orderValue">0.00</span>
             </div>
 
             <div class="discount-note">
-                <p><strong>Discount Offer:</strong> Enjoy a discount of <span id="discountPercentDisplay">20</span>% on your order when you purchase more than <span id="discountThresholdDisplay">2,000</span> followers.</p>
-                <p><strong>Discount Offer [Hindi Translation]:</strong> <span id="discountThresholdDisplayHindi">2,000</span> से ज़्यादा फॉलोअर्स खरीदने पर अपने ऑर्डर पर <span id="discountPercentDisplayHindi">20</span>% की छूट का आनंद लें।</p>
+                <p><strong>Discount Offer:</strong> Enjoy a discount of <span id="discountPercentDisplay">0</span>% on your order when you purchase more than <span id="discountThresholdDisplay">0</span> followers.</p>
+                <p><strong>Discount Offer [Hindi Translation]:</strong> <span id="discountThresholdDisplayHindi">0</span> से ज़्यादा फॉलोअर्स खरीदने पर अपने ऑर्डर पर <span id="discountPercentDisplayHindi">0</span>% की छूट का आनंद लें।</p>
             </div>
 
             <p class="payment-info">
                 <span class="important-note">Important:</span> Please note that this is a prepaid service. After you send us your order via WhatsApp, we will request you to send the payment first. Your order will be processed quickly once we receive the payment and confirm your Instagram account details.
             </p>
 
-             <button id="orderButton" class="order-button" style="margin-top: 20px;"> <i class="fab fa-whatsapp whatsapp-icon"></i> Send Order Details on WhatsApp
-             </button>
-             <div id="paymentInstructions"
+            <button id="orderButton" class="order-button" style="margin-top: 20px;">
+                <i class="fab fa-whatsapp whatsapp-icon"></i> Send Order Details on WhatsApp
+            </button>
+            <div id="paymentInstructions"
                 style="display: none; text-align: center; margin-top: 20px; padding: 15px; background-color: #e8f5e9; border-radius: var(--border-radius); border: 1px solid #c8e6c9;">
                 <h4 style="color: #2e7d32; margin-top: 0;">Payment Instructions</h4>
                 <p style="word-break: break-all;">UPI ID: <strong id="upiIdDisplay"></strong></p>
@@ -398,11 +491,6 @@
                 </a>
                 <p style="color: #388e3c; font-size: 0.85em; margin-top: 10px;">After payment, please share the screenshot on WhatsApp for quick processing.</p>
             </div>
-
-
-
-
-
         </div>
         <div class="warning-message">
             <strong>Important:</strong> Please ensure your Instagram account is <strong>public</strong> during the follower delivery process. While this service doesn't strictly require a public account to start, having it public ensures smooth and timely delivery. <br><br>
@@ -419,217 +507,226 @@
     </footer>
 
     <script>
-        // Service Configuration
-        const serviceName = "Global Followers"; // Name of this service (Corrected typo)
+        // --- Service Configurations ---
+        const services = {
+            global: {
+                key: "global",
+                name: "Global Followers",
+                title: "Instagram Global Followers",
+                description: "Boost your follower count with high-quality, non-engaging profiles from around the world. Ideal for social proof.",
+                pricePerFollower: 0.18, 
+                minimumOrderQuantity: 100,
+                discountThresholdQuantity: 2000,
+                discountPercentage: 10
+            },
+            indian: {
+                key: "indian",
+                name: "Indian Followers",
+                title: "Instagram Indian Followers",
+                description: "Increase your followers with genuine-looking Indian profiles to enhance your local presence and credibility within India.",
+                pricePerFollower: 0.22, 
+                minimumOrderQuantity: 100,   
+                discountThresholdQuantity: 2000, 
+                discountPercentage: 10    
+            }
+        };
 
-        // Price per follower (in Rupees)
-        const pricePerFollower = 0.22; // Keeping 0.13 as per JS code
+        let currentServiceConfig = services.global; 
 
-        // Minimum order quantity required for placing an order
-        const minimumOrderQuantity = 100;
+        // --- Common Configuration ---
+        const upiId = "abhinit16@fam"; 
+        const whatsappNumber = "916399813670"; 
 
-        // Configuration for discount offer
-        const discountThresholdQuantity = 2000; // Corrected from 1999 to match text
-        const discountPercentage = 20; // 20% discount
-
-        // UPI ID for payment
-        const upiId = "abhinit16@fam"; // Your UPI ID
-
-        // WhatsApp number
-        const whatsappNumber = "916399813670"; // WhatsApp number without '+'
-
-        // Get references to HTML elements
+        // --- Get references to HTML elements ---
         const accountLinkInput = document.getElementById('accountLink');
-        const customerNameInput = document.getElementById('customerName'); // Added
+        const customerNameInput = document.getElementById('customerName');
         const quantityInput = document.getElementById('quantity');
         const orderValueSpan = document.getElementById('orderValue');
+        
+        const currentServiceTitleEl = document.getElementById('currentServiceTitle');
+        const currentServiceDescriptionEl = document.getElementById('currentServiceDescription');
+        
         const pricePerFollowerSpan = document.getElementById('pricePerFollower');
-        const minQuantityDisplaySpan = document.getElementById('minQuantityDisplay'); // Added
-        const discountPercentDisplaySpan = document.getElementById('discountPercentDisplay'); // Added
-        const discountThresholdDisplaySpan = document.getElementById('discountThresholdDisplay'); // Added
-        const discountThresholdDisplayHindiSpan = document.getElementById('discountThresholdDisplayHindi'); // Added
-        const discountPercentDisplayHindiSpan = document.getElementById('discountPercentDisplayHindi'); // Added
+        const minQuantityDisplaySpan = document.getElementById('minQuantityDisplay');
+        const discountPercentDisplaySpan = document.getElementById('discountPercentDisplay');
+        const discountThresholdDisplaySpan = document.getElementById('discountThresholdDisplay');
+        const discountThresholdDisplayHindiSpan = document.getElementById('discountThresholdDisplayHindi');
+        const discountPercentDisplayHindiSpan = document.getElementById('discountPercentDisplayHindi');
+        
         const accountLinkError = document.getElementById('accountLinkError');
         const quantityError = document.getElementById('quantityError');
+        
         const orderButton = document.getElementById('orderButton');
         const payNowButton = document.getElementById('payNowButton');
-        const paymentInstructionsDiv = document.getElementById('paymentInstructions'); // Added
-        const upiIdDisplaySpan = document.getElementById('upiIdDisplay'); // Added
+        const paymentInstructionsDiv = document.getElementById('paymentInstructions');
+        const upiIdDisplaySpan = document.getElementById('upiIdDisplay');
 
-        // Display initial configuration values in HTML
-        pricePerFollowerSpan.textContent = pricePerFollower.toFixed(2);
-        minQuantityDisplaySpan.textContent = minimumOrderQuantity;
-        discountPercentDisplaySpan.textContent = discountPercentage;
-        discountThresholdDisplaySpan.textContent = discountThresholdQuantity.toLocaleString(); // Use toLocaleString for comma formatting
-        discountThresholdDisplayHindiSpan.textContent = discountThresholdQuantity.toLocaleString();
-        discountPercentDisplayHindiSpan.textContent = discountPercentage;
-        upiIdDisplaySpan.textContent = upiId;
+        const btnGlobalFollowers = document.getElementById('btnGlobalFollowers');
+        const btnIndianFollowers = document.getElementById('btnIndianFollowers');
 
+        // --- Function to switch service ---
+        function switchService(serviceKey) {
+            if (!services[serviceKey]) return; 
 
-        // Function to update the order value, validation messages, and button visibility
+            currentServiceConfig = services[serviceKey];
+
+            if (serviceKey === 'global') {
+                btnGlobalFollowers.classList.add('active');
+                btnIndianFollowers.classList.remove('active');
+            } else {
+                btnIndianFollowers.classList.add('active');
+                btnGlobalFollowers.classList.remove('active');
+            }
+
+            currentServiceTitleEl.textContent = currentServiceConfig.title;
+            currentServiceDescriptionEl.textContent = currentServiceConfig.description;
+
+            pricePerFollowerSpan.textContent = currentServiceConfig.pricePerFollower.toFixed(2);
+            minQuantityDisplaySpan.textContent = currentServiceConfig.minimumOrderQuantity;
+            discountPercentDisplaySpan.textContent = currentServiceConfig.discountPercentage;
+            discountThresholdDisplaySpan.textContent = currentServiceConfig.discountThresholdQuantity.toLocaleString();
+            discountThresholdDisplayHindiSpan.textContent = currentServiceConfig.discountThresholdQuantity.toLocaleString();
+            discountPercentDisplayHindiSpan.textContent = currentServiceConfig.discountPercentage;
+            
+            upiIdDisplaySpan.textContent = upiId; 
+
+            quantityInput.value = ''; 
+            updateOrderValue(); 
+        }
+
+        // --- Function to update the order value, validation messages, and button visibility ---
         function updateOrderValue() {
-            const quantity = parseFloat(quantityInput.value);
+            const quantityStr = quantityInput.value.trim();
+            const quantity = parseFloat(quantityStr);
             let orderValue = 0;
-            let isValidForOrder = false; // Flag to determine if the quantity meets the minimum for placing an order
+            let isValidForOrder = false;
 
-            // Always calculate the base value if quantity is a valid number
-            if (!isNaN(quantity) && quantity > 0) { // Calculate if quantity is a positive number
-                orderValue = quantity * pricePerFollower;
+            quantityInput.classList.remove('error');
+            quantityError.textContent = '';
 
-                // Apply discount ONLY if quantity meets the discount threshold
-                if (quantity >= discountThresholdQuantity) {
-                    const discountAmount = orderValue * (discountPercentage / 100);
+            if (quantityStr === '') { 
+                orderValueSpan.textContent = '0.00';
+                paymentInstructionsDiv.style.display = 'none';
+                updatePayNowButtonLink(); 
+                return; 
+            }
+
+            if (!isNaN(quantity) && quantity > 0) {
+                orderValue = quantity * currentServiceConfig.pricePerFollower;
+
+                if (quantity >= currentServiceConfig.discountThresholdQuantity) {
+                    const discountAmount = orderValue * (currentServiceConfig.discountPercentage / 100);
                     orderValue -= discountAmount;
                 }
-
-                // Update the displayed order value with the calculated value (including potential discount)
                 orderValueSpan.textContent = orderValue.toFixed(2);
 
-                // Check if the quantity meets the minimum requirement for placing an order
-                if (quantity >= minimumOrderQuantity) {
+                if (quantity >= currentServiceConfig.minimumOrderQuantity) {
                     isValidForOrder = true;
-                    // Clear quantity error if it was previously set
-                    quantityInput.classList.remove('error');
-                    quantityError.textContent = '';
                 } else {
-                     // Set quantity error message if below minimum
                     quantityInput.classList.add('error');
-                    quantityError.textContent = `Minimum order quantity is ${minimumOrderQuantity}.`;
+                    quantityError.textContent = `Minimum order quantity for ${currentServiceConfig.name} is ${currentServiceConfig.minimumOrderQuantity}.`;
                 }
-
             } else {
-                // Handle non-numeric or zero/negative input: set order value to 0 and show error
                 orderValueSpan.textContent = '0.00';
-                // Only show error if input is not just empty, but invalid number
-                 if (quantityInput.value.trim() !== '') {
-                     quantityInput.classList.add('error');
-                     quantityError.textContent = "Please enter a valid positive number for quantity.";
-                 } else {
-                     // Clear error if input is empty
-                     quantityInput.classList.remove('error');
-                     quantityError.textContent = '';
-                 }
-                 isValidForOrder = false; // Quantity is not valid for ordering
+                quantityInput.classList.add('error');
+                quantityError.textContent = "Please enter a valid positive number for quantity.";
             }
 
-            // Control the visibility of the payment instructions and "Pay Now" button
             if (isValidForOrder) {
-                paymentInstructionsDiv.style.display = 'block'; // Show payment section
+                paymentInstructionsDiv.style.display = 'block';
             } else {
-                paymentInstructionsDiv.style.display = 'none'; // Hide payment section
+                paymentInstructionsDiv.style.display = 'none';
             }
-
-            // Update the UPI payment link href whenever the order value or quantity changes
             updatePayNowButtonLink();
         }
 
-        // Function to update the href of the Pay Now button (UPI link)
+        // --- Function to update the href of the Pay Now button (UPI link) ---
         function updatePayNowButtonLink() {
             const quantity = parseFloat(quantityInput.value);
-            const orderTotal = parseFloat(orderValueSpan.textContent); // Get the *displayed* value
+            const orderTotal = parseFloat(orderValueSpan.textContent);
 
-             // Only generate a valid UPI link if the quantity is valid for ordering and the total is positive
-             if (!isNaN(quantity) && quantity >= minimumOrderQuantity && !isNaN(orderTotal) && orderTotal > 0) {
-                const transactionNote = `${serviceName} Qty:${quantity}`;
+            if (!isNaN(quantity) && quantity >= currentServiceConfig.minimumOrderQuantity && !isNaN(orderTotal) && orderTotal > 0) {
+                const transactionNote = `${currentServiceConfig.name} Qty:${quantity}`;
                 const upiLink = `upi://pay?pa=${upiId}&am=${orderTotal.toFixed(2)}&tn=${encodeURIComponent(transactionNote)}`;
                 payNowButton.href = upiLink;
             } else {
-                // Set href to '#' or disable button if not valid for order
                 payNowButton.href = "#";
-                // Optionally, you could also disable the button visually or functionally here
-                // payNowButton.style.pointerEvents = 'none';
-                // payNowButton.style.opacity = '0.6';
             }
         }
 
-
-        // Event listeners for input changes
+        // --- Event listeners for input changes ---
         quantityInput.addEventListener('input', updateOrderValue);
-        accountLinkInput.addEventListener('input', function() { // Clear account link error on input
+        accountLinkInput.addEventListener('input', function() {
             accountLinkInput.classList.remove('error');
             accountLinkError.textContent = '';
-            // No need to call updateOrderValue here based on requirements, but it doesn't hurt
-            // updateOrderValue();
         });
-         // Add listener for customer name input if you ever want to use it for validation
-         customerNameInput.addEventListener('input', function() {
-             // No validation needed per current requirements, but added listener
-         });
+        customerNameInput.addEventListener('input', function() {
+            // No validation needed per current requirements
+        });
+
+        // --- Event listeners for service selection buttons ---
+        btnGlobalFollowers.addEventListener('click', () => switchService('global'));
+        btnIndianFollowers.addEventListener('click', () => switchService('indian'));
 
 
-        // Initial calls to set the order value, errors, and button state on page load
-        updateOrderValue();
-        updatePayNowButtonLink();
-
-
-        // Event listener for the WhatsApp order button click
+        // --- Event listener for the WhatsApp order button click ---
         orderButton.addEventListener('click', function() {
             const accountLink = accountLinkInput.value.trim();
-            const customerName = customerNameInput.value.trim(); // Get customer name
-            const quantity = parseFloat(quantityInput.value); // Use parseFloat for consistency
-            const orderTotal = parseFloat(orderValueSpan.textContent); // Get calculated value
+            const customerName = customerNameInput.value.trim();
+            const quantityStr = quantityInput.value.trim(); 
+            const quantity = parseFloat(quantityStr);
+            const orderTotal = parseFloat(orderValueSpan.textContent);
 
             let hasErrors = false;
 
-            // --- Validation for sending WhatsApp message ---
-            // Clear previous errors
             accountLinkInput.classList.remove('error');
             accountLinkError.textContent = '';
             quantityInput.classList.remove('error');
-            quantityError.textContent = ''; // Clear quantity error before re-checking
+            quantityError.textContent = '';
 
             if (!accountLink) {
                 accountLinkInput.classList.add('error');
                 accountLinkError.textContent = "Please enter your Instagram account link or username.";
                 hasErrors = true;
             }
-
-             // This check is crucial for the WhatsApp message - ensure quantity is valid for ordering
-            if (isNaN(quantity) || quantity < minimumOrderQuantity || quantity <= 0) { // Also check for 0 or negative
+            
+            if (quantityStr === '' || isNaN(quantity) || quantity <= 0) {
+                 quantityInput.classList.add('error');
+                 quantityError.textContent = `Please enter a valid quantity for ${currentServiceConfig.name}. Minimum is ${currentServiceConfig.minimumOrderQuantity}.`;
+                 hasErrors = true;
+            } else if (quantity < currentServiceConfig.minimumOrderQuantity) {
                 quantityInput.classList.add('error');
-                 // Display the correct error message if the quantity is invalid for ordering
-                 quantityError.textContent = `Minimum order quantity is ${minimumOrderQuantity}. Please enter a valid quantity.`;
+                quantityError.textContent = `Minimum order quantity for ${currentServiceConfig.name} is ${currentServiceConfig.minimumOrderQuantity}.`;
                 hasErrors = true;
             }
 
-             // Note: Customer name is optional as per placeholder, so not strictly required here unless you change that.
-             // if (!customerName) { ... add validation if name is required ... }
-
 
             if (hasErrors) {
-                // If there are validation errors, stop the process
-                // The error messages are already displayed by the checks above.
                 return;
             }
-            // --- End Validation ---
 
+            const transactionNote = `${currentServiceConfig.name} Qty:${quantity}`;
+            const upiLinkForMessage = `upi://pay?pa=${upiId}&am=${orderTotal.toFixed(2)}&tn=${encodeURIComponent(transactionNote)}`;
 
-            // Construct the dynamic UPI link for the WhatsApp message text
-             // Only construct if validation passed, orderTotal will be >= minimum order value
-            const transactionNote = `${serviceName} Qty:${quantity}`;
-            const upiLink = `upi://pay?pa=${upiId}&am=${orderTotal.toFixed(2)}&tn=${encodeURIComponent(transactionNote)}`;
-
-
-            let message = `Hello InstaGrowMo Team,
-
-I would like to place an order for Instagram ${serviceName}:
-
-Instagram Account Link/Username: ${accountLink}
-${customerName ? `Customer Name: ${customerName}\n` : ''} Quantity: ${quantity}
-Calculated Order Value: ₹${orderTotal.toFixed(2)} ----------
-`;
-            // Add payment instructions and link (Formal Hindi and English) in the WhatsApp message
+            let message = `Hello InstaGrowMo Team,\n\nI would like to place an order for Instagram ${currentServiceConfig.name}:\n\nInstagram Account Link/Username: ${accountLink}\n`;
+            if (customerName) {
+                 message += `Customer Name: ${customerName}\n`;
+            }
+            message += `Quantity: ${quantity}\nCalculated Order Value: ₹${orderTotal.toFixed(2)}\n----------\n`;
+            
             message += `To complete your order, please make the payment of ₹${orderTotal.toFixed(2)} using the UPI link below or by returning to the website if the link doesn't work or you can wait till InstaGrowMo support team message you.\n\n`;
-            message += `Order Payment Link:\n${upiLink}\n\n`;
-            message += `भुगतान पूरा करने के लिए, कृपया नीचे दिए गए UPI लिंक का उपयोग करके ₹${orderTotal.toFixed(2)} का भुगतान करें या यदि लिंक काम नहीं कर रहा है तो वेबसाइट पर वापस जाएं या फिर थोड़ी देर में InstaGrowMo की support team आपको message करेगी। \n`;
-            message += `----------\n`;
-
-            message += `\nPlease let me know once the payment is done (please share a screenshot of the successful transaction).
-
-Thank you!`;
+            message += `Order Payment Link:\n${upiLinkForMessage}\n\n`;
+            message += `भुगतान पूरा करने के लिए, कृपया नीचे दिए गए UPI लिंक का उपयोग करके ₹${orderTotal.toFixed(2)} का भुगतान करें या यदि लिंक काम नहीं कर रहा है तो वेबसाइट पर वापस जाएं या फिर थोड़ी देर में InstaGrowMo की support team आपको message करेगी। \n`;
+            message += `----------\n\n`;
+            message += `Please let me know once the payment is done (please share a screenshot of the successful transaction).\n\nThank you!`;
 
             const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
+        });
+
+        // --- Initial Page Setup ---
+        document.addEventListener('DOMContentLoaded', () => {
+            switchService('global'); 
         });
 
     </script>
