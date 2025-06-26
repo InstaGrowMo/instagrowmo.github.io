@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,8 +15,7 @@
             --text-color-secondary: #495057;
             --bg-color-primary: #f8f9fa;
             --bg-color-secondary: #fff;
-            --box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-            /* More subtle shadow */
+            --box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08); /* More subtle shadow */
             --border-radius: 8px;
             --transition: all 0.3s ease-in-out;
         }
@@ -32,9 +30,7 @@
             overflow-x: hidden;
         }
 
-        h1,
-        h2,
-        h3 {
+        h1, h2, h3 {
             color: var(--primary-color);
             margin-top: 0;
             line-height: 1.2;
@@ -47,11 +43,7 @@
         }
 
         a:hover {
-            /* Note: 'darken' is a SASS/LESS function. Using CSS rgba or hex adjustments */
-            /* For simplicity, let's pick a slightly darker shade or adjust alpha */
             color: rgba(255, 112, 67, 0.8);
-            /* Example: slightly less opaque */
-            /* Or a specific darker hex color like #e65100 */
         }
 
         .top-panel {
@@ -70,15 +62,12 @@
         .top-panel h1 {
             margin: 0;
             font-size: 1.8em;
-            /* Slightly smaller for better fit */
             letter-spacing: -1px;
             color: var(--primary-color);
         }
-
         .home-button {
             background-color: var(--primary-color);
             color: var(--bg-color-secondary);
-            /* White color */
             padding: 10px 15px;
             border: none;
             border-radius: var(--border-radius);
@@ -86,43 +75,32 @@
             font-weight: bold;
             font-size: 0.95em;
             text-decoration: none;
-            /* Remove underline from link */
             transition: background-color 0.3s ease, transform 0.2s ease-in-out;
         }
 
         .home-button:hover {
-            /* Note: 'darken' is a SASS/LESS function. Using CSS rgba or hex adjustments */
-            background-color: rgba(90, 85, 202, 0.9);
-            /* Example: slightly less opaque */
-            /* Or a specific darker hex color like #4527a0 */
+             background-color: rgba(90, 85, 202, 0.9);
             transform: scale(1.05);
         }
-
         .service-page-container {
             padding: 30px 15px;
-            /* Reduced overall padding */
             background-color: var(--bg-color-primary);
-            /* Changed to primary background */
             text-align: center;
         }
 
-        .service-info {
-            max-width: 90%;
-            /* Adjust max width to be responsive */
-            margin: 20px auto;
-            /* Reduced top margin */
-            padding: 25px;
-            /* Slightly reduced padding */
-            background-color: var(--bg-color-secondary);
-            /* Changed to secondary background */
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            text-align: center;
-        }
+         .service-info {
+             max-width: 90%;
+             margin: 20px auto;
+             padding: 25px;
+             background-color: var(--bg-color-secondary);
+             border-radius: var(--border-radius);
+             box-shadow: var(--box-shadow);
+             text-align: center;
+         }
+
 
         .service-title {
             font-size: 2.4em;
-            /* Adjust font size */
             color: var(--secondary-color);
             margin-bottom: 10px;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
@@ -133,21 +111,15 @@
             font-size: 1em;
             color: var(--text-color-secondary);
             line-height: 1.6;
-            /* Adjust line height */
             margin-bottom: 15px;
-            /* Reduced bottom margin */
             text-align: left;
         }
 
         .order-form {
             max-width: 90%;
-            /* Adjust max width to be responsive */
             margin: 20px auto;
-            /* Reduced top margin */
             padding: 25px;
-            /* Slightly reduced padding */
             background-color: var(--bg-color-secondary);
-            /* Changed to secondary background */
             border-radius: var(--border-radius);
             box-shadow: var(--box-shadow);
             text-align: left;
@@ -155,7 +127,6 @@
 
         .form-group {
             margin-bottom: 15px;
-            /* Reduced margin */
         }
 
         .form-group label {
@@ -164,18 +135,15 @@
             margin-bottom: 5px;
             color: var(--text-color-primary);
             font-size: 0.95em;
-            /* Slightly smaller label font */
         }
 
         .form-group input[type="text"],
         .form-group input[type="number"] {
             width: calc(100% - 22px);
-            /* Adjust width to account for padding and border */
             padding: 10px;
             border: 1px solid #ced4da;
             border-radius: 6px;
             font-size: 0.95em;
-            /* Slightly smaller input font */
             box-sizing: border-box;
         }
 
@@ -186,92 +154,110 @@
         .error-message {
             color: red;
             font-size: 0.85em;
-            /* Smaller error message font */
             margin-top: 3px;
-            /* Reduced top margin */
         }
 
+        /* Hide number input arrows */
         .form-group input[type="number"]::-webkit-inner-spin-button,
         .form-group input[type="number"]::-webkit-outer-spin-button {
             -webkit-appearance: none;
             margin: 0;
         }
-
         .form-group input[type="number"] {
             -moz-appearance: textfield;
         }
 
+        /* Styles for dynamically added order items */
+        .order-item {
+            border: 1px solid #e0e0e0;
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+            background-color: #fcfcfc;
+            position: relative; /* For the remove button positioning */
+        }
+        .order-item:first-child {
+            border: none; /* No border for the first (non-removable) item */
+            padding: 0;
+            margin-bottom: 15px;
+            background-color: transparent;
+        }
+
+        .order-item .remove-item-button {
+            background-color: #dc3545; /* Red color */
+            color: white;
+            border: none;
+            padding: 6px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.85em;
+            transition: background-color 0.3s ease;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 10;
+        }
+
+        .order-item .remove-item-button:hover {
+            background-color: #c82333;
+        }
+
         .price-info {
-            text-align: center;
+            text-align: left; /* Changed to left for individual items */
             margin-bottom: 10px;
             color: var(--text-color-secondary);
             font-size: 0.85em;
-            /* Smaller price info font */
         }
 
         .order-value {
             text-align: center;
             font-size: 1.1em;
-            /* Slightly smaller order value font */
             font-weight: bold;
             color: var(--secondary-color);
+            margin-top: 20px; /* Adjusted margin */
             margin-bottom: 15px;
         }
 
-        .order-button,
-        .pay-now-button {
+        .order-button, .pay-now-button {
             background-color: var(--accent-color);
             color: var(--bg-color-secondary);
             border: none;
             padding: 10px 20px;
-            /* Reduced button padding */
             border-radius: 6px;
             cursor: pointer;
             font-weight: bold;
             font-size: 0.95em;
-            /* Slightly smaller button font */
             transition: background-color 0.3s ease, transform 0.2s ease-in-out;
             width: 100%;
             text-align: center;
             display: block;
             margin-top: 15px;
             text-decoration: none;
-            /* Ensure links don't have underlines */
             box-sizing: border-box;
-            /* Include padding in width */
         }
 
         .pay-now-button {
-            background-color: #4CAF50;
-            /* Green for payment button */
+            background-color: #4CAF50; /* Green for payment button */
             margin-top: 10px;
-            /* Reduced margin between buttons */
         }
 
 
-        .order-button:hover,
-        .pay-now-button:hover {
-            background-color: #222;
+        .order-button:hover, .pay-now-button:hover {
+             background-color: rgba(34, 34, 34, 0.9);
             transform: scale(1.01);
-            /* Reduced scale on hover */
         }
 
         .whatsapp-icon {
             margin-right: 6px;
-            /* Reduced icon margin */
         }
 
         .payment-info {
             text-align: center;
             color: var(--text-color-secondary);
             font-size: 0.8em;
-            /* Smaller payment info font */
             margin-top: 10px;
-            /* Reduced top margin */
             margin-bottom: 10px;
-            /* Reduced bottom margin */
             line-height: 1.5;
-            /* Adjust line height */
         }
 
         .important-note {
@@ -281,20 +267,15 @@
 
         .warning-message {
             background-color: #ffe0b2;
-            /* Light orange background */
             color: #d84315;
-            /* Dark orange text */
             padding: 15px;
             border-radius: var(--border-radius);
             margin-bottom: 15px;
             text-align: left;
             font-size: 0.9em;
             border: 1px solid #ffb74d;
-            /* Slightly darker orange border */
             max-width: 90%;
-            /* Adjust max width */
             margin: 20px auto;
-            /* Center the div */
         }
 
         .warning-message strong {
@@ -304,16 +285,13 @@
 
         .discount-note {
             background-color: #e3f2fd;
-            /* Light blue background */
             color: #1e88e5;
-            /* Blue text */
             padding: 10px;
             border-radius: var(--border-radius);
             margin-bottom: 10px;
             text-align: left;
             font-size: 0.9em;
             border: 1px solid #bbdefb;
-            /* Light blue border */
         }
 
         .discount-note strong {
@@ -324,14 +302,11 @@
         footer {
             background-color: var(--bg-color-secondary);
             padding: 15px;
-            /* Reduced footer padding */
             text-align: center;
             color: var(--text-color-secondary);
             font-size: 0.75em;
-            /* Smaller footer font */
             border-top: 1px solid #eee;
             margin-top: 20px;
-            /* Reduced top margin */
         }
 
         /* Responsive adjustments */
@@ -339,19 +314,13 @@
             .top-panel h1 {
                 font-size: 1.6em;
             }
-
             .service-page-container {
                 padding: 20px 10px;
             }
-
-            .service-info,
-            .order-form,
-            .warning-message {
+            .service-info, .order-form, .warning-message {
                 padding: 20px;
-                max-width: 95%;
-                /* Slightly wider on smaller screens */
+                 max-width: 95%;
             }
-
             .service-title {
                 font-size: 2em;
             }
@@ -361,37 +330,24 @@
             .top-panel h1 {
                 font-size: 1.4em;
             }
-
-            .service-info,
-            .order-form,
-            .warning-message {
+            .service-info, .order-form, .warning-message {
                 padding: 15px;
-                max-width: 100%;
-                /* Full width on very small screens */
+                 max-width: 100%;
             }
-
             .service-title {
                 font-size: 1.8em;
             }
-
             .form-group label {
                 font-size: 0.9em;
             }
-
             .form-group input[type="text"],
             .form-group input[type="number"] {
                 font-size: 0.9em;
             }
-
-            .price-info,
-            .order-value,
-            .payment-info,
-            footer {
+            .price-info, .order-value, .payment-info, footer {
                 font-size: 0.75em;
             }
-
-            .order-button,
-            .pay-now-button {
+            .order-button, .pay-now-button {
                 font-size: 0.9em;
                 padding: 8px 15px;
             }
@@ -401,30 +357,23 @@
             .top-panel h1 {
                 font-size: 1.2em;
             }
-
             .service-title {
                 font-size: 1.6em;
             }
-
             .order-value {
                 font-size: 1.2em;
             }
-
-            .order-button,
-            .pay-now-button {
+            .order-button, .pay-now-button {
                 font-size: 0.8em;
                 padding: 8px 12px;
             }
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvU9xC6qOPnzFeg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" xintegrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
     <div class="top-panel">
@@ -434,47 +383,42 @@
 
     <div class="service-page-container">
         <div class="service-info">
-            <h2 class="service-title">Instagram Global Story Views</h2>
-            <p>Boost the engagement and reach of your Instagram stories with genuine views from real Instagram accounts.
-                Increase your story visibility and attract more attention to your content.</p>
+            <h2 class="service-title">Instagram Story Views</h2>
+            <p>Get more eyes on your Instagram stories and increase your engagement.</p>
         </div>
 
         <div class="order-form">
             <h3>Place Your Order</h3>
 
-
-
             <div class="form-group">
-                <label for="instagramAccount">Instagram Username or Profile Link:</label>
-                <input type="text" id="instagramAccount" name="instagramAccount"
-                    placeholder="Enter your Instagram username or profile link" required>
-                <p class="error-message" id="instagramAccountError"></p>
-            </div>
-            <div class="form-group">
-                <label for="customerName">Your Name (Optional):</label> <input type="text" id="customerName" name="customerName" placeholder="Enter your name">
-            </div>
-            <div class="form-group">
-                <label for="quantity">Quantity:</label> <input type="number" id="quantity" name="quantity" min="1" placeholder="Enter quantity (e.g., 50)"> <p class="error-message" id="quantityError"></p>
+                <label for="customerName">Your Name (Optional):</label>
+                <input type="text" id="customerName" name="customerName" placeholder="Enter your name">
             </div>
 
-            <p class="price-info">Price per view: ₹<span id="pricePerView"></span></p>
-            <p class="price-info">Minimum order quantity: <span id="minViewsDisplay"></span></p> <div class="order-value">
-                Order Value: ₹<span id="orderValue">0.00</span>
+            <div id="orderItemsContainer">
+                </div>
+
+            <button id="addLinkButton" class="order-button" style="background-color: var(--secondary-color); margin-top: 15px; margin-bottom: 20px;">
+                <i class="fas fa-plus-circle"></i> Add More Link
+            </button>
+            
+            <p class="price-info">Price per view: ₹<span id="pricePerView">0.00</span></p>
+            <p class="price-info">Minimum quantity per link: <span id="minViewsDisplay">0</span></p>
+            <div class="order-value">
+                Total Order Value: ₹<span id="orderValue">0.00</span>
             </div>
 
             <div class="discount-note">
-                <p><strong>Discount Offer:</strong> Enjoy a discount of <span id="discountPercentDisplay">60</span>% on your order when you purchase more than <span id="discountThresholdDisplay">500</span> story views.</p>
-                <p><strong>Discount Offer [Hindi Translation]:</strong> <span id="discountThresholdDisplayHindi">500</span> से ज़्यादा स्टोरी व्यूज खरीदने पर अपने ऑर्डर पर <span id="discountPercentDisplayHindi">60</span>% की छूट का आनंद लें।</p>
+                <p><strong>Discount Offer:</strong> Enjoy a discount of <span id="discountPercentDisplay">50</span>% on any individual link's quantity when you purchase more than <span id="discountThresholdDisplay">300</span> views for that link.</p>
+                <p><strong>Discount Offer [Hindi Translation]:</strong> किसी भी व्यक्तिगत लिंक की संख्या पर <span id="discountPercentDisplayHindi">50</span>% की छूट का आनंद लें, जब आप उस लिंक के लिए <span id="discountThresholdDisplayHindi">300</span> से ज़्यादा व्यूज़ खरीदते हैं।</p>
             </div>
 
             <p class="payment-info">
-                <span class="important-note">Important:</span> Please note that this is a prepaid service. After you
-                send us your order via WhatsApp, we will request you to send the payment first. Your order will be
-                processed quickly once we receive the payment and confirm your Instagram account details.
+                <span class="important-note">Important:</span> Please note that this is a prepaid service. After you send us your order via WhatsApp, we will request you to send the payment first. Your order will be processed quickly once we receive the payment and confirm your Instagram story details.
             </p>
 
-
-            <button id="orderButton" class="order-button" style="margin-top: 20px;"> <i class="fab fa-whatsapp whatsapp-icon"></i> Send Order Details on WhatsApp
+            <button id="orderButton" class="order-button" style="margin-top: 20px;">
+                <i class="fab fa-whatsapp whatsapp-icon"></i> Send Order Details on WhatsApp
             </button>
             <div id="paymentInstructions"
                 style="display: none; text-align: center; margin-top: 20px; padding: 15px; background-color: #e8f5e9; border-radius: var(--border-radius); border: 1px solid #c8e6c9;">
@@ -486,25 +430,10 @@
                 </a>
                 <p style="color: #388e3c; font-size: 0.85em; margin-top: 10px;">After payment, please share the screenshot on WhatsApp for quick processing.</p>
             </div>
-
-
         </div>
         <div class="warning-message">
-            <strong>Important:</strong> To use our Instagram Story Views service, please note the following:
-            <ul>
-                <li>Your Instagram account must be <strong>public</strong>. Ensure it is set to public before
-                    placing your order. You can switch back to private after the service is completed.</li>
-                <li><strong>Account and Content Changes:</strong> Please do not change your username or set your
-                    account to private during the order processing. If you delete your account, make it private, or
-                    change the username while the order is in progress, InstaGrowMo will not be responsible and no
-                    refund will be initiated.</li>
-                <li><strong>Refund Policy:</strong> Once a service has started, no refund will be provided. If, for
-                    any reason, InstaGrowMo cannot provide you with the service, we will refund your money back to
-                    you, or you can choose to order another service of equal value.</li>
-                <li><strong>Target Specification:</strong> Please ensure you have provided the correct Instagram
-                    account link or username for the story views service.</li>
-            </ul>
-            Please consider these points carefully before proceeding with your order.
+            <strong>Important:</strong> To use our Instagram Story Views service, your Instagram account must be <strong>public</strong>. Please ensure your account is set to public before placing your order. You can switch back to a private account after the service is completed. <br><br>
+            <strong>Story Link:</strong> If you delete, archive, or make any changes to the target story link after placing the order, you will be responsible for this, and InstaGrowMo will not initiate any refunds. Once a service has started, no refund will be provided. If InstaGrowMo cannot provide the service, we will refund your money back to you, or you can order another service. Please consider all these points carefully before placing your order.
         </div>
     </div>
 
@@ -514,233 +443,342 @@
     </footer>
 
     <script>
-        // Service Configuration
-        const serviceName = "Global Story Views"; // Name of this service
-
-        // Configuration for Instagram Story Views service
-        const storyViewsConfig = {
-            pricePerView: 0.04, // Price per view in Rupees
-            minimumOrderQuantity: 50 // Minimum order quantity for story views
+        // Service Configuration (Simplified as there's only one type of Story Views service)
+        const currentServiceConfig = {
+            key: "global-story-views",
+            name: "Global Story Views",
+            title: "Instagram Story Views",
+            description: "Get more eyes on your Instagram stories and increase your engagement.",
+            pricePerView: 0.05,
+            minimumOrderQuantity: 100,
+            discountThresholdQuantity: 300,
+            discountPercentage: 50
         };
-
-        // Configuration for discount offer
-        const discountThresholdQuantity = 500; // Corrected to match the text
-        const discountPercentage = 60;
 
         // UPI ID for payment
         const upiId = "abhinit16@fam"; // Your UPI ID
-
         // WhatsApp number
         const whatsappNumber = "916399813670"; // WhatsApp number without '+'
 
-
-        // Get references to HTML elements
-        const instagramAccountInput = document.getElementById('instagramAccount');
-        const customerNameInput = document.getElementById('customerName'); // Added
-        const quantityInput = document.getElementById('quantity');
+        // Get references to static HTML elements
+        const customerNameInput = document.getElementById('customerName');
         const orderValueSpan = document.getElementById('orderValue');
+        
         const pricePerViewSpan = document.getElementById('pricePerView');
-        const instagramAccountError = document.getElementById('instagramAccountError');
-        const quantityError = document.getElementById('quantityError');
-        const minViewsDisplaySpan = document.getElementById('minViewsDisplay'); // Added
-        const discountPercentDisplaySpan = document.getElementById('discountPercentDisplay'); // Added
-        const discountThresholdDisplaySpan = document.getElementById('discountThresholdDisplay'); // Added
-        const discountThresholdDisplayHindiSpan = document.getElementById('discountThresholdDisplayHindi'); // Added
-        const discountPercentDisplayHindiSpan = document.getElementById('discountPercentDisplayHindi'); // Added
+        const minViewsDisplaySpan = document.getElementById('minViewsDisplay');
+        const discountPercentDisplaySpan = document.getElementById('discountPercentDisplay');
+        const discountThresholdDisplaySpan = document.getElementById('discountThresholdDisplay');
+        const discountThresholdDisplayHindiSpan = document.getElementById('discountThresholdDisplayHindi');
+        const discountPercentDisplayHindiSpan = document.getElementById('discountPercentDisplayHindi');
         const orderButton = document.getElementById('orderButton');
         const payNowButton = document.getElementById('payNowButton');
-        const paymentInstructionsDiv = document.getElementById('paymentInstructions'); // Added
-        const upiIdDisplaySpan = document.getElementById('upiIdDisplay'); // Added
+        const paymentInstructionsDiv = document.getElementById('paymentInstructions');
+        const upiIdDisplaySpan = document.getElementById('upiIdDisplay');
 
+        const orderItemsContainer = document.getElementById('orderItemsContainer');
+        const addLinkButton = document.getElementById('addLinkButton');
 
-        // Display initial configuration values in HTML
-        pricePerViewSpan.textContent = storyViewsConfig.pricePerView.toFixed(2); // Display price with 2 decimal places
-        minViewsDisplaySpan.textContent = storyViewsConfig.minimumOrderQuantity;
-        discountPercentDisplaySpan.textContent = discountPercentage;
-        discountThresholdDisplaySpan.textContent = discountThresholdQuantity.toLocaleString(); // Use toLocaleString for comma formatting
-        discountThresholdDisplayHindiSpan.textContent = discountThresholdQuantity.toLocaleString();
-        discountPercentDisplayHindiSpan.textContent = discountPercentage;
-        upiIdDisplaySpan.textContent = upiId;
+        // --- Array to hold all order items ---
+        let orderItems = [];
+        let itemCounter = 0; // To generate unique IDs for new items
 
-        // Set the min attribute dynamically for client-side browser validation hint
-        quantityInput.min = 1; // Allow any number > 0 for basic calculation hint
-
-
-        // Function to update the order value, validation messages, and button visibility
-        function updateOrderValue() {
-            const quantity = parseFloat(quantityInput.value);
-            let orderValue = 0;
-            let isValidForOrder = false; // Flag to determine if the quantity meets the minimum for placing an order
-
-            // Always calculate the base value if quantity is a valid number
-            if (!isNaN(quantity) && quantity > 0) { // Calculate if quantity is a positive number
-                orderValue = quantity * storyViewsConfig.pricePerView;
-
-                // Apply discount ONLY if quantity meets the discount threshold
-                if (quantity >= discountThresholdQuantity) {
-                    const discountAmount = orderValue * (discountPercentage / 100);
-                    orderValue -= discountAmount;
-                }
-
-                // Update the displayed order value with the calculated value (including potential discount)
-                orderValueSpan.textContent = orderValue.toFixed(2); // Display order value with 2 decimal places
-
-                // Check if the quantity meets the minimum requirement for placing an order
-                if (quantity >= storyViewsConfig.minimumOrderQuantity) {
-                    isValidForOrder = true;
-                    // Clear quantity error if it was previously set and is now valid
-                    quantityInput.classList.remove('error');
-                    quantityError.textContent = '';
-                } else {
-                    // Set quantity error message if below minimum
-                    quantityInput.classList.add('error');
-                    quantityError.textContent = `Minimum order quantity is ${storyViewsConfig.minimumOrderQuantity}.`;
-                }
-
-            } else {
-                // Handle non-numeric or zero/negative input: set order value to 0 and show error
-                orderValueSpan.textContent = '0.00';
-                // Only show error if input is not just empty, but invalid number
-                if (quantityInput.value.trim() !== '') {
-                    quantityInput.classList.add('error');
-                    quantityError.textContent = "Please enter a valid positive number for quantity.";
-                } else {
-                    // Clear error if input is empty
-                    quantityInput.classList.remove('error');
-                    quantityError.textContent = '';
-                }
-                isValidForOrder = false; // Quantity is not valid for ordering
-            }
-
-            // Control the visibility of the payment instructions and "Pay Now" button
-            if (isValidForOrder) {
-                paymentInstructionsDiv.style.display = 'block'; // Show payment section
-            } else {
-                paymentInstructionsDiv.style.display = 'none'; // Hide payment section
-            }
-
-            // Update the UPI payment link href whenever the order value or quantity changes
-            updatePayNowButtonLink();
+        /**
+         * Creates the HTML structure for a single order item.
+         * @param {string} itemId - Unique ID for the item.
+         * @param {boolean} isRemovable - True if a remove button should be included.
+         * @returns {string} HTML string for the order item.
+         */
+        function createOrderItemHtml(itemId, isRemovable) {
+            return `
+                <div class="order-item" data-item-id="${itemId}">
+                    ${isRemovable ? `<button type="button" class="remove-item-button" data-item-id="${itemId}">Remove</button>` : ''}
+                    <div class="form-group">
+                        <label for="link_${itemId}">Instagram Story Link (URL):</label>
+                        <input type="text" id="link_${itemId}" class="link-input" placeholder="Enter your Instagram story link (URL)" required data-item-id="${itemId}">
+                        <p class="error-message link-error" id="link_${itemId}_error"></p>
+                    </div>
+                    <div class="form-group">
+                        <label for="quantity_${itemId}">Quantity:</label>
+                        <input type="number" id="quantity_${itemId}" class="quantity-input" min="1" placeholder="Enter quantity (e.g., 200)" data-item-id="${itemId}">
+                        <p class="error-message quantity-error" id="quantity_${itemId}_error"></p>
+                    </div>
+                    <p class="price-info">Sub-total: ₹<span class="item-sub-total" id="sub_total_${itemId}">0.00</span></p>
+                </div>
+            `;
         }
 
-        // Function to update the href of the Pay Now button (UPI link)
-        function updatePayNowButtonLink() {
-            const quantity = parseFloat(quantityInput.value);
-            const orderTotal = parseFloat(orderValueSpan.textContent); // Get the *displayed* value
+        /**
+         * Adds a new order item to the DOM and the orderItems array.
+         * @param {boolean} isInitial - True if this is the first (non-removable) item.
+         */
+        function addOrderItem(isInitial = false) {
+            const itemId = `item-${itemCounter++}`;
+            const itemHtml = createOrderItemHtml(itemId, !isInitial);
+            orderItemsContainer.insertAdjacentHTML('beforeend', itemHtml);
 
-            // Only generate a valid UPI link if the quantity is valid for ordering and the total is positive
-            if (!isNaN(quantity) && quantity >= storyViewsConfig.minimumOrderQuantity && !isNaN(orderTotal) && orderTotal > 0) {
-                const transactionNote = `${serviceName} Qty:${quantity}`;
-                const upiLink = `upi://pay?pa=${upiId}&am=${orderTotal.toFixed(2)}&tn=${encodeURIComponent(transactionNote)}`;
+            // Add to our JS array tracking items
+            orderItems.push({
+                id: itemId,
+                link: '',
+                quantity: 0,
+                subTotal: 0,
+                isValidLink: false,
+                isValidQuantity: false,
+                isLinkTouched: false,    // New property
+                isQuantityTouched: false // New property
+            });
+
+            // Attach event listeners to the newly added inputs
+            const newLinkInput = document.getElementById(`link_${itemId}`);
+            const newQuantityInput = document.getElementById(`quantity_${itemId}`);
+            const newRemoveButton = document.querySelector(`.remove-item-button[data-item-id="${itemId}"]`);
+
+            if (newLinkInput) {
+                newLinkInput.addEventListener('input', (event) => {
+                    const item = orderItems.find(i => i.id === itemId);
+                    if (item) item.isLinkTouched = true; // Mark as touched on input
+                    updateOrderItem(itemId, 'link', event.target.value);
+                });
+                newLinkInput.addEventListener('blur', (event) => { // Mark as touched on blur
+                    const item = orderItems.find(i => i.id === itemId);
+                    if (item) item.isLinkTouched = true;
+                    calculateOverallOrder(); // Re-calculate to show error on blur if invalid
+                });
+            }
+            if (newQuantityInput) {
+                newQuantityInput.addEventListener('input', (event) => {
+                    const item = orderItems.find(i => i.id === itemId);
+                    if (item) item.isQuantityTouched = true; // Mark as touched on input
+                    updateOrderItem(itemId, 'quantity', event.target.value);
+                });
+                 newQuantityInput.addEventListener('blur', (event) => { // Mark as touched on blur
+                    const item = orderItems.find(i => i.id === itemId);
+                    if (item) item.isQuantityTouched = true;
+                    calculateOverallOrder(); // Re-calculate to show error on blur if invalid
+                });
+            }
+            if (newRemoveButton) {
+                newRemoveButton.addEventListener('click', () => removeOrderItem(itemId));
+            }
+            
+            // Initial call to calculate overall order to display total, but not errors
+            calculateOverallOrder(false); // Do not show errors on initial add
+        }
+
+        /**
+         * Removes an order item from the DOM and the orderItems array.
+         * @param {string} itemId - The ID of the item to remove.
+         */
+        function removeOrderItem(itemId) {
+            const itemElement = document.querySelector(`.order-item[data-item-id="${itemId}"]`);
+            if (itemElement) {
+                itemElement.remove();
+            }
+            orderItems = orderItems.filter(item => item.id !== itemId);
+            // Re-calculate overall order value after removing an item
+            calculateOverallOrder();
+        }
+
+        /**
+         * Updates a specific field of an order item and triggers overall recalculation.
+         * @param {string} itemId - The ID of the item to update.
+         * @param {string} field - The field to update ('link' or 'quantity').
+         * @param {*} value - The new value for the field.
+         */
+        function updateOrderItem(itemId, field, value) {
+            const itemIndex = orderItems.findIndex(item => item.id === itemId);
+            if (itemIndex > -1) {
+                orderItems[itemIndex][field] = value;
+                calculateOverallOrder(); // Recalculate everything when an item changes
+            }
+        }
+
+        /**
+         * Calculates the total order value based on all items and applies validation.
+         * @param {boolean} showAllErrors - If true, all validation errors will be displayed,
+         * even for untouched fields. Used for submission.
+         */
+        function calculateOverallOrder(showAllErrors = false) {
+            let grandTotal = 0;
+            let allItemsValid = true;
+
+            if (orderItems.length === 0) {
+                allItemsValid = false; // No items means no valid order
+            }
+
+            orderItems.forEach(item => {
+                const linkInput = document.getElementById(`link_${item.id}`);
+                const quantityInput = document.getElementById(`quantity_${item.id}`);
+                const linkError = document.getElementById(`link_${item.id}_error`);
+                const quantityError = document.getElementById(`quantity_${item.id}_error`);
+                const subTotalSpan = document.getElementById(`sub_total_${item.id}`);
+
+                // Reset sub-total for recalculation
+                item.subTotal = 0; 
+
+                // Reset errors and styling only if not showing all errors (i.e., on input/blur)
+                if (!showAllErrors) {
+                    linkInput.classList.remove('error');
+                    linkError.textContent = '';
+                    quantityInput.classList.remove('error');
+                    quantityError.textContent = '';
+                }
+                
+                item.isValidLink = true; // Assume valid until proven otherwise
+                item.isValidQuantity = true; // Assume valid until proven otherwise
+
+                // Validate Link
+                if (item.link.trim() === '') {
+                    item.isValidLink = false;
+                    if (item.isLinkTouched || showAllErrors) { // Only show error if touched or on submit
+                        linkInput.classList.add('error');
+                        linkError.textContent = "Please enter Instagram story link (URL).";
+                    }
+                    allItemsValid = false;
+                } else {
+                    linkInput.classList.remove('error');
+                    linkError.textContent = '';
+                }
+
+                // Validate Quantity
+                const quantity = parseFloat(item.quantity);
+                if (isNaN(quantity) || quantity <= 0) {
+                    item.isValidQuantity = false;
+                    if (item.isQuantityTouched || showAllErrors) { // Only show error if touched or on submit
+                        quantityInput.classList.add('error');
+                        quantityError.textContent = "Please enter a valid positive number.";
+                    }
+                    allItemsValid = false;
+                } else if (quantity < currentServiceConfig.minimumOrderQuantity) {
+                    item.isValidQuantity = false;
+                    if (item.isQuantityTouched || showAllErrors) { // Only show error if touched or on submit
+                        quantityInput.classList.add('error');
+                        quantityError.textContent = `Minimum quantity is ${currentServiceConfig.minimumOrderQuantity}.`;
+                    }
+                    allItemsValid = false;
+                } else {
+                    quantityInput.classList.remove('error');
+                    quantityError.textContent = '';
+                }
+
+                // Calculate sub-total for this item if both link and quantity are valid
+                if (item.isValidLink && item.isValidQuantity) {
+                    let itemValue = quantity * currentServiceConfig.pricePerView;
+                    if (quantity >= currentServiceConfig.discountThresholdQuantity) {
+                        const discountAmount = itemValue * (currentServiceConfig.discountPercentage / 100);
+                        itemValue -= discountAmount;
+                    }
+                    item.subTotal = itemValue;
+                    subTotalSpan.textContent = itemValue.toFixed(2);
+                    grandTotal += itemValue;
+                } else {
+                    subTotalSpan.textContent = '0.00'; // If not valid, sub-total is 0
+                }
+            });
+
+            orderValueSpan.textContent = grandTotal.toFixed(2);
+
+            // Control payment instructions visibility and Pay Now button link
+            if (allItemsValid && grandTotal > 0) {
+                paymentInstructionsDiv.style.display = 'block';
+                updatePayNowButtonLink(grandTotal);
+            } else {
+                paymentInstructionsDiv.style.display = 'none';
+                payNowButton.href = "#"; // Disable UPI link if not valid
+            }
+
+            return allItemsValid; // Return validation status
+        }
+
+        // --- Function to update the href of the Pay Now button (UPI link) ---
+        function updatePayNowButtonLink(totalAmount) {
+            if (totalAmount > 0) {
+                // Collect details of all valid order items for the transaction note
+                const orderDetails = orderItems
+                    .filter(item => item.isValidLink && item.isValidQuantity)
+                    .map((item, index) => `${currentServiceConfig.name} #${index + 1} Qty:${item.quantity}`)
+                    .join('; ');
+                
+                const transactionNote = `Order: ${orderDetails.substring(0, 80)}`; // Truncate if too long
+                const upiLink = `upi://pay?pa=${upiId}&am=${totalAmount.toFixed(2)}&tn=${encodeURIComponent(transactionNote)}`;
                 payNowButton.href = upiLink;
             } else {
-                // Set href to '#' or disable button if not valid for order
                 payNowButton.href = "#";
-                // Optionally, you could also disable the button visually or functionally here
-                // payNowButton.style.pointerEvents = 'none';
-                // payNowButton.style.opacity = '0.6';
             }
         }
 
+        // --- Event listener for "Add More Link" button ---
+        addLinkButton.addEventListener('click', () => addOrderItem(false));
 
-        // Event listeners for input changes
-        quantityInput.addEventListener('input', updateOrderValue);
-        instagramAccountInput.addEventListener('input', function () { // Clear account link error on input
-            instagramAccountInput.classList.remove('error');
-            instagramAccountError.textContent = '';
-            // No need to call updateOrderValue here based on requirements, but it doesn't hurt
-            // updateOrderValue();
-        });
-        // Add listener for customer name input if you ever want to use it for validation
-        customerNameInput.addEventListener('input', function () {
-            // No validation needed per current requirements, but added listener
-        });
+        // --- Event listener for the WhatsApp order button click ---
+        orderButton.addEventListener('click', function() {
+            // Validate all fields and show errors
+            const allItemsAreValid = calculateOverallOrder(true); 
 
-
-        // Initial calls to set the order value, errors, and button state on page load
-        updateOrderValue();
-        updatePayNowButtonLink();
-
-
-        // Event listener for the WhatsApp order button click
-        orderButton.addEventListener('click', function () {
-            const instagramAccount = instagramAccountInput.value.trim();
-            const customerName = customerNameInput.value.trim(); // Get customer name
-            const quantity = parseFloat(quantityInput.value); // Use parseFloat for consistency
-            const orderTotal = parseFloat(orderValueSpan.textContent); // Get calculated value
-
-            let hasErrors = false;
-
-            // --- Validation for sending WhatsApp message ---
-            // Clear previous errors
-            instagramAccountInput.classList.remove('error');
-            instagramAccountError.textContent = '';
-            quantityInput.classList.remove('error');
-            quantityError.textContent = ''; // Clear quantity error before re-checking
-
-            if (!instagramAccount) {
-                instagramAccountInput.classList.add('error');
-                instagramAccountError.textContent = "Please enter your Instagram username or profile link.";
-                hasErrors = true;
-            }
-
-            // This check is crucial for the WhatsApp message - ensure quantity is valid for ordering
-            if (isNaN(quantity) || quantity < storyViewsConfig.minimumOrderQuantity || quantity <= 0) { // Also check for 0 or negative
-                quantityInput.classList.add('error');
-                // Display the correct error message if the quantity is invalid for ordering
-                quantityError.textContent = `Minimum order quantity is ${storyViewsConfig.minimumOrderQuantity}. Please enter a valid quantity.`;
-                hasErrors = true;
-            }
-
-            // Note: Customer name is optional as per placeholder, so not strictly required here unless you change that.
-            // if (!customerName) { ... add validation if name is required ... }
-
-
-            if (hasErrors) {
-                // If there are validation errors, stop the process
-                // The error messages are already displayed by the checks above.
+            if (orderItems.length === 0) {
+                alert("Please add at least one Instagram story link and quantity to place an order.");
                 return;
             }
-            // --- End Validation ---
 
+            if (!allItemsAreValid) {
+                alert("Please correct the errors in your order details before sending.");
+                return;
+            }
 
-            // Construct the dynamic UPI link for the WhatsApp message text
-            // Only construct if validation passed, orderTotal will be >= minimum order value
-            const transactionNote = `${serviceName} Qty:${quantity}`;
-            const upiLink = `upi://pay?pa=${upiId}&am=${orderTotal.toFixed(2)}&tn=${encodeURIComponent(transactionNote)}`;
+            const customerName = customerNameInput.value.trim();
+            const grandTotal = parseFloat(orderValueSpan.textContent);
 
+            // Construct the UPI link for the WhatsApp message
+            const orderDetailsForUpiLink = orderItems
+                .filter(item => item.isValidLink && item.isValidQuantity)
+                .map((item, index) => `${currentServiceConfig.name} #${index + 1} Qty:${item.quantity}`)
+                .join('; ');
+            const transactionNoteForMessage = `Order: ${orderDetailsForUpiLink.substring(0, 80)}`;
+            const upiLinkForMessage = `upi://pay?pa=${upiId}&am=${grandTotal.toFixed(2)}&tn=${encodeURIComponent(transactionNoteForMessage)}`;
 
-            let message = `Hello InstaGrowMo Team,
+            let message = `Hello InstaGrowMo Team,\n\nI would like to place an order for Instagram ${currentServiceConfig.name} with multiple links:\n\n`;
+            if (customerName) {
+                 message += `Customer Name: ${customerName}\n`;
+            }
+            
+            // Add details for each item
+            orderItems.forEach((item, index) => {
+                if (item.isValidLink && item.isValidQuantity) { // Only include valid items
+                    message += `\n---------- ITEM ${index + 1} ----------\n`;
+                    message += `Link/URL: ${item.link}\n`;
+                    message += `Quantity: ${item.quantity}\n`;
+                    message += `Calculated Sub-total: ₹${item.subTotal.toFixed(2)}\n`;
+                }
+            });
 
-I would like to place an order for Instagram ${serviceName}:
-
-Instagram Username/Link: ${instagramAccount}
-${customerName ? `Customer Name: ${customerName}\n` : ''} Quantity: ${quantity}
-Calculated Order Value: ₹${orderTotal.toFixed(2)} ----------
-`;
-            // Add payment instructions and link (Formal Hindi and English)
-            message += `To complete your order, please make the payment of ₹${orderTotal.toFixed(2)} using the UPI link below or by returning to the website if the link doesn't work or you can wait till InstaGrowMo support team message you.\n\n`;
-            message += `Order Payment Link:\n${upiLink}\n\n`;
-            message += `भुगतान पूरा करने के लिए, कृपया नीचे दिए गए UPI लिंक का उपयोग करके ₹${orderTotal.toFixed(2)} का भुगतान करें या यदि लिंक काम नहीं कर रहा है तो वेबसाइट पर वापस जाएं या फिर थोड़ी देर में InstaGrowMo की support team आपको message करेगी। \n`;
-            message += `----------\n`;
-
-
-            message += `\nPlease let me know once the payment is done (please share a screenshot of the successful transaction).
-
-Thank you!`;
-
+            message += `\n---------- TOTAL ORDER ----------\n`;
+            message += `Total Calculated Order Value: ₹${grandTotal.toFixed(2)}\n----------\n`;
+            
+            message += `To complete your order, please make the payment of ₹${grandTotal.toFixed(2)} using the UPI link below or by returning to the website if the link doesn't work or you can wait till InstaGrowMo support team message you.\n\n`;
+            message += `Order Payment Link:\n${upiLinkForMessage}\n\n`;
+            message += `भुगतान पूरा करने के लिए, कृपया ऊपर दिए गए UPI लिंक का उपयोग करके ₹${grandTotal.toFixed(2)} का भुगतान करें या यदि लिंक काम नहीं कर रहा है तो वेबसाइट पर वापस जाएं या फिर थोड़ी देर में InstaGrowMo की support team आपको message करेगी। \n`;
+            message += `----------`;
+            message += `\n\nThank you!`;
 
             const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
         });
 
-        // Clear Instagram account error on input
-        instagramAccountInput.addEventListener('input', function () {
-            instagramAccountInput.classList.remove('error');
-            instagramAccountError.textContent = '';
+        // --- Initial Page Setup ---
+        document.addEventListener('DOMContentLoaded', () => {
+            addOrderItem(true); // Add the initial (non-removable) order item
+            // Initialize discount/price display
+            pricePerViewSpan.textContent = currentServiceConfig.pricePerView.toFixed(3);
+            minViewsDisplaySpan.textContent = currentServiceConfig.minimumOrderQuantity;
+            discountPercentDisplaySpan.textContent = currentServiceConfig.discountPercentage;
+            discountThresholdDisplaySpan.textContent = currentServiceConfig.discountThresholdQuantity.toLocaleString();
+            discountThresholdDisplayHindiSpan.textContent = currentServiceConfig.discountThresholdQuantity.toLocaleString();
+            discountPercentDisplayHindiSpan.textContent = currentServiceConfig.discountPercentage;
+            upiIdDisplaySpan.textContent = upiId;
+            calculateOverallOrder(false); // Initial calculation, but without showing errors immediately
         });
+
     </script>
 
 </body>
-
 </html>

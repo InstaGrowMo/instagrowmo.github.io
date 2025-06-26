@@ -217,18 +217,53 @@
             margin-top: 3px;
         }
 
+        /* Hide number input arrows */
         .form-group input[type="number"]::-webkit-inner-spin-button,
         .form-group input[type="number"]::-webkit-outer-spin-button {
             -webkit-appearance: none;
             margin: 0;
         }
-
         .form-group input[type="number"] {
             -moz-appearance: textfield;
         }
 
+        /* Styles for dynamically added order items */
+        .order-item {
+            border: 1px solid #e0e0e0;
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+            background-color: #fcfcfc;
+            position: relative; /* For the remove button positioning */
+        }
+        .order-item:first-child {
+            border: none; /* No border for the first (non-removable) item */
+            padding: 0;
+            margin-bottom: 15px;
+            background-color: transparent;
+        }
+
+        .order-item .remove-item-button {
+            background-color: #dc3545; /* Red color */
+            color: white;
+            border: none;
+            padding: 6px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.85em;
+            transition: background-color 0.3s ease;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 10;
+        }
+
+        .order-item .remove-item-button:hover {
+            background-color: #c82333;
+        }
+
         .price-info {
-            text-align: center;
+            text-align: left; /* Changed to left for individual items */
             margin-bottom: 10px;
             color: var(--text-color-secondary);
             font-size: 0.85em;
@@ -239,6 +274,7 @@
             font-size: 1.1em;
             font-weight: bold;
             color: var(--secondary-color);
+            margin-top: 20px; /* Adjusted margin */
             margin-bottom: 15px;
         }
 
@@ -395,6 +431,10 @@
             .service-tab-button:last-child {
                 margin-bottom: 0;
             }
+            .order-item .remove-item-button {
+                padding: 4px 8px;
+                font-size: 0.75em;
+            }
         }
 
         @media (max-width: 400px) {
@@ -416,7 +456,7 @@
             }
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" xintegrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -449,29 +489,26 @@
             <h3>Place Your Order</h3>
 
             <div class="form-group">
-                <label for="accountLink">Instagram Account Link (URL) or Username:</label>
-                <input type="text" id="accountLink" name="accountLink" placeholder="Enter your Instagram profile link or username" required>
-                <p class="error-message" id="accountLinkError"></p>
-            </div>
-            <div class="form-group">
                 <label for="customerName">Your Name (Optional):</label>
                 <input type="text" id="customerName" name="customerName" placeholder="Enter your name">
             </div>
-            <div class="form-group">
-                <label for="quantity">Quantity:</label>
-                <input type="number" id="quantity" name="quantity" min="1" placeholder="Enter quantity (e.g., 100)">
-                <p class="error-message" id="quantityError"></p>
-            </div>
 
+            <div id="orderItemsContainer">
+                </div>
+
+            <button id="addLinkButton" class="order-button" style="background-color: var(--secondary-color); margin-top: 15px; margin-bottom: 20px;">
+                <i class="fas fa-plus-circle"></i> Add More Link
+            </button>
+            
             <p class="price-info">Price per follower: ₹<span id="pricePerFollower">0.00</span></p>
-            <p class="price-info">Minimum order quantity: <span id="minQuantityDisplay">0</span></p>
+            <p class="price-info">Minimum quantity per link: <span id="minQuantityDisplay">0</span></p>
             <div class="order-value">
-                Order Value: ₹<span id="orderValue">0.00</span>
+                Total Order Value: ₹<span id="orderValue">0.00</span>
             </div>
 
             <div class="discount-note">
-                <p><strong>Discount Offer:</strong> Enjoy a discount of <span id="discountPercentDisplay">0</span>% on your order when you purchase more than <span id="discountThresholdDisplay">0</span> followers.</p>
-                <p><strong>Discount Offer [Hindi Translation]:</strong> <span id="discountThresholdDisplayHindi">0</span> से ज़्यादा फॉलोअर्स खरीदने पर अपने ऑर्डर पर <span id="discountPercentDisplayHindi">0</span>% की छूट का आनंद लें।</p>
+                <p><strong>Discount Offer:</strong> Enjoy a discount of <span id="discountPercentDisplay">0</span>% on any individual link's quantity when you purchase more than <span id="discountThresholdDisplay">0</span> followers for that link.</p>
+                <p><strong>Discount Offer [Hindi Translation]:</strong> किसी भी व्यक्तिगत लिंक की संख्या पर <span id="discountPercentDisplayHindi">0</span>% की छूट का आनंद लें, जब आप उस लिंक के लिए <span id="discountThresholdDisplayHindi">0</span> से ज़्यादा फॉलोअर्स खरीदते हैं।</p>
             </div>
 
             <p class="payment-info">
@@ -514,7 +551,7 @@
                 name: "Global Followers",
                 title: "Instagram Global Followers",
                 description: "Boost your follower count with high-quality, non-engaging profiles from around the world. Ideal for social proof.",
-                pricePerFollower: 0.18, 
+                pricePerFollower: 0.14, 
                 minimumOrderQuantity: 100,
                 discountThresholdQuantity: 2000,
                 discountPercentage: 10
@@ -524,7 +561,7 @@
                 name: "Indian Followers",
                 title: "Instagram Indian Followers",
                 description: "Increase your followers with genuine-looking Indian profiles to enhance your local presence and credibility within India.",
-                pricePerFollower: 0.22, 
+                pricePerFollower: 0.18, 
                 minimumOrderQuantity: 100,   
                 discountThresholdQuantity: 2000, 
                 discountPercentage: 10    
@@ -537,10 +574,8 @@
         const upiId = "abhinit16@fam"; 
         const whatsappNumber = "916399813670"; 
 
-        // --- Get references to HTML elements ---
-        const accountLinkInput = document.getElementById('accountLink');
+        // --- Get references to static HTML elements ---
         const customerNameInput = document.getElementById('customerName');
-        const quantityInput = document.getElementById('quantity');
         const orderValueSpan = document.getElementById('orderValue');
         
         const currentServiceTitleEl = document.getElementById('currentServiceTitle');
@@ -553,9 +588,6 @@
         const discountThresholdDisplayHindiSpan = document.getElementById('discountThresholdDisplayHindi');
         const discountPercentDisplayHindiSpan = document.getElementById('discountPercentDisplayHindi');
         
-        const accountLinkError = document.getElementById('accountLinkError');
-        const quantityError = document.getElementById('quantityError');
-        
         const orderButton = document.getElementById('orderButton');
         const payNowButton = document.getElementById('payNowButton');
         const paymentInstructionsDiv = document.getElementById('paymentInstructions');
@@ -564,12 +596,131 @@
         const btnGlobalFollowers = document.getElementById('btnGlobalFollowers');
         const btnIndianFollowers = document.getElementById('btnIndianFollowers');
 
+        const orderItemsContainer = document.getElementById('orderItemsContainer');
+        const addLinkButton = document.getElementById('addLinkButton');
+
+        // --- Array to hold all order items ---
+        let orderItems = [];
+        let itemCounter = 0; // To generate unique IDs for new items
+
+        /**
+         * Creates the HTML structure for a single order item.
+         * @param {string} itemId - Unique ID for the item.
+         * @param {boolean} isRemovable - True if a remove button should be included.
+         * @returns {string} HTML string for the order item.
+         */
+        function createOrderItemHtml(itemId, isRemovable) {
+            return `
+                <div class="order-item" data-item-id="${itemId}">
+                    ${isRemovable ? `<button type="button" class="remove-item-button" data-item-id="${itemId}">Remove</button>` : ''}
+                    <div class="form-group">
+                        <label for="link_${itemId}">Instagram Account Link (URL) or Username:</label>
+                        <input type="text" id="link_${itemId}" class="link-input" placeholder="Enter your Instagram profile link or username" required data-item-id="${itemId}">
+                        <p class="error-message link-error" id="link_${itemId}_error"></p>
+                    </div>
+                    <div class="form-group">
+                        <label for="quantity_${itemId}">Quantity:</label>
+                        <input type="number" id="quantity_${itemId}" class="quantity-input" min="1" placeholder="Enter quantity (e.g., 100)" data-item-id="${itemId}">
+                        <p class="error-message quantity-error" id="quantity_${itemId}_error"></p>
+                    </div>
+                    <p class="price-info">Sub-total: ₹<span class="item-sub-total" id="sub_total_${itemId}">0.00</span></p>
+                </div>
+            `;
+        }
+
+        /**
+         * Adds a new order item to the DOM and the orderItems array.
+         * @param {boolean} isInitial - True if this is the first (non-removable) item.
+         */
+        function addOrderItem(isInitial = false) {
+            const itemId = `item-${itemCounter++}`;
+            const itemHtml = createOrderItemHtml(itemId, !isInitial);
+            orderItemsContainer.insertAdjacentHTML('beforeend', itemHtml);
+
+            // Add to our JS array tracking items
+            orderItems.push({
+                id: itemId,
+                link: '',
+                quantity: 0,
+                subTotal: 0,
+                isValidLink: false,
+                isValidQuantity: false,
+                isLinkTouched: false,    // New property
+                isQuantityTouched: false // New property
+            });
+
+            // Attach event listeners to the newly added inputs
+            const newLinkInput = document.getElementById(`link_${itemId}`);
+            const newQuantityInput = document.getElementById(`quantity_${itemId}`);
+            const newRemoveButton = document.querySelector(`.remove-item-button[data-item-id="${itemId}"]`);
+
+            if (newLinkInput) {
+                newLinkInput.addEventListener('input', (event) => {
+                    const item = orderItems.find(i => i.id === itemId);
+                    if (item) item.isLinkTouched = true; // Mark as touched on input
+                    updateOrderItem(itemId, 'link', event.target.value);
+                });
+                newLinkInput.addEventListener('blur', (event) => { // Mark as touched on blur
+                    const item = orderItems.find(i => i.id === itemId);
+                    if (item) item.isLinkTouched = true;
+                    calculateOverallOrder(); // Re-calculate to show error on blur if invalid
+                });
+            }
+            if (newQuantityInput) {
+                newQuantityInput.addEventListener('input', (event) => {
+                    const item = orderItems.find(i => i.id === itemId);
+                    if (item) item.isQuantityTouched = true; // Mark as touched on input
+                    updateOrderItem(itemId, 'quantity', event.target.value);
+                });
+                 newQuantityInput.addEventListener('blur', (event) => { // Mark as touched on blur
+                    const item = orderItems.find(i => i.id === itemId);
+                    if (item) item.isQuantityTouched = true;
+                    calculateOverallOrder(); // Re-calculate to show error on blur if invalid
+                });
+            }
+            if (newRemoveButton) {
+                newRemoveButton.addEventListener('click', () => removeOrderItem(itemId));
+            }
+            
+            // Initial call to calculate overall order to display total, but not errors
+            calculateOverallOrder(false); // Do not show errors on initial add
+        }
+
+        /**
+         * Removes an order item from the DOM and the orderItems array.
+         * @param {string} itemId - The ID of the item to remove.
+         */
+        function removeOrderItem(itemId) {
+            const itemElement = document.querySelector(`.order-item[data-item-id="${itemId}"]`);
+            if (itemElement) {
+                itemElement.remove();
+            }
+            orderItems = orderItems.filter(item => item.id !== itemId);
+            // Re-calculate overall order value after removing an item
+            calculateOverallOrder();
+        }
+
+        /**
+         * Updates a specific field of an order item and triggers overall recalculation.
+         * @param {string} itemId - The ID of the item to update.
+         * @param {string} field - The field to update ('link' or 'quantity').
+         * @param {*} value - The new value for the field.
+         */
+        function updateOrderItem(itemId, field, value) {
+            const itemIndex = orderItems.findIndex(item => item.id === itemId);
+            if (itemIndex > -1) {
+                orderItems[itemIndex][field] = value;
+                calculateOverallOrder(); // Recalculate everything when an item changes
+            }
+        }
+
         // --- Function to switch service ---
         function switchService(serviceKey) {
             if (!services[serviceKey]) return; 
 
             currentServiceConfig = services[serviceKey];
 
+            // Update active button styling
             if (serviceKey === 'global') {
                 btnGlobalFollowers.classList.add('active');
                 btnIndianFollowers.classList.remove('active');
@@ -578,9 +729,11 @@
                 btnGlobalFollowers.classList.remove('active');
             }
 
+            // Update service info display
             currentServiceTitleEl.textContent = currentServiceConfig.title;
             currentServiceDescriptionEl.textContent = currentServiceConfig.description;
 
+            // Update price and discount details
             pricePerFollowerSpan.textContent = currentServiceConfig.pricePerFollower.toFixed(2);
             minQuantityDisplaySpan.textContent = currentServiceConfig.minimumOrderQuantity;
             discountPercentDisplaySpan.textContent = currentServiceConfig.discountPercentage;
@@ -590,135 +743,200 @@
             
             upiIdDisplaySpan.textContent = upiId; 
 
-            quantityInput.value = ''; 
-            updateOrderValue(); 
+            // Clear all quantities and links in the UI and reset touched state when service switches
+            orderItems.forEach(item => {
+                const quantityInput = document.getElementById(`quantity_${item.id}`);
+                const linkInput = document.getElementById(`link_${item.id}`);
+                if (quantityInput) {
+                    quantityInput.value = '';
+                }
+                if (linkInput) {
+                    linkInput.value = '';
+                }
+                item.link = '';
+                item.quantity = 0; // Reset quantity in data model
+                item.isLinkTouched = false; // Reset touched state
+                item.isQuantityTouched = false; // Reset touched state
+
+                // Also clear error messages and classes
+                document.getElementById(`link_${item.id}_error`).textContent = '';
+                document.getElementById(`quantity_${item.id}_error`).textContent = '';
+                linkInput.classList.remove('error');
+                quantityInput.classList.remove('error');
+            });
+            calculateOverallOrder(false); // Recalculate after service switch, but without showing errors initially
         }
 
-        // --- Function to update the order value, validation messages, and button visibility ---
-        function updateOrderValue() {
-            const quantityStr = quantityInput.value.trim();
-            const quantity = parseFloat(quantityStr);
-            let orderValue = 0;
-            let isValidForOrder = false;
+        /**
+         * Calculates the total order value based on all items and applies validation.
+         * @param {boolean} showAllErrors - If true, all validation errors will be displayed,
+         * even for untouched fields. Used for submission.
+         */
+        function calculateOverallOrder(showAllErrors = false) {
+            let grandTotal = 0;
+            let allItemsValid = true;
 
-            quantityInput.classList.remove('error');
-            quantityError.textContent = '';
-
-            if (quantityStr === '') { 
-                orderValueSpan.textContent = '0.00';
-                paymentInstructionsDiv.style.display = 'none';
-                updatePayNowButtonLink(); 
-                return; 
+            if (orderItems.length === 0) {
+                allItemsValid = false; // No items means no valid order
             }
 
-            if (!isNaN(quantity) && quantity > 0) {
-                orderValue = quantity * currentServiceConfig.pricePerFollower;
+            orderItems.forEach(item => {
+                const linkInput = document.getElementById(`link_${item.id}`);
+                const quantityInput = document.getElementById(`quantity_${item.id}`);
+                const linkError = document.getElementById(`link_${item.id}_error`);
+                const quantityError = document.getElementById(`quantity_${item.id}_error`);
+                const subTotalSpan = document.getElementById(`sub_total_${item.id}`);
 
-                if (quantity >= currentServiceConfig.discountThresholdQuantity) {
-                    const discountAmount = orderValue * (currentServiceConfig.discountPercentage / 100);
-                    orderValue -= discountAmount;
+                // Reset sub-total for recalculation
+                item.subTotal = 0; 
+
+                // Reset errors and styling only if not showing all errors (i.e., on input/blur)
+                if (!showAllErrors) {
+                    linkInput.classList.remove('error');
+                    linkError.textContent = '';
+                    quantityInput.classList.remove('error');
+                    quantityError.textContent = '';
                 }
-                orderValueSpan.textContent = orderValue.toFixed(2);
+                
+                item.isValidLink = true; // Assume valid until proven otherwise
+                item.isValidQuantity = true; // Assume valid until proven otherwise
 
-                if (quantity >= currentServiceConfig.minimumOrderQuantity) {
-                    isValidForOrder = true;
+                // Validate Link
+                if (item.link.trim() === '') {
+                    item.isValidLink = false;
+                    if (item.isLinkTouched || showAllErrors) { // Only show error if touched or on submit
+                        linkInput.classList.add('error');
+                        linkError.textContent = "Please enter Instagram link or username.";
+                    }
+                    allItemsValid = false;
                 } else {
-                    quantityInput.classList.add('error');
-                    quantityError.textContent = `Minimum order quantity for ${currentServiceConfig.name} is ${currentServiceConfig.minimumOrderQuantity}.`;
+                    linkInput.classList.remove('error');
+                    linkError.textContent = '';
                 }
-            } else {
-                orderValueSpan.textContent = '0.00';
-                quantityInput.classList.add('error');
-                quantityError.textContent = "Please enter a valid positive number for quantity.";
-            }
 
-            if (isValidForOrder) {
+                // Validate Quantity
+                const quantity = parseFloat(item.quantity);
+                if (isNaN(quantity) || quantity <= 0) {
+                    item.isValidQuantity = false;
+                    if (item.isQuantityTouched || showAllErrors) { // Only show error if touched or on submit
+                        quantityInput.classList.add('error');
+                        quantityError.textContent = "Please enter a valid positive number.";
+                    }
+                    allItemsValid = false;
+                } else if (quantity < currentServiceConfig.minimumOrderQuantity) {
+                    item.isValidQuantity = false;
+                    if (item.isQuantityTouched || showAllErrors) { // Only show error if touched or on submit
+                        quantityInput.classList.add('error');
+                        quantityError.textContent = `Minimum quantity is ${currentServiceConfig.minimumOrderQuantity}.`;
+                    }
+                    allItemsValid = false;
+                } else {
+                    quantityInput.classList.remove('error');
+                    quantityError.textContent = '';
+                }
+
+                // Calculate sub-total for this item if both link and quantity are valid
+                if (item.isValidLink && item.isValidQuantity) {
+                    let itemValue = quantity * currentServiceConfig.pricePerFollower;
+                    if (quantity >= currentServiceConfig.discountThresholdQuantity) {
+                        const discountAmount = itemValue * (currentServiceConfig.discountPercentage / 100);
+                        itemValue -= discountAmount;
+                    }
+                    item.subTotal = itemValue;
+                    subTotalSpan.textContent = itemValue.toFixed(2);
+                    grandTotal += itemValue;
+                } else {
+                    subTotalSpan.textContent = '0.00'; // If not valid, sub-total is 0
+                }
+            });
+
+            orderValueSpan.textContent = grandTotal.toFixed(2);
+
+            // Control payment instructions visibility and Pay Now button link
+            if (allItemsValid && grandTotal > 0) {
                 paymentInstructionsDiv.style.display = 'block';
+                updatePayNowButtonLink(grandTotal);
             } else {
                 paymentInstructionsDiv.style.display = 'none';
+                payNowButton.href = "#"; // Disable UPI link if not valid
             }
-            updatePayNowButtonLink();
+
+            return allItemsValid; // Return validation status
         }
 
         // --- Function to update the href of the Pay Now button (UPI link) ---
-        function updatePayNowButtonLink() {
-            const quantity = parseFloat(quantityInput.value);
-            const orderTotal = parseFloat(orderValueSpan.textContent);
-
-            if (!isNaN(quantity) && quantity >= currentServiceConfig.minimumOrderQuantity && !isNaN(orderTotal) && orderTotal > 0) {
-                const transactionNote = `${currentServiceConfig.name} Qty:${quantity}`;
-                const upiLink = `upi://pay?pa=${upiId}&am=${orderTotal.toFixed(2)}&tn=${encodeURIComponent(transactionNote)}`;
+        function updatePayNowButtonLink(totalAmount) {
+            if (totalAmount > 0) {
+                // Collect details of all valid order items for the transaction note
+                const orderDetails = orderItems
+                    .filter(item => item.isValidLink && item.isValidQuantity)
+                    .map((item, index) => `${currentServiceConfig.name} #${index + 1} Qty:${item.quantity}`)
+                    .join('; ');
+                
+                const transactionNote = `Order: ${orderDetails.substring(0, 80)}`; // Truncate if too long
+                const upiLink = `upi://pay?pa=${upiId}&am=${totalAmount.toFixed(2)}&tn=${encodeURIComponent(transactionNote)}`;
                 payNowButton.href = upiLink;
             } else {
                 payNowButton.href = "#";
             }
         }
 
-        // --- Event listeners for input changes ---
-        quantityInput.addEventListener('input', updateOrderValue);
-        accountLinkInput.addEventListener('input', function() {
-            accountLinkInput.classList.remove('error');
-            accountLinkError.textContent = '';
-        });
-        customerNameInput.addEventListener('input', function() {
-            // No validation needed per current requirements
-        });
-
         // --- Event listeners for service selection buttons ---
         btnGlobalFollowers.addEventListener('click', () => switchService('global'));
         btnIndianFollowers.addEventListener('click', () => switchService('indian'));
 
+        // --- Event listener for "Add More Link" button ---
+        addLinkButton.addEventListener('click', () => addOrderItem(false));
 
         // --- Event listener for the WhatsApp order button click ---
         orderButton.addEventListener('click', function() {
-            const accountLink = accountLinkInput.value.trim();
-            const customerName = customerNameInput.value.trim();
-            const quantityStr = quantityInput.value.trim(); 
-            const quantity = parseFloat(quantityStr);
-            const orderTotal = parseFloat(orderValueSpan.textContent);
+            // Validate all fields and show errors
+            const allItemsAreValid = calculateOverallOrder(true); 
 
-            let hasErrors = false;
-
-            accountLinkInput.classList.remove('error');
-            accountLinkError.textContent = '';
-            quantityInput.classList.remove('error');
-            quantityError.textContent = '';
-
-            if (!accountLink) {
-                accountLinkInput.classList.add('error');
-                accountLinkError.textContent = "Please enter your Instagram account link or username.";
-                hasErrors = true;
-            }
-            
-            if (quantityStr === '' || isNaN(quantity) || quantity <= 0) {
-                 quantityInput.classList.add('error');
-                 quantityError.textContent = `Please enter a valid quantity for ${currentServiceConfig.name}. Minimum is ${currentServiceConfig.minimumOrderQuantity}.`;
-                 hasErrors = true;
-            } else if (quantity < currentServiceConfig.minimumOrderQuantity) {
-                quantityInput.classList.add('error');
-                quantityError.textContent = `Minimum order quantity for ${currentServiceConfig.name} is ${currentServiceConfig.minimumOrderQuantity}.`;
-                hasErrors = true;
-            }
-
-
-            if (hasErrors) {
+            if (orderItems.length === 0) {
+                alert("Please add at least one Instagram link and quantity to place an order.");
                 return;
             }
 
-            const transactionNote = `${currentServiceConfig.name} Qty:${quantity}`;
-            const upiLinkForMessage = `upi://pay?pa=${upiId}&am=${orderTotal.toFixed(2)}&tn=${encodeURIComponent(transactionNote)}`;
+            if (!allItemsAreValid) {
+                alert("Please correct the errors in your order details before sending.");
+                return;
+            }
 
-            let message = `Hello InstaGrowMo Team,\n\nI would like to place an order for Instagram ${currentServiceConfig.name}:\n\nInstagram Account Link/Username: ${accountLink}\n`;
+            const customerName = customerNameInput.value.trim();
+            const grandTotal = parseFloat(orderValueSpan.textContent);
+
+            // Construct the UPI link for the WhatsApp message
+            const orderDetailsForUpiLink = orderItems
+                .filter(item => item.isValidLink && item.isValidQuantity)
+                .map((item, index) => `${currentServiceConfig.name} #${index + 1} Qty:${item.quantity}`)
+                .join('; ');
+            const transactionNoteForMessage = `Order: ${orderDetailsForUpiLink.substring(0, 80)}`;
+            const upiLinkForMessage = `upi://pay?pa=${upiId}&am=${grandTotal.toFixed(2)}&tn=${encodeURIComponent(transactionNoteForMessage)}`;
+
+            let message = `Hello InstaGrowMo Team,\n\nI would like to place an order for Instagram ${currentServiceConfig.name} with multiple links:\n\n`;
             if (customerName) {
                  message += `Customer Name: ${customerName}\n`;
             }
-            message += `Quantity: ${quantity}\nCalculated Order Value: ₹${orderTotal.toFixed(2)}\n----------\n`;
             
-            message += `To complete your order, please make the payment of ₹${orderTotal.toFixed(2)} using the UPI link below or by returning to the website if the link doesn't work or you can wait till InstaGrowMo support team message you.\n\n`;
+            // Add details for each item
+            orderItems.forEach((item, index) => {
+                if (item.isValidLink && item.isValidQuantity) { // Only include valid items
+                    message += `\n---------- ITEM ${index + 1} ----------\n`;
+                    message += `Link/Username: ${item.link}\n`;
+                    message += `Quantity: ${item.quantity}\n`;
+                    message += `Calculated Sub-total: ₹${item.subTotal.toFixed(2)}\n`;
+                }
+            });
+
+            message += `\n---------- TOTAL ORDER ----------\n`;
+            message += `Total Calculated Order Value: ₹${grandTotal.toFixed(2)}\n----------\n`;
+            
+            message += `To complete your order, please make the payment of ₹${grandTotal.toFixed(2)} using the UPI link below or by returning to the website if the link doesn't work or you can wait till InstaGrowMo support team message you.\n\n`;
             message += `Order Payment Link:\n${upiLinkForMessage}\n\n`;
-            message += `भुगतान पूरा करने के लिए, कृपया नीचे दिए गए UPI लिंक का उपयोग करके ₹${orderTotal.toFixed(2)} का भुगतान करें या यदि लिंक काम नहीं कर रहा है तो वेबसाइट पर वापस जाएं या फिर थोड़ी देर में InstaGrowMo की support team आपको message करेगी। \n`;
+            message += `भुगतान पूरा करने के लिए, कृपया ऊपर दिए गए UPI लिंक का उपयोग करके ₹${grandTotal.toFixed(2)} का भुगतान करें या यदि लिंक काम नहीं कर रहा है तो वेबसाइट पर वापस जाएं या फिर थोड़ी देर में InstaGrowMo की support team आपको message करेगी। \n`;
             message += `----------\n\n`;
-            message += `Please let me know once the payment is done (please share a screenshot of the successful transaction).\n\nThank you!`;
+            message += `\n\nThank you!`;
 
             const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
             window.open(whatsappUrl, '_blank');
@@ -726,7 +944,8 @@
 
         // --- Initial Page Setup ---
         document.addEventListener('DOMContentLoaded', () => {
-            switchService('global'); 
+            addOrderItem(true); // Add the initial (non-removable) order item
+            switchService('global'); // Initialize service
         });
 
     </script>
