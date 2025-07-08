@@ -471,9 +471,8 @@
     <div class="service-page-container">
 
         <div class="service-selection-container">
-            <h3 class="service-selection-title">Please select your followers type</h3>
+            <h3 class="service-selection-title">Followers Type</h3>
             <div class="service-tabs">
-                <button id="btnGlobalFollowers" class="service-tab-button" data-service="global">Global Instagram Followers</button>
                 <button id="btnIndianFollowers" class="service-tab-button" data-service="indian">Indian Instagram Followers</button>
             </div>
             <div id="serviceDescriptionContainer" class="service-description-text">
@@ -546,16 +545,6 @@
     <script>
         // --- Service Configurations ---
         const services = {
-            global: {
-                key: "global",
-                name: "Global Followers",
-                title: "Instagram Global Followers",
-                description: "Boost your follower count with high-quality, non-engaging profiles from around the world. Ideal for social proof.",
-                pricePerFollower: 0.14, 
-                minimumOrderQuantity: 100,
-                discountThresholdQuantity: 2000,
-                discountPercentage: 10
-            },
             indian: {
                 key: "indian",
                 name: "Indian Followers",
@@ -568,7 +557,7 @@
             }
         };
 
-        let currentServiceConfig = services.global; 
+        let currentServiceConfig; 
 
         // --- Common Configuration ---
         const upiId = "abhinit16@fam"; 
@@ -593,7 +582,6 @@
         const paymentInstructionsDiv = document.getElementById('paymentInstructions');
         const upiIdDisplaySpan = document.getElementById('upiIdDisplay');
 
-        const btnGlobalFollowers = document.getElementById('btnGlobalFollowers');
         const btnIndianFollowers = document.getElementById('btnIndianFollowers');
 
         const orderItemsContainer = document.getElementById('orderItemsContainer');
@@ -720,14 +708,8 @@
 
             currentServiceConfig = services[serviceKey];
 
-            // Update active button styling
-            if (serviceKey === 'global') {
-                btnGlobalFollowers.classList.add('active');
-                btnIndianFollowers.classList.remove('active');
-            } else {
-                btnIndianFollowers.classList.add('active');
-                btnGlobalFollowers.classList.remove('active');
-            }
+            // Update active button styling (only one button now)
+            btnIndianFollowers.classList.add('active');
 
             // Update service info display
             currentServiceTitleEl.textContent = currentServiceConfig.title;
@@ -882,7 +864,6 @@
         }
 
         // --- Event listeners for service selection buttons ---
-        btnGlobalFollowers.addEventListener('click', () => switchService('global'));
         btnIndianFollowers.addEventListener('click', () => switchService('indian'));
 
         // --- Event listener for "Add More Link" button ---
@@ -945,7 +926,7 @@
         // --- Initial Page Setup ---
         document.addEventListener('DOMContentLoaded', () => {
             addOrderItem(true); // Add the initial (non-removable) order item
-            switchService('global'); // Initialize service
+            switchService('indian'); // Initialize service to Indian Followers
         });
 
     </script>
