@@ -1,39 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
-    <title>InstaGrowMo - Choose Your Instagram Traffic</title>
+    <title>Buy Instagram Post Views - InstaGrowMo</title>
     <style>
-        /* Creative UI Designer Styles - Refined for Readability and Smoothness */
+        /* Inherit styles from the main page with some specific adjustments */
         :root {
-            --primary-color: #5a55ca; /* Slightly darker, more accessible Purple */
-            --secondary-color: #00acc1; /* Teal instead of Cyan for better contrast */
-            --accent-color: #ff7043; /* Slightly warmer Orange */
-            --text-color-primary: #212529; /* Darker primary text for better readability */
-            --text-color-secondary: #495057; /* Darker secondary text */
-            --bg-color-primary: #f8f9fa; /* Lighter background */
+            --primary-color: #5a55ca;
+            --secondary-color: #00acc1;
+            --accent-color: #ff7043;
+            --text-color-primary: #212529;
+            --text-color-secondary: #495057;
+            --bg-color-primary: #f8f9fa;
             --bg-color-secondary: #fff;
-            --box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08); /* Even softer shadow */
-            --border-radius: 8px; /* Even less rounded */
+            --box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            /* More subtle shadow */
+            --border-radius: 8px;
             --transition: all 0.3s ease-in-out;
         }
 
         body {
-            font-family: 'Nunito', sans-serif; /* Modern, friendly font */
+            font-family: 'Nunito', sans-serif;
             margin: 0;
             padding: 0;
             background-color: var(--bg-color-primary);
             color: var(--text-color-primary);
-            line-height: 1.6; /* Slightly tighter line height */
-            overflow-x: hidden; /* Prevent horizontal scrollbar */
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        h1, h2, h3 {
+        h1,
+        h2,
+        h3 {
             color: var(--primary-color);
             margin-top: 0;
-            line-height: 1.2; /* Tighter line height for headings */
+            line-height: 1.2;
         }
 
         a {
@@ -43,16 +47,15 @@
         }
 
         a:hover {
-            color: darken(var(--accent-color), 10%); /* Note: darken() is not standard CSS */
+            color: rgba(255, 112, 67, 0.8);
         }
 
-        /* Top Panel */
         .top-panel {
             background-color: var(--bg-color-secondary);
-            padding: 15px 20px; /* Further reduced padding */
-            text-align: left; /* Align logo to the left */
+            padding: 15px 20px;
+            text-align: left;
             box-shadow: var(--box-shadow);
-            position: sticky; /* Keep at the top on scroll */
+            position: sticky;
             top: 0;
             z-index: 100;
             display: flex;
@@ -62,790 +65,471 @@
 
         .top-panel h1 {
             margin: 0;
-            font-size: 2em; /* Further reduced font size */
+            font-size: 1.8em;
+            /* Slightly smaller for better fit */
             letter-spacing: -1px;
             color: var(--primary-color);
         }
 
-        /* Hero Section */
-        .hero-section {
-            padding: 60px 20px; /* Further reduced padding */
-            text-align: center;
+        .home-button {
+            background-color: var(--primary-color);
             color: var(--bg-color-secondary);
-            position: relative;
-            overflow: hidden;
-            transition: background-color 0.5s ease; /* Transition for background color */
-        }
-
-        .hero-headline {
-            font-size: 2.6em; /* Further reduced font size */
-            margin-bottom: 20px; /* Further reduced margin */
-            font-weight: 700;
-            letter-spacing: -1.5px;
-            opacity: 0;
-            transform: translateY(-15px); /* Further reduced transform */
-            animation: fadeInSlideDown 1s ease-out 0.2s forwards; /* Adjusted delay */
-        }
-
-        .hero-subheadline {
-            font-size: 1em; /* Further reduced font size */
-            opacity: 0;
-            animation: fadeIn 0.8s ease-out 0.5s forwards; /* Adjusted delay */
-        }
-
-        /* App Download Notification Section - NEW */
-        .app-download-notification {
-            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color)); /* Engaging gradient */
-            color: var(--bg-color-secondary); /* White text for contrast */
-            padding: 30px 20px;
-            text-align: center;
-            margin: 20px auto; /* Spacing from other sections */
-            max-width: 900px; /* Consistent with other wide elements */
-            border-radius: var(--border-radius);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-            overflow: hidden; /* For any potential overflow from fancy designs */
-        }
-
-        .app-download-content {
-            display: flex;
-            flex-direction: column; /* Stack elements vertically on small screens */
-            align-items: center;
-            gap: 20px;
-        }
-
-        .app-icon-container .app-icon {
-            font-size: 4em; /* Large Android icon */
-            color: #fff; /* White icon */
-            margin-bottom: 10px;
-            animation: pulseIcon 2s infinite; /* Subtle animation for attention */
-        }
-
-        .app-text-container h3 {
-            font-size: 1.8em;
-            color: #fff; /* Ensure heading is white */
-            margin-bottom: 8px;
-            font-weight: 700;
-        }
-
-        .app-text-container p {
-            font-size: 1em;
-            color: #f0f0f0; /* Slightly off-white for subtext */
-            margin-bottom: 15px;
-            max-width: 600px; /* Keep text readable */
-            line-height: 1.5;
-        }
-
-        .app-download-button-container {
-            display: flex;
-            flex-direction: column; /* Stack button and badge */
-            align-items: center;
-            gap: 15px;
-        }
-
-        .download-app-button { /* Renamed to avoid conflict if any */
-            background-color: var(--accent-color);
-            color: var(--bg-color-secondary);
+            /* White color */
+            padding: 10px 15px;
             border: none;
-            padding: 12px 25px;
-            border-radius: 6px;
+            border-radius: var(--border-radius);
             cursor: pointer;
             font-weight: bold;
-            font-size: 1em;
-            transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+            font-size: 0.95em;
             text-decoration: none;
-            display: inline-flex; /* Align icon and text */
-            align-items: center;
-            width: 9rem;
-            gap: 8px; /* Space between icon and text */
+            /* Remove underline from link */
+            transition: background-color 0.3s ease, transform 0.2s ease-in-out;
         }
 
-        .download-app-button:hover {
-            background-color: darken(var(--accent-color), 10%); /* Note: darken() is not standard CSS */
+        .home-button:hover {
+            background-color: rgba(90, 85, 202, 0.9);
+            /* Example: slightly less opaque */
+            /* Or a specific darker hex color like #4527a0 */
             transform: scale(1.05);
         }
 
-        .download-app-button i {
-            font-size: 1.1em;
-        }
-
-        .google-play-badge {
-            height: 50px; /* Adjust size as needed */
-            width: auto;
-            cursor: pointer;
-            transition: transform 0.2s ease-in-out;
-        }
-
-        .google-play-badge:hover {
-            transform: scale(1.05);
-        }
-        /* End of App Download Notification Section Styles */
-
-
-        /* Summer Sale Banner */
-        .summer-sale-banner {
-            background-color: #ffeb3b; /* Bright yellow background */
-            color: #333; /* Dark text */
-            padding: 20px; /* Moderate padding */
+        .service-page-container {
+            padding: 30px 15px;
+            /* Reduced overall padding */
+            background-color: var(--bg-color-primary);
+            /* Changed to primary background */
             text-align: center;
-            box-shadow: var(--box-shadow);
-            margin: 20px auto; /* Center the banner and provide space */
-            max-width: 900px; /* Max width to prevent it from being too wide */
-            border-radius: var(--border-radius);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
         }
 
-        .summer-sale-banner h2 {
-            color: #f57f17; /* Orange color for headline */
+        .service-info {
+            max-width: 90%;
+            /* Adjust max width to be responsive */
+            margin: 20px auto;
+            /* Reduced top margin */
+            padding: 25px;
+            /* Slightly reduced padding */
+            background-color: var(--bg-color-secondary);
+            /* Changed to secondary background */
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+        }
+
+        .service-title {
+            font-size: 2.4em;
+            /* Adjust font size */
+            color: var(--secondary-color);
             margin-bottom: 10px;
-            font-size: 1.8em; /* Adjusted font size */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            letter-spacing: -1px;
         }
 
-        .summer-sale-banner p {
-            color: var(--text-color-primary); /* Darker text for readability */
+        .service-info p {
             font-size: 1em;
-            margin-bottom: 15px;
-        }
-
-        .summer-sale-banner img {
-            max-width: 100%; /* Make image responsive */
-            height: auto; /* Maintain aspect ratio */
-            border-radius: var(--border-radius);
-            margin-bottom: 15px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-
-        /* Services Section */
-        .services-section {
-            padding: 60px 20px; /* Further reduced padding */
-            text-align: center;
-            background-color: var(--bg-color-secondary);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Significantly reduced minmax */
-            gap: 20px; /* Further reduced gap */
-            padding: 20px; /* Further reduced padding */
-        }
-
-        .service-card {
-            background-color: var(--bg-color-primary);
-            padding: 20px; /* Further reduced padding */
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            text-align: center;
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        }
-
-        .service-card:hover {
-            transform: translateY(-3px); /* Further reduced lift */
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Softer hover shadow */
-        }
-
-        .service-icon {
-            font-size: 2.2em; /* Further reduced font size */
-            color: var(--secondary-color);
-            margin-bottom: 12px; /* Further reduced margin */
-            transition: color 0.3s ease;
-        }
-
-        .service-card:hover .service-icon {
-            color: var(--primary-color);
-        }
-
-        .service-name {
-            font-weight: 600;
-            margin-bottom: 8px; /* Further reduced margin */
-            font-size: 1em; /* Further reduced font size */
-            color: var(--text-color-primary);
-        }
-
-        .service-description {
-            font-size: 0.9em; /* Further reduced font size */
             color: var(--text-color-secondary);
-            line-height: 1.6; /* Slightly tighter line height */
-            margin-bottom: 15px; /* Further reduced margin */
+            line-height: 1.6;
+            /* Adjust line height */
+            margin-bottom: 15px;
+            /* Reduced bottom margin */
+            text-align: left;
         }
 
-        .order-button {
-            background-color: var(--accent-color);
-            color: var(--bg-color-secondary);
-            border: none;
-            padding: 10px 20px; /* Further reduced padding */
-            border-radius: 6px; /* Less rounded */
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 0.9em; /* Further reduced font size */
-            transition: background-color 0.3s ease, transform 0.2s ease-in-out;
-            text-decoration: none;
-        }
-
-        .order-button:hover {
-            background-color: darken(var(--accent-color), 10%); /* Note: darken() is not standard CSS */
-            transform: scale(1.02); /* Further reduced scale */
-        }
-
-        /* Organic Traffic Promotion Section */
-        .organic-traffic-section {
-            padding: 60px 20px; /* Further reduced padding */
-            text-align: center;
-            background: linear-gradient(135deg, #e0f7fa, #80deea); /* Softer blue */
-        }
-
-        .organic-traffic-headline {
-            font-size: 2.2em; /* Further reduced font size */
-            color: var(--primary-color);
-            margin-bottom: 30px; /* Further reduced margin */
-            font-weight: 700;
-        }
-
-        .promote-service-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Further reduced minmax */
-            gap: 20px; /* Further reduced gap */
-            padding: 20px; /* Further reduced padding */
-        }
-
-        .promote-reel-box, .promote-post-box {
+        .order-form {
+            max-width: 90%;
+            /* Adjust max width to be responsive */
+            margin: 20px auto;
+            /* Reduced top margin */
+            padding: 25px;
+            /* Slightly reduced padding */
             background-color: var(--bg-color-secondary);
-            padding: 25px; /* Further reduced padding */
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        }
-
-        .promote-reel-box:hover, .promote-post-box:hover {
-            transform: translateY(-3px); /* Further reduced lift */
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Softer hover shadow */
-        }
-
-        .promote-reel-image, .promote-post-image {
-            width: 60px; /* Further reduced size */
-            height: 60px; /* Further reduced size */
-            margin-bottom: 10px; /* Further reduced margin */
-            object-fit: contain;
-        }
-
-        .promote-reel-heading, .promote-post-heading {
-            font-size: 1.4em; /* Further reduced font size */
-            color: var(--secondary-color);
-            margin-bottom: 8px; /* Further reduced margin */
-            font-weight: 600;
-        }
-
-        .promote-reel-description, .promote-post-description {
-            font-size: 0.9em; /* Further reduced font size */
-            color: var(--text-color-secondary);
-            line-height: 1.6; /* Slightly tighter line height */
-            margin-bottom: 15px; /* Further reduced margin */
-        }
-
-        .promote-reel-box {
-            /* Specific styles for the Reel box if needed */
-        }
-
-        .promote-post-box {
-            /* Specific styles for the Post box if needed */
-        }
-
-
-        .coming-soon {
-            background-color: #ffca28; /* Slightly less intense yellow */
-            color: var(--text-color-primary);
-            padding: 5px 10px; /* Further reduced padding */
-            border-radius: 6px; /* Less rounded */
-            font-size: 0.8em; /* Further reduced font size */
-            margin-top: 6px; /* Further reduced margin */
-            font-weight: bold;
-        }
-
-        /* Why Choose InstaGrowMo? Section */
-        .why-choose-section {
-            padding: 70px 20px; /* Further reduced padding */
-            background-color: var(--bg-color-secondary);
-            text-align: center;
-        }
-
-        .why-choose-title {
-            font-size: 2.4em; /* Further reduced font size */
-            color: var(--primary-color);
-            margin-bottom: 35px; /* Further reduced margin */
-            font-weight: 700;
-            opacity: 0;
-            transform: translateY(-10px); /* Further reduced transform */
-            animation: fadeInSlideDown 0.9s ease-out 0.1s forwards; /* Adjusted delay */
-        }
-
-        .benefits-list {
-            list-style: none;
-            padding: 0;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Further reduced minmax */
-            gap: 20px; /* Further reduced gap */
-            padding: 20px; /* Further reduced padding */
-        }
-
-        .benefit-item {
-            background-color: var(--bg-color-primary);
-            padding: 20px; /* Further reduced padding */
+            /* Changed to secondary background */
             border-radius: var(--border-radius);
             box-shadow: var(--box-shadow);
             text-align: left;
-            display: flex;
-            align-items: center;
-            opacity: 0;
-            transform: translateX(-15px); /* Further reduced transform */
-            animation: fadeInSlideRight 0.7s ease-out forwards; /* Adjusted duration */
         }
 
-        .benefit-item:nth-child(2) { animation-delay: 0.2s; }
-        .benefit-item:nth-child(3) { animation-delay: 0.4s; }
-        .benefit-item:nth-child(4) { animation-delay: 0.6s; }
-        .benefit-item:nth-child(5) { animation-delay: 0.8s; }
-        .benefit-item:nth-child(6) { animation-delay: 1.0s; }
-
-        .benefit-icon {
-            font-size: 1.8em; /* Further reduced font size */
-            color: var(--accent-color);
-            margin-right: 15px; /* Further reduced margin */
+        .form-group {
+            margin-bottom: 15px;
+            /* Reduced margin */
         }
 
-        .benefit-text {
-            font-size: 0.9em; /* Further reduced font size */
-            color: var(--text-color-primary);
-        }
-
-        .benefit-text strong {
-            color: var(--primary-color);
-            font-weight: 600;
-        }
-
-        /* Payment Assistance Section */
-        .payment-assistance-section {
-            padding: 60px 20px;
-            text-align: center;
-            background-color: #fff9c4; /* Light yellow background for attention */
-            border-top: 1px solid #fbc02d;
-            border-bottom: 1px solid #fbc02d; /* Added bottom border */
-            margin-top: 40px; /* Added margin top */
-        }
-
-        .payment-assistance-headline {
-            font-size: 2.2em;
-            color: #f57f17; /* Darker orange/yellow */
-            margin-bottom: 25px;
-            font-weight: 700;
-        }
-
-        .payment-assistance-paragraph {
-            font-size: 1em;
-            color: var(--text-color-primary);
-            line-height: 1.7;
-            margin-bottom: 20px;
-            max-width: 700px; /* Limit paragraph width */
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .payment-options {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .qr-code-container img {
-            max-width: 200px; /* Adjust size as needed */
-            height: auto;
-            border-radius: 8px;
-            box-shadow: var(--box-shadow);
-        }
-
-        .upi-info {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .upi-id {
-            font-size: 1.1em;
+        .form-group label {
+            display: block;
             font-weight: bold;
+            margin-bottom: 5px;
             color: var(--text-color-primary);
+            font-size: 0.95em;
+            /* Slightly smaller label font */
         }
 
-        .copy-button {
-            background-color: var(--secondary-color);
+        .form-group input[type="text"],
+        .form-group input[type="number"] {
+            width: calc(100% - 22px);
+            /* Adjust width to account for padding and border */
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 6px;
+            font-size: 0.95em;
+            /* Slightly smaller input font */
+            box-sizing: border-box;
+        }
+
+        .form-group input.error {
+            border-color: red;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 0.85em;
+            /* Smaller error message font */
+            margin-top: 3px;
+            /* Reduced top margin */
+        }
+
+        .form-group input[type="number"]::-webkit-inner-spin-button,
+        .form-group input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        .form-group input[type="number"] {
+            -moz-appearance: textfield;
+        }
+
+        /* Styles for dynamically added order items */
+        .order-item {
+            border: 1px solid #e0e0e0;
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+            background-color: #fcfcfc;
+            position: relative; /* For the remove button positioning */
+        }
+        .order-item:first-child {
+            border: none; /* No border for the first (non-removable) item */
+            padding: 0;
+            margin-bottom: 15px;
+            background-color: transparent;
+        }
+
+        .order-item .remove-item-button {
+            background-color: #dc3545; /* Red color */
+            color: white;
+            border: none;
+            padding: 6px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.85em;
+            transition: background-color 0.3s ease;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 10;
+        }
+
+        .order-item .remove-item-button:hover {
+            background-color: #c82333;
+        }
+
+        .price-info {
+            text-align: left; /* Changed to left for individual items */
+            margin-bottom: 10px;
+            color: var(--text-color-secondary);
+            font-size: 0.85em;
+        }
+
+        .order-value {
+            text-align: center;
+            font-size: 1.1em;
+            /* Slightly smaller order value font */
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-top: 20px; /* Adjusted margin */
+            margin-bottom: 15px;
+        }
+
+        .order-button,
+        .pay-now-button {
+            background-color: var(--accent-color);
             color: var(--bg-color-secondary);
             border: none;
-            padding: 8px 15px;
+            padding: 10px 20px;
+            /* Reduced button padding */
             border-radius: 6px;
             cursor: pointer;
-            font-size: 0.9em;
-            transition: background-color 0.3s ease;
-        }
-
-        .copy-button:hover {
-            background-color: darken(var(--secondary-color), 10%); /* Note: darken() is not standard CSS */
-        }
-
-        .upi-pay-button {
-            background-color: #4CAF50; /* Green for payment button */
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 8px;
-            cursor: pointer;
             font-weight: bold;
-            font-size: 1em;
+            font-size: 0.95em;
+            /* Slightly smaller button font */
             transition: background-color 0.3s ease, transform 0.2s ease-in-out;
-            text-decoration: none;
-            display: inline-block; /* To apply padding and margin correctly */
-            margin-top: 15px;
-        }
-
-        .upi-pay-button:hover {
-            background-color: darken(#4CAF50, 10%); /* Note: darken() is not standard CSS */
-            transform: scale(1.02);
-        }
-
-        .contact-payment-button {
-            background-color: #007bff; /* Blue for contact button */
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
-            font-size: 1em;
-            transition: background-color 0.3s ease, transform 0.2s ease-in-out;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 20px; /* Space above this button */
-        }
-
-        .contact-payment-button:hover {
-            background-color: darken(#007bff, 10%); /* Note: darken() is not standard CSS */
-            transform: scale(1.02);
-        }
-
-
-        /* Trust and Proof Section */
-        .trust-proof-section {
-            background-color: #e1f5fe; /* Even lighter blue */
-            padding: 60px 20px; /* Further reduced padding */
+            width: 100%;
             text-align: center;
-            color: var(--text-color-primary);
-            border-top: 1px solid #b0bec5;
-            margin-top: 40px; /* Further reduced margin */
+            display: block;
+            margin-top: 15px;
+            text-decoration: none;
+            /* Ensure links don't have underlines */
+            box-sizing: border-box;
+            /* Include padding in width */
         }
 
-        .trust-proof-headline {
-            font-size: 2em; /* Further reduced font size */
-            color: var(--secondary-color);
-            margin-bottom: 20px; /* Further reduced margin */
-            font-weight: 700;
+        .pay-now-button {
+            background-color: #4CAF50;
+            /* Green for payment button */
+            margin-top: 10px;
+            /* Reduced margin between buttons */
         }
 
-        .trust-proof-paragraph {
-            font-size: 0.9em; /* Further reduced font size */
+
+        .order-button:hover,
+        .pay-now-button:hover {
+            background-color: #222;
+            transform: scale(1.01);
+            /* Reduced scale on hover */
+        }
+
+        .whatsapp-icon {
+            margin-right: 6px;
+            /* Reduced icon margin */
+        }
+
+        .payment-info {
+            text-align: center;
             color: var(--text-color-secondary);
-            line-height: 1.6; /* Slightly tighter line height */
-            margin-bottom: 15px; /* Further reduced margin */
+            font-size: 0.8em;
+            /* Smaller payment info font */
+            margin-top: 10px;
+            /* Reduced top margin */
+            margin-bottom: 10px;
+            /* Reduced bottom margin */
+            line-height: 1.5;
+            /* Adjust line height */
         }
 
-        .trust-proof-link {
-            color: var(--primary-color);
+        .important-note {
             font-weight: bold;
-            transition: color 0.3s ease, text-decoration 0.3s ease;
+            color: var(--primary-color);
         }
 
-        .trust-proof-link:hover {
-            color: darken(var(--primary-color), 10%); /* Note: darken() is not standard CSS */
-            text-decoration: underline;
+        .warning-message {
+            background-color: #ffe0b2;
+            /* Light orange background */
+            color: #d84315;
+            /* Dark orange text */
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin-bottom: 15px;
+            text-align: left;
+            font-size: 0.9em;
+            border: 1px solid #ffb74d;
+            /* Slightly darker orange border */
+            max-width: 90%;
+            /* Adjust max width */
+            margin: 20px auto;
+            /* Center the div */
         }
 
-        /* Footer (Example) */
+        .warning-message strong {
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+
+        .discount-note {
+            background-color: #e3f2fd;
+            /* Light blue background */
+            color: #1e88e5;
+            /* Blue text */
+            padding: 10px;
+            border-radius: var(--border-radius);
+            margin-bottom: 10px;
+            text-align: left;
+            font-size: 0.9em;
+            border: 1px solid #bbdefb;
+            /* Light blue border */
+        }
+
+        .discount-note strong {
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
         footer {
             background-color: var(--bg-color-secondary);
-            padding: 20px; /* Further reduced padding */
+            padding: 15px;
+            /* Reduced footer padding */
             text-align: center;
             color: var(--text-color-secondary);
-            font-size: 0.8em; /* Further reduced font size */
+            font-size: 0.75em;
+            /* Smaller footer font */
             border-top: 1px solid #eee;
-            margin-top: 30px; /* Further reduced margin */
+            margin-top: 20px;
+            /* Reduced top margin */
         }
 
-        /* Animations */
-        @keyframes fadeInSlideDown {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes fadeInSlideRight {
-            from { opacity: 0; transform: translateX(-20px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-        
-        @keyframes pulseIcon { /* Renamed from pulse to avoid conflict */
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
-
-
-        /* Responsive Design */
-        @media (min-width: 768px) { /* Styles for app download section on larger screens */
-            .app-download-content {
-                flex-direction: row; /* Horizontal layout */
-                justify-content: space-around;
-                text-align: left;
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .top-panel h1 {
+                font-size: 1.6em;
             }
 
-            .app-icon-container {
-                margin-bottom: 0;
-                margin-right: 20px;
-            }
-            
-            .app-icon-container .app-icon {
-                font-size: 5em;
+            .service-page-container {
+                padding: 20px 10px;
             }
 
-            .app-text-container {
-                flex-grow: 1;
+            .service-info,
+            .order-form,
+            .warning-message {
+                padding: 20px;
+                max-width: 95%;
+                /* Slightly wider on smaller screens */
             }
-            
-            .app-text-container h3 {
+
+            .service-title {
                 font-size: 2em;
             }
-            .app-text-container p {
-                font-size: 1.1em;
+
+            .order-form {
+                padding: 20px;
             }
-
-            .app-download-button-container {
-                flex-direction: column;
-                align-items: center; /* Changed from flex-start for centering */
-                justify-content: center;
-                margin-left: 20px;
-            }
-        }
-
-        @media (max-width: 992px) {
-            .hero-headline { font-size: 2.4em; }
-            .services-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
-            .promote-service-grid { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
-            .benefits-list { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
-        }
-
-        @media (max-width: 768px) {
-            .top-panel { padding: 10px; }
-            .top-panel h1 { font-size: 1.6em; }
-            .hero-section { padding: 50px 15px; }
-            .hero-headline { font-size: 2em; }
-            .services-section { padding: 40px 15px; }
-            .services-grid { padding: 10px; }
-            .promote-service-grid { padding: 10px; }
-            .why-choose-section { padding: 50px 15px; }
-            .benefits-list { padding: 10px; }
-            .benefit-item { flex-direction: column; align-items: flex-start; }
-            .benefit-icon { margin-right: 8px; margin-bottom: 6px; font-size: 1.6em; }
-            .trust-proof-section { padding: 40px 15px; }
-            .summer-sale-banner { padding: 15px; margin: 15px auto; }
-            .summer-sale-banner h2 { font-size: 1.5em; }
-            .summer-sale-banner p { font-size: 0.95em; }
-            
-            .app-download-notification{
-                border-radius: 0 !important;
-            }
-
-            /* Responsive app download section already handled by flex-direction column default and below */
         }
 
         @media (max-width: 576px) {
-            .hero-headline { font-size: 1.6em; }
-            .service-card { padding: 15px; }
-            .promote-reel-box, .promote-post-box { padding: 20px; }
-            .benefit-item { padding: 20px; }
-            .summer-sale-banner h2 { font-size: 1.3em; }
-            .summer-sale-banner p { font-size: 0.9em; }
+            .top-panel h1 {
+                font-size: 1.4em;
+            }
 
-            /* App Download Notification for smaller screens */
-            .app-download-notification {
-                padding: 20px 15px;
+            .service-info,
+            .order-form,
+            .warning-message {
+                padding: 15px;
+                max-width: 100%;
+                /* Full width on very small screens */
             }
-            .app-icon-container .app-icon {
-                font-size: 3em; /* Smaller icon for small screens */
+
+            .service-title {
+                font-size: 1.8em;
             }
-            .app-text-container h3 {
-                font-size: 1.5em;
+
+            .order-form {
+                padding: 15px;
             }
-            .app-text-container p {
+
+            .form-group label {
                 font-size: 0.9em;
             }
-            .download-app-button {
-                padding: 10px 20px;
+
+            .form-group input[type="text"],
+            .form-group input[type="number"] {
                 font-size: 0.9em;
             }
-            
-            .google-play-badge {
-                height: 40px;
+
+            .price-info,
+            .order-value,
+            .payment-info,
+            footer {
+                font-size: 0.75em;
+            }
+
+            .order-button,
+            .pay-now-button {
+                font-size: 0.9em;
+                padding: 8px 15px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .top-panel h1 {
+                font-size: 1.2em;
+            }
+
+            .service-title {
+                font-size: 1.6em;
+            }
+
+            .order-value {
+                font-size: 1.2em;
+            }
+
+            .order-button,
+            .pay-now-button {
+                font-size: 0.8em;
+                padding: 8px 12px;
             }
         }
     </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        xintegrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
     <div class="top-panel">
         <h1>InstaGrowMo</h1>
+        <a href="/" class="home-button">Home</a>
     </div>
 
-    <section class="hero-section" id="hero">
-        <h2 class="hero-headline">Unlock Your Instagram Growth Potential</h2>
-        <p class="hero-subheadline">Choose from a variety of traffic options to boost your presence.</p>
-    </section>
-
-    <section id="DownloadAppIDHidden" class="app-download-notification">
-        <div class="app-download-content">
-            <div class="app-icon-container">
-                <i class="fab fa-android app-icon"></i>
-            </div>
-            <div class="app-text-container">
-                <h3>Get the InstaGrowMo Android App!</h3>
-                <p>Experience faster growth and exclusive features on the go. Download our app now for a seamless experience!</p>
-            </div>
-            <div class="app-download-button-container">
-                <a href="/InstaGrowMo (Official & Safe App).apk" class="download-app-button" rel="noopener noreferrer">
-                    <i class="fas fa-download"></i> Download App
-                </a>
-               
-            </div>
+    <div class="service-page-container">
+        <div class="service-info">
+            <h2 class="service-title">Instagram Post Views (Image & Carousel)</h2>
+            <p>Leverage the latest Instagram feature! Increase the view count on your <strong>static image posts</strong> and <strong>carousel posts</strong> (which are separate from Reels) to boost engagement and show your content is widely seen. This service is specifically for non-video posts that now display view counts.</p>
         </div>
-    </section>
-    <section class="services-section">
-        <h2>Explore Our Dummy Traffic Services</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <i class="fas fa-users service-icon"></i>
-                <h3 class="service-name">Followers</h3>
-                <p class="service-description">Boost your follower count with high-quality, non-engaging profiles. Ideal for social proof.</p>
-                <a href="/followers.html" class="order-button">Order Now</a>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-heart service-icon"></i>
-                <h3 class="service-name">Likes</h3>
-                <p class="service-description">Increase the number of likes on your posts to enhance perceived popularity.</p>
-                <a href="/likes.html" class="order-button">Order Now</a>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-eye service-icon"></i>
-                <h3 class="service-name">Reels Views</h3>
-                <p class="service-description">Enhance the visibility and appeal of your videos and reels with more views.</p>
-                <a href="/reels-views.html" class="order-button">Order Now</a>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-eye service-icon"></i>
-                <h3 class="service-name">Story Views</h3>
-                <p class="service-description">Get real views on your Instagram stories from genuine accounts. Increase visibility and engagement.</p>
-                <a href="/story-views.html" class="order-button">Order Now</a>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-share-alt service-icon"></i>
-                <h3 class="service-name">Shares</h3>
-                <p class="service-description">Expand your content's reach by increasing the number of shares.</p>
-                <a href="/shares.html" class="order-button">Order Now</a>
-            </div>
-            <div class="service-card">
-                <i class="fas fa-comment service-icon"></i>
-                <h3 class="service-name">Comments</h3>
-                <p class="service-description">Add engaging, pre-written comments to your posts to spark interaction.</p>
-                <a href="/comments.html" class="order-button">Order Now</a>
-            </div>
-            </div>
-    </section>
 
+        <div class="order-form">
+            <h3>Place Your Order</h3>
 
-
-    <section class="why-choose-section">
-        <h2 class="why-choose-title">Why Choose InstaGrowMo?</h2>
-        <ul class="benefits-list">
-            <li class="benefit-item">
-                <i class="fas fa-bolt benefit-icon"></i>
-                <div class="benefit-text"><strong>Instant Boost:</strong> See a rapid increase in your chosen metrics.</div>
-            </li>
-            <li class="benefit-item">
-                <i class="fas fa-shield-alt benefit-icon"></i>
-                <div class="benefit-text"><strong>Safe & Secure:</strong> Our methods are designed to be safe for your Instagram account.</div>
-            </li>
-            <li class="benefit-item">
-                <i class="fas fa-chart-line benefit-icon"></i>
-                <div class="benefit-text"><strong>Enhance Visibility:</strong> Improve your profile's discoverability on Instagram.</div>
-            </li>
-            <li class="benefit-item">
-                <i class="fas fa-users benefit-icon"></i>
-                <div class="benefit-text"><strong>Grow Your Audience:</strong> Attract more attention to your content and profile.</div>
-            </li>
-            <li class="benefit-item">
-                <i class="fas fa-clock benefit-icon"></i>
-                <div class="benefit-text"><strong>Convenient & Easy:</strong> Get started quickly and effortlessly.</div>
-            </li>
-            <li class="benefit-item">
-                <i class="fas fa-hand-holding-usd benefit-icon"></i>
-                <div class="benefit-text"><strong>Affordable Packages:</strong> Choose from a range of options to suit your budget.</div>
-            </li>
-            </ul>
-    </section>
-
-    <section class="payment-assistance-section">
-        <h2 class="payment-assistance-headline">Alternative Payment Options</h2>
-        <p class="payment-assistance-paragraph">If you encountered an issue with the payment link sent via WhatsApp after placing your order, you can use the options below to complete your payment directly. Please send a screenshot of your successful payment to InstaGrowMo on WhatsApp afterwards.</p>
-
-        <div class="payment-options">
-            <div class="qr-code-container">
-                <p>Scan to Pay:</p>
-                <img src="abhinit16.jpeg" alt="Payment QR Code">
+            <div class="form-group">
+                <label for="customerName">Your Name (Optional):</label>
+                <input type="text" id="customerName" name="customerName" placeholder="Enter your name">
             </div>
 
-            <div class="upi-info">
-                <p>Or Pay via UPI ID:</p>
-                <span class="upi-id">abhinit16@fam</span>
-                <button class="copy-button" onclick="copyUpiId()">Copy UPI ID</button>
-                <span id="copy-feedback" style="display: none; color: green; font-size: 0.9em;">Copied!</span>
+            <div id="orderItemsContainer">
+                </div>
+
+            <button id="addLinkButton" class="order-button" style="background-color: var(--secondary-color); margin-top: 15px; margin-bottom: 20px;">
+                <i class="fas fa-plus-circle"></i> Add More Link
+            </button>
+
+            <p class="price-info">Price per view: ₹<span id="pricePerView">0.00</span></p>
+            <p class="price-info">Minimum quantity per link: <span id="minViewsDisplay">0</span></p>
+            <div class="order-value">
+                Total Order Value: ₹<span id="orderValue">0.00</span>
             </div>
 
-            <a href="upi://pay?pa=abhinit16@fam" class="upi-pay-button">
-                Pay Now via UPI App
+            <div class="discount-note">
+                <p><strong>Discount Offer:</strong> Enjoy a discount of <span id="discountPercentDisplay">50</span>% on any individual link's quantity when you purchase more than <span id="discountThresholdDisplay">20,000</span> views for that link.</p>
+                <p><strong>Discount Offer [Hindi Translation]:</strong> किसी भी व्यक्तिगत लिंक की संख्या पर <span id="discountThresholdDisplayHindi">20,000</span> से ज़्यादा व्यूज़ खरीदते हैं।</p>
+            </div>
+
+            <p class="payment-info">
+                <span class="important-note">Important:</span> Please note that this is a prepaid service. After you send us your order via WhatsApp, we will request you to send the payment first. Your order will be processed quickly once we receive the payment and confirm your Instagram post details.
+            </p>
+
+
+            <button id="orderButton" class="order-button" style="margin-top: 20px;"> <i class="fab fa-whatsapp whatsapp-icon"></i> Send Order Details on WhatsApp
+            </button>
+            <div id="paymentInstructions"
+                style="display: none; text-align: center; margin-top: 20px; padding: 15px; background-color: #e8f5e9; border-radius: var(--border-radius); border: 1px solid #c8e6c9;">
+                <h4 style="color: #2e7d32; margin-top: 0;">Payment Instructions</h4>
+                <p style="word-break: break-all;">UPI ID: <strong id="upiIdDisplay"></strong></p>
+                <p style="color: #558b2f; font-size: 0.9em;">Click the button below to pay directly via UPI app.</p>
+                <a href="#" id="payNowButton" class="pay-now-button">
+                    <i class="fas fa-qrcode whatsapp-icon"></i> Pay Now
                 </a>
+                <p style="color: #388e3c; font-size: 0.85em; margin-top: 10px;">After payment, please share the screenshot on WhatsApp for quick processing.</p>
+            </div>
 
-            <a href="https://wa.me/916399813670/?text=I%20am%20experiencing%20difficulties%20completing%20my%20payment." class="contact-payment-button" target="_blank">
-                Contact for Payment Help
-                </a>
-                <p>WhatsApp No. +91 6399813670</p>
+
         </div>
-    </section>
+        <div class="warning-message">
+            <strong>Important:</strong> To use our Instagram Post Views service, your Instagram account must be <strong>public</strong>. Please ensure your account is set to public before placing your order. You can switch back to a private account after the service is completed.<br><br>
+            <strong>If Order is Not Delivered:</strong> If InstaGrowMo marks your order as completed and delivered, but you have not received it, you must notify InstaGrowMo within 2 days. Failure to do so will make you solely responsible, and the order will not be re-delivered or supported further.<br><br>
 
-    <section class="trust-proof-section">
-        <h2 class="trust-proof-headline">Trusted by 200+ users all over India.</h2>
-        <p class="trust-proof-paragraph">Join over 200 satisfied users who have leveraged InstaGrowMo to enhance their Instagram presence. We are committed to providing reliable and effective services.</p>
-        <p class="trust-proof-paragraph">See the results for yourself! Check out our Instagram profile for testimonials and examples of how InstaGrowMo has helped others achieve their growth goals.</p>
-        <p><a href="https://www.instagram.com/s/aGlnaGxpZ2h0OjE4MDQwNDY2MjkxMzcwMjMx?story_media_id=3552760875704802674_72481665752&igsh=ODVsd21lMjhveDZ1" target="_blank" class="trust-proof-link">View Success Stories on Instagram</a></p>
-    </section>
+            <strong>Post Link:</strong> Please ensure the link you provide is correct and the content is available. If you delete, archive, or make any changes to the targeted post link after placing the order, you will be responsible for this, and no refund will be initiated by InstaGrowMo.<br><br>
+            <strong>Service Start & Refunds:</strong> Once a service has started, no refund will be provided. If InstaGrowMo cannot provide you with the service for any reason, we will refund your money back to you, or you can choose to order other services instead. Please consider this before placing your order.
+        </div>
+    </div>
 
     <footer>
         <p>&copy; 2025 InstaGrowMo. All rights reserved.</p>
@@ -853,74 +537,351 @@
     </footer>
 
     <script>
-        const heroSection = document.getElementById('hero');
-        const heroHeadline = document.querySelector('.hero-headline');
-        const heroSubheadline = document.querySelector('.hero-subheadline');
+        // Service Configuration
+        const currentServiceConfig = {
+            key: "post-views", // Unique key for this service
+            name: "Instagram Post Views", // Updated service name
+            title: "Instagram Post Views (Image & Carousel)",
+            description: "Increase the view count on your static image posts and carousel posts.",
+            pricePerView: 0.015, // Adjusted price (example: slightly higher or lower than Reels)
+            minimumOrderQuantity: 500, // Adjusted minimum order quantity
+            discountThresholdQuantity: 15000, // Adjusted discount threshold
+            discountPercentage: 40 // Adjusted discount percentage
+        };
 
-        const colorSchemes = [
-            { background: '#bbdefb', text: '#212529' }, // Light Blue
-            { background: '#ffe0b2', text: '#212529' }, // Light Orange
-            { background: '#c8e6c9', text: '#212529' }, // Light Green
-            { background: '#e1bee7', text: '#212529' }, // Light Purple
-            { background: '#b3e5fc', text: '#212529' }, // Another Light Blue
-            { background: '#fdd835', text: '#212529' }, // Light Yellow
-            { background: '#f48fb1', text: '#fff' },     // Pink with White Text
-            { background: '#4fc3f7', text: '#fff' }      // Bright Blue with White Text
-            // Add more color schemes as needed for different website/business types
-        ];
+        // UPI ID for payment
+        const upiId = "abhinit16@fam"; // Your UPI ID
+        // WhatsApp number
+        const whatsappNumber = "916399813670"; // WhatsApp number without '+'
 
-        let currentIndex = 0;
 
-        function changeHeroColors() {
-            const currentScheme = colorSchemes[currentIndex];
-            heroSection.style.backgroundColor = currentScheme.background;
-            heroHeadline.style.color = currentScheme.text;
-            heroSubheadline.style.color = currentScheme.text;
-            currentIndex = (currentIndex + 1) % colorSchemes.length;
+        // Get references to static HTML elements
+        const customerNameInput = document.getElementById('customerName');
+        const orderValueSpan = document.getElementById('orderValue');
+
+        const pricePerViewSpan = document.getElementById('pricePerView');
+        const minViewsDisplaySpan = document.getElementById('minViewsDisplay');
+        const discountPercentDisplaySpan = document.getElementById('discountPercentDisplay');
+        const discountThresholdDisplaySpan = document.getElementById('discountThresholdDisplay');
+        const discountThresholdDisplayHindiSpan = document.getElementById('discountThresholdDisplayHindi');
+        const orderButton = document.getElementById('orderButton');
+        const payNowButton = document.getElementById('payNowButton');
+        const paymentInstructionsDiv = document.getElementById('paymentInstructions');
+        const upiIdDisplaySpan = document.getElementById('upiIdDisplay');
+
+        const orderItemsContainer = document.getElementById('orderItemsContainer');
+        const addLinkButton = document.getElementById('addLinkButton');
+
+        // --- Array to hold all order items ---
+        let orderItems = [];
+        let itemCounter = 0; // To generate unique IDs for new items
+
+        /**
+         * Creates the HTML structure for a single order item.
+         * @param {string} itemId - Unique ID for the item.
+         * @param {boolean} isRemovable - True if a remove button should be included.
+         * @returns {string} HTML string for the order item.
+         */
+        function createOrderItemHtml(itemId, isRemovable) {
+            return `
+                <div class="order-item" data-item-id="${itemId}">
+                    ${isRemovable ? `<button type="button" class="remove-item-button" data-item-id="${itemId}">Remove</button>` : ''}
+                    <div class="form-group">
+                        <label for="link_${itemId}">Instagram Post Link (URL):</label>
+                        <input type="text" id="link_${itemId}" class="link-input" placeholder="Enter your Instagram static image or carousel post link (URL)" required data-item-id="${itemId}">
+                        <p class="error-message link-error" id="link_${itemId}_error"></p>
+                    </div>
+                    <div class="form-group">
+                        <label for="quantity_${itemId}">Quantity:</label>
+                        <input type="number" id="quantity_${itemId}" class="quantity-input" min="1" placeholder="Enter quantity (e.g., 2000)" data-item-id="${itemId}">
+                        <p class="error-message quantity-error" id="quantity_${itemId}_error"></p>
+                    </div>
+                    <p class="price-info">Sub-total: ₹<span class="item-sub-total" id="sub_total_${itemId}">0.00</span></p>
+                </div>
+            `;
         }
 
-        // Change colors every 3 seconds (adjust as needed)
-        setInterval(changeHeroColors, 3000);
+        /**
+         * Adds a new order item to the DOM and the orderItems array.
+         * @param {boolean} isInitial - True if this is the first (non-removable) item.
+         */
+        function addOrderItem(isInitial = false) {
+            const itemId = `item-${itemCounter++}`;
+            const itemHtml = createOrderItemHtml(itemId, !isInitial);
+            orderItemsContainer.insertAdjacentHTML('beforeend', itemHtml);
 
-        // Initial call to set the first color scheme
-        changeHeroColors();
-
-        // Function to copy UPI ID
-        function copyUpiId() {
-            const upiId = document.querySelector('.upi-id').textContent;
-            navigator.clipboard.writeText(upiId).then(() => {
-                const feedback = document.getElementById('copy-feedback');
-                feedback.style.display = 'inline';
-                setTimeout(() => {
-                    feedback.style.display = 'none';
-                }, 2000); // Hide feedback after 2 seconds
-            }).catch(err => {
-                console.error('Failed to copy UPI ID: ', err);
-                // Optionally, provide a visual indication of failure
+            // Add to our JS array tracking items
+            orderItems.push({
+                id: itemId,
+                link: '',
+                quantity: 0,
+                subTotal: 0,
+                isValidLink: false,
+                isValidQuantity: false,
+                isLinkTouched: false,    // New property
+                isQuantityTouched: false // New property
             });
+
+            // Attach event listeners to the newly added inputs
+            const newLinkInput = document.getElementById(`link_${itemId}`);
+            const newQuantityInput = document.getElementById(`quantity_${itemId}`);
+            const newRemoveButton = document.querySelector(`.remove-item-button[data-item-id="${itemId}"]`);
+
+            if (newLinkInput) {
+                newLinkInput.addEventListener('input', (event) => {
+                    const item = orderItems.find(i => i.id === itemId);
+                    if (item) item.isLinkTouched = true; // Mark as touched on input
+                    updateOrderItem(itemId, 'link', event.target.value);
+                });
+                newLinkInput.addEventListener('blur', (event) => { // Mark as touched on blur
+                    const item = orderItems.find(i => i.id === itemId);
+                    if (item) item.isLinkTouched = true;
+                    calculateOverallOrder(); // Re-calculate to show error on blur if invalid
+                });
+            }
+            if (newQuantityInput) {
+                newQuantityInput.addEventListener('input', (event) => {
+                    const item = orderItems.find(i => i.id === itemId);
+                    if (item) item.isQuantityTouched = true; // Mark as touched on input
+                    updateOrderItem(itemId, 'quantity', event.target.value);
+                });
+                 newQuantityInput.addEventListener('blur', (event) => { // Mark as touched on blur
+                    const item = orderItems.find(i => i.id === itemId);
+                    if (item) item.isQuantityTouched = true;
+                    calculateOverallOrder(); // Re-calculate to show error on blur if invalid
+                });
+            }
+            if (newRemoveButton) {
+                newRemoveButton.addEventListener('click', () => removeOrderItem(itemId));
+            }
+
+            // Initial call to calculate overall order to display total, but not errors
+            calculateOverallOrder(false); // Do not show errors on initial add
         }
 
+        /**
+         * Removes an order item from the DOM and the orderItems array.
+         * @param {string} itemId - The ID of the item to remove.
+         */
+        function removeOrderItem(itemId) {
+            const itemElement = document.querySelector(`.order-item[data-item-id="${itemId}"]`);
+            if (itemElement) {
+                itemElement.remove();
+            }
+            orderItems = orderItems.filter(item => item.id !== itemId);
+            // Re-calculate overall order value after removing an item
+            calculateOverallOrder();
+        }
 
-        // Animation on Scroll (rest of the script)
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animationPlayState = 'running';
-                    observer.unobserve(entry.target);
-                } else {
-                    entry.target.style.animationPlayState = 'paused'; // Optional: pause animation when not in view
+        /**
+         * Updates a specific field of an order item and triggers overall recalculation.
+         * @param {string} itemId - The ID of the item to update.
+         * @param {string} field - The field to update ('link' or 'quantity').
+         * @param {*} value - The new value for the field.
+         */
+        function updateOrderItem(itemId, field, value) {
+            const itemIndex = orderItems.findIndex(item => item.id === itemId);
+            if (itemIndex > -1) {
+                orderItems[itemIndex][field] = value;
+                calculateOverallOrder(); // Recalculate everything when an item changes
+            }
+        }
+
+        /**
+         * Calculates the total order value based on all items and applies validation.
+         * @param {boolean} showAllErrors - If true, all validation errors will be displayed,
+         * even for untouched fields. Used for submission.
+         */
+        function calculateOverallOrder(showAllErrors = false) {
+            let grandTotal = 0;
+            let allItemsValid = true;
+
+            if (orderItems.length === 0) {
+                allItemsValid = false; // No items means no valid order
+            }
+
+            orderItems.forEach(item => {
+                const linkInput = document.getElementById(`link_${item.id}`);
+                const quantityInput = document.getElementById(`quantity_${item.id}`);
+                const linkError = document.getElementById(`link_${item.id}_error`);
+                const quantityError = document.getElementById(`quantity_${item.id}_error`);
+                const subTotalSpan = document.getElementById(`sub_total_${item.id}`);
+
+                // Reset sub-total for recalculation
+                item.subTotal = 0;
+
+                // Reset errors and styling only if not showing all errors (i.e., on input/blur)
+                if (!showAllErrors && linkInput && quantityInput) {
+                    linkInput.classList.remove('error');
+                    linkError.textContent = '';
+                    quantityInput.classList.remove('error');
+                    quantityError.textContent = '';
+                }
+
+                item.isValidLink = true; // Assume valid until proven otherwise
+                item.isValidQuantity = true; // Assume valid until proven otherwise
+
+                // Validate Link
+                if (item.link.trim() === '') {
+                    item.isValidLink = false;
+                    if ((item.isLinkTouched || showAllErrors) && linkInput) { // Only show error if touched or on submit
+                        linkInput.classList.add('error');
+                        linkError.textContent = "Please enter Instagram post link (URL).";
+                    }
+                    allItemsValid = false;
+                } else if(linkInput){
+                    linkInput.classList.remove('error');
+                    linkError.textContent = '';
+                }
+
+                // Validate Quantity
+                const quantity = parseFloat(item.quantity);
+                if (isNaN(quantity) || quantity <= 0) {
+                    item.isValidQuantity = false;
+                    if ((item.isQuantityTouched || showAllErrors) && quantityInput) { // Only show error if touched or on submit
+                        quantityInput.classList.add('error');
+                        quantityError.textContent = "Please enter a valid positive number.";
+                    }
+                    allItemsValid = false;
+                } else if (quantity < currentServiceConfig.minimumOrderQuantity) {
+                    item.isValidQuantity = false;
+                    if ((item.isQuantityTouched || showAllErrors) && quantityInput) { // Only show error if touched or on submit
+                        quantityInput.classList.add('error');
+                        quantityError.textContent = `Minimum quantity is ${currentServiceConfig.minimumOrderQuantity}.`;
+                    }
+                    allItemsValid = false;
+                } else if(quantityInput) {
+                    quantityInput.classList.remove('error');
+                    quantityError.textContent = '';
+                }
+
+                // Calculate sub-total for this item if both link and quantity are valid
+                if (item.isValidLink && item.isValidQuantity) {
+                    let itemValue = quantity * currentServiceConfig.pricePerView;
+                    if (quantity >= currentServiceConfig.discountThresholdQuantity) {
+                        const discountAmount = itemValue * (currentServiceConfig.discountPercentage / 100);
+                        itemValue -= discountAmount;
+                    }
+                    item.subTotal = itemValue;
+                    if(subTotalSpan) subTotalSpan.textContent = itemValue.toFixed(2);
+                    grandTotal += itemValue;
+                } else if (subTotalSpan) {
+                    subTotalSpan.textContent = '0.00'; // If not valid, sub-total is 0
                 }
             });
-        }, { threshold: 0.2 }); // Adjust threshold as needed
 
-        const elementsToAnimate = document.querySelectorAll('.hero-headline, .hero-subheadline, .why-choose-title, .benefit-item');
-        elementsToAnimate.forEach((element) => {
-            element.style.animationPlayState = 'paused';
-            observer.observe(element);
+            orderValueSpan.textContent = grandTotal.toFixed(2);
+
+            // Control payment instructions visibility and Pay Now button link
+            if (allItemsValid && grandTotal > 0) {
+                paymentInstructionsDiv.style.display = 'block';
+                updatePayNowButtonLink(grandTotal);
+            } else {
+                paymentInstructionsDiv.style.display = 'none';
+                payNowButton.href = "#"; // Disable UPI link if not valid
+            }
+
+            return allItemsValid; // Return validation status
+        }
+
+        // --- Function to update the href of the Pay Now button (UPI link) ---
+        function updatePayNowButtonLink(totalAmount) {
+            if (totalAmount > 0) {
+                // Collect details of all valid order items for the transaction note
+                const orderDetails = orderItems
+                    .filter(item => item.isValidLink && item.isValidQuantity)
+                    .map((item, index) => `${currentServiceConfig.name} #${index + 1} Qty:${item.quantity}`)
+                    .join('; ');
+
+                const transactionNote = `Order: ${orderDetails.substring(0, 80)}`; // Truncate if too long
+                const upiLink = `upi://pay?pa=${upiId}&am=${totalAmount.toFixed(2)}&tn=${encodeURIComponent(transactionNote)}`;
+                payNowButton.href = upiLink;
+            } else {
+                payNowButton.href = "#";
+            }
+        }
+
+        // --- Event listener for "Add More Link" button ---
+        addLinkButton.addEventListener('click', () => addOrderItem(false));
+
+        // --- Event listener for the WhatsApp order button click ---
+        orderButton.addEventListener('click', function() {
+            // Validate all fields and show errors
+            const allItemsAreValid = calculateOverallOrder(true);
+
+            if (orderItems.length === 0) {
+                // IMPORTANT: Do not use alert(). Use a custom message box instead.
+                const message = "Please add at least one Instagram post link and quantity to place an order.";
+                console.error(message);
+                // Optionally: Display a visible message to the user near the form.
+                // For simplicity here, we'll rely on console/field errors.
+                return;
+            }
+
+            if (!allItemsAreValid) {
+                // IMPORTANT: Do not use alert().
+                const message = "Please correct the errors in your order details before sending.";
+                console.error(message);
+                return;
+            }
+
+            const customerName = customerNameInput.value.trim();
+            const grandTotal = parseFloat(orderValueSpan.textContent);
+
+            // Construct the UPI link for the WhatsApp message
+            const orderDetailsForUpiLink = orderItems
+                .filter(item => item.isValidLink && item.isValidQuantity)
+                .map((item, index) => `${currentServiceConfig.name} #${index + 1} Qty:${item.quantity}`)
+                .join('; ');
+            const transactionNoteForMessage = `Order: ${orderDetailsForUpiLink.substring(0, 80)}`;
+            const upiLinkForMessage = `upi://pay?pa=${upiId}&am=${grandTotal.toFixed(2)}&tn=${encodeURIComponent(transactionNoteForMessage)}`;
+
+            let message = `Hello InstaGrowMo Team,\n\nI would like to place an order for **${currentServiceConfig.name}** with multiple links:\n\n`;
+            if (customerName) {
+                 message += `Customer Name: ${customerName}\n`;
+            }
+
+            // Add details for each item
+            orderItems.forEach((item, index) => {
+                if (item.isValidLink && item.isValidQuantity) { // Only include valid items
+                    message += `\n---------- ITEM ${index + 1} ----------\n`;
+                    message += `Post Link/URL: ${item.link}\n`;
+                    message += `Quantity: ${item.quantity}\n`;
+                    message += `Calculated Sub-total: ₹${item.subTotal.toFixed(2)}\n`;
+                }
+            });
+
+            message += `\n---------- TOTAL ORDER ----------\n`;
+            message += `Total Calculated Order Value: ₹${grandTotal.toFixed(2)}\n----------\n`;
+
+            message += `To complete your order, please make the payment of ₹${grandTotal.toFixed(2)} using the UPI link below or by returning to the website if the link doesn't work or you can wait till InstaGrowMo support team message you.\n\n`;
+            message += `Order Payment Link:\n${upiLinkForMessage}\n\n`;
+            message += `भुगतान पूरा करने के लिए, कृपया ऊपर दिए गए UPI लिंक का उपयोग करके ₹${grandTotal.toFixed(2)} का भुगतान करें या यदि लिंक काम नहीं कर रहा है तो वेबसाइट पर वापस जाएं या फिर थोड़ी देर में InstaGrowMo की support team आपको message करेगी। \n`;
+            message += `----------\n\n`;
+            message += `\n\nThank you!`;
+
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
         });
+
+        // --- Initial Page Setup ---
+        document.addEventListener('DOMContentLoaded', () => {
+            addOrderItem(true); // Add the initial (non-removable) order item
+            // Initialize discount/price display
+            pricePerViewSpan.textContent = currentServiceConfig.pricePerView.toFixed(3);
+            minViewsDisplaySpan.textContent = currentServiceConfig.minimumOrderQuantity;
+            discountPercentDisplaySpan.textContent = currentServiceConfig.discountPercentage;
+            discountThresholdDisplaySpan.textContent = currentServiceConfig.discountThresholdQuantity.toLocaleString();
+            discountThresholdDisplayHindiSpan.textContent = currentServiceConfig.discountThresholdQuantity.toLocaleString();
+            upiIdDisplaySpan.textContent = upiId;
+            calculateOverallOrder(false); // Initial calculation, but without showing errors immediately
+
+            // Update page title dynamically
+            document.title = `Buy ${currentServiceConfig.name} - InstaGrowMo`;
+        });
+
     </script>
 
 </body>
+
 </html>
-
-
